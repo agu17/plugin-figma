@@ -1,2 +1,5 @@
 let rober
-rober=hola;
+rober=hola
+
+var x
+x = 2
