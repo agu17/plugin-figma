@@ -24,14 +24,17 @@ function Plugin() {
     },
     [count]
   )
+
   const handleCloseButtonClick = useCallback(function () {
     emit<CloseHandler>('CLOSE')
   }, [])
+
+
   return (
     <Container space="medium">
       <VerticalSpace space="large" />
-      <Text muted>Count</Text>
-      <VerticalSpace space="small" />
+      <Text muted>Buscar</Text>
+      <VerticalSpace space="large" />
       <TextboxNumeric
         onNumericValueInput={setCount}
         onValueInput={setCountString}
