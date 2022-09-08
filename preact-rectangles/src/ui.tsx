@@ -14,8 +14,8 @@ import { useCallback, useState } from 'preact/hooks'
 import { CloseHandler, CreateRectanglesHandler } from './types'
 
 function Plugin() {
-  const [count, setCount] = useState<number | null>(5)
-  const [countString, setCountString] = useState('5')
+  const [count, setCount] = useState<number | null>(3)
+  const [countString, setCountString] = useState('3')
   const handleCreateRectanglesButtonClick = useCallback(
     function () {
       if (count !== null) {
