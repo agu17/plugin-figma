@@ -18,8 +18,8 @@
     "editorType": [
       "figma"
     ],
-    "id": "preact-rectangles",
-    "name": "Preact Rectangles",
+    "id": "detector-smells",
+    "name": "Detector de Smells",
     "main": "src/main.ts",
     "ui": "src/ui.tsx"
   }

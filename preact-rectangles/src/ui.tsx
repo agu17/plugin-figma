@@ -14,39 +14,19 @@ import { useCallback, useState } from 'preact/hooks'
 import { CloseHandler, CreateRectanglesHandler } from './types'
 
 function Plugin() {
-  const [count, setCount] = useState<number | null>(3)
-  const [countString, setCountString] = useState('3')
-  const handleCreateRectanglesButtonClick = useCallback(
-    function () {
-      if (count !== null) {
-        emit<CreateRectanglesHandler>('CREATE_RECTANGLES', count)
-      }
-    },
-    [count]
-  )
-
-  const handleCloseButtonClick = useCallback(function () {
-    emit<CloseHandler>('CLOSE')
-  }, [])
-
-
+  
   return (
     <Container space="medium">
       <VerticalSpace space="large" />
       <Text muted>Buscar</Text>
       <VerticalSpace space="large" />
-      <TextboxNumeric
-        onNumericValueInput={setCount}
-        onValueInput={setCountString}
-        value={countString}
-      />
       <VerticalSpace space="extraLarge" />
       <Columns space="extraSmall">
-        <Button fullWidth onClick={handleCreateRectanglesButtonClick}>
-          Create
+        <Button fullWidth >
+          Hola
         </Button>
-        <Button fullWidth onClick={handleCloseButtonClick} secondary>
-          Close
+        <Button fullWidth secondary>
+          Que tal
         </Button>
       </Columns>
       <VerticalSpace space="small" />
