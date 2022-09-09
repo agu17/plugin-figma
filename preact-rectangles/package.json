@@ -1,26 +1,16 @@
 {
-  "dependencies": {
-    "@create-figma-plugin/ui": "^2.1.1",
-    "@create-figma-plugin/utilities": "^2.1.1",
-    "preact": "^10"
-  },
-  "devDependencies": {
-    "@create-figma-plugin/build": "^2.1.1",
-    "@create-figma-plugin/tsconfig": "^2.1.1",
-    "@figma/plugin-typings": "1.47.0",
-    "typescript": "^4"
-  },
+  "name": "pruebainterfaz",
+  "version": "1.0.0",
+  "description": "Your Figma Plugin",
+  "main": "code.js",
   "scripts": {
-    "build": "build-figma-plugin --typecheck --minify",
-    "watch": "build-figma-plugin --typecheck --watch"
+    "build": "tsc -p tsconfig.json",
+    "watch": "npm run build -- --watch"
   },
-  "figma-plugin": {
-    "editorType": [
-      "figma"
-    ],
-    "id": "detector-smells",
-    "name": "Detector de Smells",
-    "main": "src/main.ts",
-    "ui": "src/ui.tsx"
+  "author": "",
+  "license": "",
+  "devDependencies": {
+    "@figma/plugin-typings": "^1.51.0",
+    "typescript": "*"
   }
 }

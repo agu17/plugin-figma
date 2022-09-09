@@ -1,1 +1,11 @@
-{"api":"1.0.0","editorType":["figma"],"id":"detector-smells","name":"Detector de Smells","main":"build/main.js","ui":"build/ui.js"}
+{
+  "name": "pruebainterfaz",
+  "id": "1149808721122588448",
+  "api": "1.0.0",
+  "main": "prueba.js",
+  "editorType": [
+    "figma",
+    "figjam"
+  ],
+  "ui": "prueba.html"
+}
