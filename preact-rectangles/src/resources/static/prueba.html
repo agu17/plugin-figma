@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<h1 id="titulo">Detector de Smells</h1>
+	<link href="prueba.css" rel="stylesheet"> 
+</head>
+
+<body>
+	<p id="textoInicial"> Selecciona una acción, le recomendamos copiar dicha accion en un comentario sobre el componente seleccionado</p>
+
+	<div class="flexsearch">
+			<div class="flexsearch--wrapper">
+				<form class="flexsearch--form" action="#" method="post">
+					<div class="flexsearch--input-wrapper">
+						<input class="flexsearch--input" type="search" placeholder="Ingrese una acción..."> <input class="flexsearch--submit" type="submit" value="&#10140;"/>
+					</div>
+				</form>
+			</div>
+	</div>
+
+	<hr></hr>
+
+	<ul>
+		<li>Acción: Ingresar Contenido.<input class="flexsearch--submit" type="submit" value="&#10140;"/></li>
+		<hr></hr>
+		<li>Acción: Click en botón de acción.<input class="flexsearch--submit" type="submit" value="&#10140;"/></li>
+		<hr></hr>
+		<li>Acción: Seleccionar Elemento.<input class="flexsearch--submit" type="submit" value="&#10140;"/></li>
+		<hr></hr>
+	</ul>
+
+	<button id="salirPlugin"> Salir del plugin.</button>
+
+	<script>
+		document.getElementById('salirPlugin').onclick = () =>{
+			parent.postMessage({pluginMessage:{type:'salirPlugin'}}, '*');
+		}
+	</script>
+</body>
+</html>

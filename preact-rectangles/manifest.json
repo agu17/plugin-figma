@@ -2,10 +2,10 @@
   "name": "pruebainterfaz",
   "id": "1149808721122588448",
   "api": "1.0.0",
-  "main": "prueba.js",
+  "main": "src/prueba.js",
   "editorType": [
     "figma",
     "figjam"
   ],
-  "ui": "prueba.html"
+  "ui": "src/resources/static/prueba.html"
 }
