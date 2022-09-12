@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html id="accionHtml" lang="es">
 
 <head>
 	<h1 id="titulo">Detector de Smells</h1>
@@ -7,7 +7,7 @@
 </head>
 
 <body>
-	<p id="textoInicial" style="border-radius: 10%"> Selecciona una acción, le recomendamos copiar dicha accion en un comentario sobre el componente seleccionado</p>
+	<p id="textoInicial" style="border-radius: 10%"> Acción: </p>
 
 	<div class="flexsearch">
 			<div class="flexsearch--wrapper">
@@ -22,24 +22,26 @@
 	<hr></hr>
 
 	<ul>
-		<li>Acción : Ingresar Contenido<input id= "ingresarContenido" class="flexsearch--submit" type="submit" value="&#10140;"/></li>
+		<li>Variante1: <input id= "ingresarContenido" class="flexsearch--submit" type="submit" value="&#10140;"/></li>
 		<hr></hr>
-		<li>Acción: Click en botón de acción<input id="click" class="flexsearch--submit" type="submit" value="&#10140;"/></li>
+		<li>Variante2: <input id="click" class="flexsearch--submit" type="submit" value="&#10140;"/></li>
 		<hr></hr>
-		<li>Acción: Seleccionar Elemento<input id="seleccionarElemento" class="flexsearch--submit" type="submit" value="&#10140;"/></li>
+		<li>Variante3: <input id="seleccionarElemento" class="flexsearch--submit" type="submit" value="&#10140;"/></li>
 		<hr></hr>
 	</ul>
 
 	<button id="salirPlugin"> Salir del plugin</button>
+	<button id="volver"> Volver</button>
 
 	<script>
 		document.getElementById('salirPlugin').onclick = () =>{
 			parent.postMessage({pluginMessage:{type:'salirPlugin'}}, '*');
 		}
-		document.getElementById('ingresarContenido').onclick=()=>{
-			parent.postMessage({pluginMessage:{type:'ingresarContenido'}}, '*');
+		document.getElementById('volver').onclick=()=>{
+			parent.postMessage({pluginMessage:{type:'volver'}}, '*');
 		}
 		
 	</script>
+
 </body>
 </html>

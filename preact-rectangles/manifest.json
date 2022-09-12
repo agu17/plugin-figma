@@ -7,5 +7,9 @@
     "figma",
     "figjam"
   ],
-  "ui": "src/resources/static/prueba.html"
+  "ui": {
+    "main":"src/resources/static/prueba.html",
+    "secondary": "src/resources/static/accion.html"
+  }
+   
 }
