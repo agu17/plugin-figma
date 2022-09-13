@@ -21,8 +21,9 @@
 
 	<hr></hr>
 
-	<ul>
-		<li>Acción : Ingresar Contenido<input id= "ingresarContenido" class="flexsearch--submit" type="submit" value="&#10140;"/></li>
+	<ul id="lista"> 
+		
+		<li>Acción:Ingresar Contenido<input id= "ingresarContenido" class="flexsearch--submit" type="submit" value="&#10140;"/></li>
 		<hr></hr>
 		<li>Acción: Click en botón de acción<input id="click" class="flexsearch--submit" type="submit" value="&#10140;"/></li>
 		<hr></hr>
@@ -31,7 +32,7 @@
 	</ul>
 
 	<button id="salirPlugin"> Salir del plugin</button>
-
+	
 	<script>
 		document.getElementById('salirPlugin').onclick = () =>{
 			parent.postMessage({pluginMessage:{type:'salirPlugin'}}, '*');
@@ -41,5 +42,7 @@
 		}
 		
 	</script>
+
+	
 </body>
 </html>
