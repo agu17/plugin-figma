@@ -35,7 +35,8 @@ const AccionElegida = ({}) => {
                     <div className="flexsearch--wrapper">
                         <form className="flexsearch--form" action="#" method="post">
                             <div className="flexsearch--input-wrapper">
-                                <input className="flexsearch--input" type="search" placeholder="Ingrese una variante..."/> <input className="flexsearch--submit" type="submit" value="Buscar"/>
+                                <input className="flexsearch--input" type="search" placeholder="Ingrese una variante..."/> 
+                                <input className="flexsearch--submit" type="submit" value="Buscar"/>
                             </div>
                         </form>
                     </div>

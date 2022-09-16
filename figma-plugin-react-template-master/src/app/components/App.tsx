@@ -2,13 +2,15 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import '../styles/ui.css';
 import AccionElegida from './AccionElegida';
+import data from '../assets/accionesPrueba.json';
+
 
 declare function require(path: string): any;
 
-const App = ({}) => {
+const App = ({ }) => {
 
     const onCancel = () => {
-        parent.postMessage({pluginMessage: {type: 'salirPlugin'}}, '*');
+        parent.postMessage({ pluginMessage: { type: 'salirPlugin' } }, '*');
     };
 
     const irALaAccion = () => {
@@ -19,7 +21,7 @@ const App = ({}) => {
     React.useEffect(() => {
         // This is how we read messages sent from the plugin controller
         window.onmessage = (event) => {
-            const {type, message} = event.data.pluginMessage;
+            const { type, message } = event.data.pluginMessage;
             if (type === 'create-rectangles') {
                 console.log(`Figma Says: ${message}`);
             }
@@ -34,7 +36,7 @@ const App = ({}) => {
                 <div className="flexsearch--wrapper">
                     <form className="flexsearch--form" action="#" method="post">
                         <div className="flexsearch--input-wrapper">
-                            <input className="flexsearch--input" type="search" placeholder="Ingrese una acción..."/> 
+                            <input className="flexsearch--input" type="search" placeholder="Ingrese una acción..." />
                             <input className="flexsearch--submit" type="submit" value="Buscar" />
                         </div>
                     </form>
@@ -43,15 +45,15 @@ const App = ({}) => {
 
             <hr></hr>
 
-            <ul id="lista">
-
-                <li>Acción:Ingresar Contenido<input id="ingresarContenido" onClick={irALaAccion} className="flexsearch--submit" type="submit" value="&#10140;" /></li>
-                <hr></hr>
-                <li>Acción: Click en botón de acción<input id="click" onClick={irALaAccion} className="flexsearch--submit" type="submit" value="&#10140;" /></li>
-                <hr></hr>
-                <li>Acción: Seleccionar Elemento<input id="seleccionarElemento" onClick={irALaAccion} className="flexsearch--submit" type="submit" value="&#10140;" /></li>
-                <hr></hr>
-            </ul>
+            <div className="Listado">
+                <div id="mapListado">
+                    {data.map(element => (
+                        <><li>Accion: {element.tipo}<input id={element.tipo} onClick={irALaAccion} className="flexsearch--submit" type="submit" value="&#10140;" />
+                        </li><hr></hr></>
+                    ))}
+                    
+                </div>
+            </div>
 
             <button id="salirPlugin" onClick={onCancel}> Salir del plugin</button>
         </div>

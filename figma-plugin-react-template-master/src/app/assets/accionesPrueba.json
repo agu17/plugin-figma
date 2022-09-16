@@ -1,0 +1,15 @@
+[
+    {
+      "tipo": "ingresarContenido",
+      "descripcion": "Inicio de sesión Pre: Estar situado en el campo email/usuario y llenarlo.Post: Se habilitará el botón contraseña."   
+    },
+    {
+      "tipo": "ingresarContenido",
+      "descripcion": "Llenar campos de tarjeta: Pre:  Solo se permitirá ingresar números, Longitud de 16 caracteres.Post: Se habilitará el siguiente campo cuando se ingresen los 16 caracteres."
+    },
+    {
+      "tipo": "click",
+      "descripcion": "Registrarse: Pre: Se deberá haber llenado los campos anteriores, se habilita el botón registrarsePost: Se registra al usuario, si la carga es lenta, se deberá agregar una barra de progreso."
+      }
+
+]
