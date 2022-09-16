@@ -1,9 +1,10 @@
 import * as React from 'react';
 import '../styles/ui.css';
+import data from '../assets/accionesPrueba.json';
 
 declare function require(path: string): any;
 
-const AccionElegida = ({}) => {
+const AccionElegida = ({props}) => {
 
     const onCancel = () => {
         parent.postMessage({pluginMessage: {type: 'salirPlugin'}}, '*');
@@ -13,7 +14,7 @@ const AccionElegida = ({}) => {
         parent.postMessage({pluginMessage: {type: 'volver'}}, '*');
     };
 
-    const irALaAccion = () => {
+    const copiarAccion = () => {
         parent.postMessage({pluginMessage:{type:'ingresarContenido'}}, '*');
     };
 
@@ -44,17 +45,17 @@ const AccionElegida = ({}) => {
 
             <hr></hr>
 
-            <ul>
-                /* Aca habria que recorrer el vector de variantes /
-                <li>Variante1: <input id= "ingresarContenido" className="flexsearch--submit" type="submit" value="&#10140;"/></li>
-                <hr></hr>
-                <li>Variante2: <input id="click" className="flexsearch--submit" type="submit" value="&#10140;"/></li>
-                <hr></hr>
-                <li>Variante3: <input id="seleccionarElemento" className="flexsearch--submit" type="submit" value="&#10140;"/></li>
-                <hr></hr>
-            </ul>
+            <div className="Listado">
+                <div id="mapListado">
+                    {data.filter(element => element.tipo==props.accion(
+                        <><li>Accion: {element.tipo}<input id={element.tipo} onClick={() =>{copiarAccion()}} className="flexsearch--submit" type="submit" value="&#10140;" />
+                        </li><hr></hr></>
+                    ))}
+                    
+                </div>
+            </div>
 
-            <button id="salirPlugin"> Salir del plugin</button>
+            <button id="salirPlugin"onClick={onCancel}> Salir del plugin</button>
             <button id="volver" onClick={volver}> Volver</button>
         </div>
     );

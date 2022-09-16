@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import * as ReactDOM from 'react-dom';
 import '../styles/ui.css';
 import AccionElegida from './AccionElegida';
@@ -7,15 +8,20 @@ import data from '../assets/accionesPrueba.json';
 
 declare function require(path: string): any;
 
-const App = ({ }) => {
+const App = ({props}) => {
+
+    const [accion, setAccion]= useState('');
+
+  
 
     const onCancel = () => {
         parent.postMessage({ pluginMessage: { type: 'salirPlugin' } }, '*');
     };
 
-    const irALaAccion = () => {
-        //parent.postMessage({pluginMessage:{type:'ingresarContenido'}}, '*');
-        ReactDOM.render(<AccionElegida />, document.getElementById('react-page'));
+    const irALaAccion = (tipo:string) => {
+        setAccion(tipo);
+        parent.postMessage({pluginMessage:{type: tipo}}, '*');
+        ReactDOM.render(<AccionElegida props={tipo} />, document.getElementById('react-page'));
     };
 
     React.useEffect(() => {
@@ -48,7 +54,7 @@ const App = ({ }) => {
             <div className="Listado">
                 <div id="mapListado">
                     {data.map(element => (
-                        <><li>Accion: {element.tipo}<input id={element.tipo} onClick={irALaAccion} className="flexsearch--submit" type="submit" value="&#10140;" />
+                        <><li>Accion: {element.tipo}<input id={element.tipo} onClick={() => irALaAccion(element.tipo)} className="flexsearch--submit" type="submit" value="&#10140;" />
                         </li><hr></hr></>
                     ))}
                     
