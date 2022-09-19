@@ -1,11 +1,14 @@
 import * as React from 'react';
 import '../styles/ui.css';
 import data from '../assets/accionesPrueba.json';
+import { myFirstContext } from './App'
+
 
 declare function require(path: string): any;
 
-const AccionElegida = ({props}) => {
-
+const AccionElegida = (props) =>  {
+    /*alert(props);
+    alert(props.tipo);*/
     const onCancel = () => {
         parent.postMessage({pluginMessage: {type: 'salirPlugin'}}, '*');
     };
@@ -17,16 +20,6 @@ const AccionElegida = ({props}) => {
     const copiarAccion = () => {
         parent.postMessage({pluginMessage:{type:'ingresarContenido'}}, '*');
     };
-
-    React.useEffect(() => {
-        // This is how we read messages sent from the plugin controller
-        window.onmessage = (event) => {
-            const {type, message} = event.data.pluginMessage;
-            if (type === 'create-rectangles') {
-                console.log(`Figma Says: ${message}`);
-            }
-        };
-    }, []);
 
     return (
         <div>
@@ -47,10 +40,10 @@ const AccionElegida = ({props}) => {
 
             <div className="Listado">
                 <div id="mapListado">
-                    {data.filter(element => element.tipo==props.accion(
-                        <><li>Accion: {element.tipo}<input id={element.tipo} onClick={() =>{copiarAccion()}} className="flexsearch--submit" type="submit" value="&#10140;" />
+                        
+                        <><li>Accion: {props.tipo}<input id={props.tipo} onClick={() =>{copiarAccion()}} className="flexsearch--submit" type="submit" value="&#10140;" />
                         </li><hr></hr></>
-                    ))}
+                    
                     
                 </div>
             </div>

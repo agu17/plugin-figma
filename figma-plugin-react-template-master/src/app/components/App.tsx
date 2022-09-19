@@ -1,4 +1,5 @@
-import * as React from 'react';
+import React, { Component } from 'react';
+//import * as React from 'react';
 import { useState } from 'react';
 import * as ReactDOM from 'react-dom';
 import '../styles/ui.css';
@@ -7,10 +8,11 @@ import data from '../assets/accionesPrueba.json';
 
 
 declare function require(path: string): any;
+export const myFirstContext = React.createContext("");
 
-const App = ({props}) => {
+const App = ({}) => {
 
-    const [accion, setAccion]= useState('');
+    //const [accion, setAccion]= useState('');
 
   
 
@@ -19,20 +21,14 @@ const App = ({props}) => {
     };
 
     const irALaAccion = (tipo:string) => {
-        setAccion(tipo);
-        parent.postMessage({pluginMessage:{type: tipo}}, '*');
-        ReactDOM.render(<AccionElegida props={tipo} />, document.getElementById('react-page'));
+        /*<myFirstContext.Provider value={tipo}>
+          <AccionElegida/>
+        </myFirstContext.Provider>*/
+        //setAccion(tipo);
+        <AccionElegida tipo={tipo}/>
+        //parent.postMessage({pluginMessage:{type: tipo}}, '*');
+        ReactDOM.render(<AccionElegida tipo={tipo}/>, document.getElementById('react-page'));
     };
-
-    React.useEffect(() => {
-        // This is how we read messages sent from the plugin controller
-        window.onmessage = (event) => {
-            const { type, message } = event.data.pluginMessage;
-            if (type === 'create-rectangles') {
-                console.log(`Figma Says: ${message}`);
-            }
-        };
-    }, []);
 
     return (
         <div>

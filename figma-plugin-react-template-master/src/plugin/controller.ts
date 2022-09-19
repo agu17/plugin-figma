@@ -12,7 +12,7 @@ figma.ui.onmessage = (msg) => {
 
         //acciones
         
-        case 'ingresarContenido':
+        case '':
             
             break;
 
