@@ -9,6 +9,9 @@ declare function require(path: string): any;
 const AccionElegida = (props) =>  {
     /*alert(props);
     alert(props.tipo);*/
+
+    const acciones = data.filter(accion => accion.tipo==props.tipo);
+
     const onCancel = () => {
         parent.postMessage({pluginMessage: {type: 'salirPlugin'}}, '*');
     };
@@ -40,10 +43,10 @@ const AccionElegida = (props) =>  {
 
             <div className="Listado">
                 <div id="mapListado">
-                        
-                        <><li>Accion: {props.tipo}<input id={props.tipo} onClick={() =>{copiarAccion()}} className="flexsearch--submit" type="submit" value="&#10140;" />
+                {acciones.map(element => (
+                        <><li>Accion: {element.tipo}<input id={element.tipo} onClick={() =>{copiarAccion()}} className="flexsearch--submit" type="submit" value="&#10140;" />
                         </li><hr></hr></>
-                    
+                    ))}
                     
                 </div>
             </div>
