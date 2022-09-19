@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
-//import * as React from 'react';
-import { useState } from 'react';
+
+import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import '../styles/ui.css';
 import AccionElegida from './AccionElegida';
@@ -12,7 +11,7 @@ export const myFirstContext = React.createContext("");
 
 const App = ({}) => {
 
-    //const [accion, setAccion]= useState('');
+
 
   
 
@@ -21,12 +20,9 @@ const App = ({}) => {
     };
 
     const irALaAccion = (tipo:string) => {
-        /*<myFirstContext.Provider value={tipo}>
-          <AccionElegida/>
-        </myFirstContext.Provider>*/
-        //setAccion(tipo);
+
         <AccionElegida tipo={tipo}/>
-        //parent.postMessage({pluginMessage:{type: tipo}}, '*');
+        //parent.postMessage({ pluginMessage: { type: tipo } }, '*');
         ReactDOM.render(<AccionElegida tipo={tipo}/>, document.getElementById('react-page'));
     };
 

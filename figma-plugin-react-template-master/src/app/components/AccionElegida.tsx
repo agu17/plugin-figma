@@ -1,14 +1,11 @@
 import * as React from 'react';
 import '../styles/ui.css';
 import data from '../assets/accionesPrueba.json';
-import { myFirstContext } from './App'
 
 
 declare function require(path: string): any;
 
 const AccionElegida = (props) =>  {
-    /*alert(props);
-    alert(props.tipo);*/
 
     const acciones = data.filter(accion => accion.tipo==props.tipo);
 
