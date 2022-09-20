@@ -1,7 +1,3 @@
-div{
-    background:#E4E4E4;
-}
-
 body {
     font: 12px sans-serif;
     text-align: center;
@@ -9,41 +5,80 @@ body {
     color: black;
     background:#E4E4E4;
 }
-button {
-    border-radius: 5px;
-    background: 7572E7;
+
+#barraBusqueda {
     color: black;
     border: none;
-    padding: 8px 15px;
+    outline: none;
+    padding: 3px;
+    border-radius: 25px;
+    background: #7572E7;
+}
+
+#barraBusqueda::placeholder {
+    font-weight: bold;
+    opacity: .5;
+    color: black;
+}
+
+li{
+    margin: 10px;
+    background: #7572E7;
+    border-radius: 25px;
+    padding: 5px; 
+}
+#textoInicial { 
+    font: 12px sans-serif; 
+    font-style: italic;
+    font-weight: bold;
+    font-size: 15;
+}
+
+#botonBuscar{
+    background: black;
+    color: #E4E4E4;
+    border-radius: 25px; 
+    font-size: 25px;
+    transform: rotateZ(270deg);
+    border: none;
+    outline: none;
+}
+
+#salirPlugin{
+    border-radius: 25px;
+    background: black;
+    color: #E4E4E4;
+    border: none;
+    padding: 10px;
     margin: 0 5px;
     box-shadow: inset 0 0 0 1px black;
     outline: none;
+    margin: 20px;
 }
 
-input {
+#volver{
+    border-radius: 25px;
+    background: #7572E7;
     color: black;
     border: none;
+    padding: 10px;
+    margin: 0 5px;
+    box-shadow: inset 0 0 0 1px black;
     outline: none;
-    padding: 8px;
-    background: white;
-    border-radius: 25px;
-    
+    margin: 20px;
 }
 
-p {
-    font-style: italic;
+
+#botonIrAAccion{
+    background: black;
+    color: #E4E4E4;
+    border: none;
+    outline: none;
+    border-radius: 25px; 
+    margin-left: 5px;
+}
+
+#descripcionAccion{
     font-weight: bold;
-    font-size: 25;
+    font-size: 15;
 }
-li{
-    margin: 5px;
-    background: #7572E7;
-    border-radius: 25px;    
-}
-form{
-    color: black;
-    background: #7572E7;
-    border-radius: 25px;
-    
-}
-

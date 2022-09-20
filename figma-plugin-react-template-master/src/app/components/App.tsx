@@ -12,15 +12,11 @@ export const myFirstContext = React.createContext("");
 const App = ({}) => {
 
 
-
-  
-
     const onCancel = () => {
         parent.postMessage({ pluginMessage: { type: 'salirPlugin' } }, '*');
     };
 
     const irALaAccion = (tipo:string) => {
-
         <AccionElegida tipo={tipo}/>
         //parent.postMessage({ pluginMessage: { type: tipo } }, '*');
         ReactDOM.render(<AccionElegida tipo={tipo}/>, document.getElementById('react-page'));
@@ -32,10 +28,10 @@ const App = ({}) => {
 
             <div className="flexsearch">
                 <div className="flexsearch--wrapper">
-                    <form className="flexsearch--form" action="#" method="post">
+                    <form id="barraBusqueda" className="flexsearch--form" action="#" method="post">
                         <div className="flexsearch--input-wrapper">
-                            <input className="flexsearch--input" type="search" placeholder="Ingrese una acción..." />
-                            <input className="flexsearch--submit" type="submit" value="Buscar" />
+                            <input id="barraBusqueda" className="flexsearch--input" type="search" placeholder="Ingrese una acción..." />
+                            <input id="botonBuscar" className="flexsearch--submit" type="submit" value="&#x2315;" />
                         </div>
                     </form>
                 </div>
@@ -46,13 +42,14 @@ const App = ({}) => {
             <div className="Listado">
                 <div id="mapListado">
                     {data.map(element => (
-                        <><li>Accion: {element.tipo}<input id={element.tipo} onClick={() => irALaAccion(element.tipo)} className="flexsearch--submit" type="submit" value="&#10140;" />
-                        </li><hr></hr></>
+                        <><li>Accion: {element.tipo}
+                        <input id="botonIrAAccion"onClick={() => irALaAccion(element.tipo)} className="flexsearch--submit" type="submit" value="&#10140;" />
+                        </li></>
                     ))}
                     
                 </div>
             </div>
-
+            <hr></hr>              
             <button id="salirPlugin" onClick={onCancel}> Salir del plugin</button>
         </div>
     );
