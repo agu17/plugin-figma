@@ -1,6 +1,8 @@
 import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import '../styles/ui.css';
 import data from '../assets/accionesPrueba.json';
+import App from './App';
 
 
 declare function require(path: string): any;
@@ -14,7 +16,8 @@ const AccionElegida = (props) =>  {
     };
 
     const volver = () => {
-        parent.postMessage({pluginMessage: {type: 'volver'}}, '*');
+        //parent.postMessage({pluginMessage: {type: 'volver'}}, '*');
+        ReactDOM.render(<App />, document.getElementById('react-page'));
     };
 
     const copiarAccion = () => {
@@ -26,30 +29,30 @@ const AccionElegida = (props) =>  {
             <p id="textoInicial" > Acción: {acciones[0].tipo}</p>
 
             <div className="flexsearch">
-                    <div className="flexsearch--wrapper">
-                        <form id="barraBusqueda" className="flexsearch--form" action="#" method="post">
-                            <div className="flexsearch--input-wrapper">
-                                <input id="barraBusqueda" className="flexsearch--input" type="search" placeholder="Ingrese una variante..."/> 
-                                <input id="botonBuscar" className="flexsearch--submit" type="submit" value="&#x2315;"/>
-                            </div>
-                        </form>
-                    </div>
+                <div className="flexsearch--wrapper">
+                    <form id="barraBusqueda" className="flexsearch--form" action="#" method="post">
+                        <div className="flexsearch--input-wrapper">
+                            <input id="barraBusqueda" className="flexsearch--input" type="search" placeholder="Ingrese una variante..." />
+                            <input id="botonBuscar" className="flexsearch--submit" type="submit" value="&#x2315;" />
+                        </div>
+                    </form>
+                </div>
             </div>
 
             <hr></hr>
 
             <div className="Listado">
                 <div id="mapListado">
-                {acciones.map(element => (
+                    {acciones.map(element => (
                         <><li>{element.descripcion}
-                        <input id="descripcionAccion" onClick={() =>{copiarAccion()}} className="flexsearch--submit" type="submit" value="&#10140;" />
+                            <input id="descripcionAccion" onClick={() => { copiarAccion() }} className="flexsearch--submit" type="submit" value="&#10140;" />
                         </li><hr></hr></>
                     ))}
-                    
+
                 </div>
             </div>
 
-            <button id="salirPlugin"onClick={onCancel}> Salir del plugin</button>
+            <button id="salirPlugin" onClick={onCancel}> Salir del plugin</button>
             <button id="volver" onClick={volver}> Volver</button>
         </div>
     );

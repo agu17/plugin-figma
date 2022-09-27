@@ -1,4 +1,4 @@
-figma.showUI(__html__, {width: 320, height: 640});
+figma.showUI(__html__, {width: 320, height: 450});
 
 figma.ui.onmessage = (msg) => {
     switch(msg.type){
@@ -7,17 +7,12 @@ figma.ui.onmessage = (msg) => {
             break;
         
         case 'volver':
-            figma.showUI(__html__, {width: 320, height: 640});
+            //figma.showUI(__html__, {width: 320, height: 450});
             break;
 
         //acciones
-        
-        case '':
-            
-            break;
-
 
         case 'accionElegida':
-            break;1
+            break;
         }
 };

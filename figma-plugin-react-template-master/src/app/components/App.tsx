@@ -18,7 +18,6 @@ const App = ({}) => {
 
     const irALaAccion = (tipo:string) => {
         <AccionElegida tipo={tipo}/>
-        //parent.postMessage({ pluginMessage: { type: tipo } }, '*');
         ReactDOM.render(<AccionElegida tipo={tipo}/>, document.getElementById('react-page'));
     };
 
@@ -43,14 +42,15 @@ const App = ({}) => {
                 <div id="mapListado">
                     {data.map(element => (
                         <><li>Accion: {element.tipo}
-                        <input id="botonIrAAccion"onClick={() => irALaAccion(element.tipo)} className="flexsearch--submit" type="submit" value="&#10140;" />
+                            <input id="botonIrAAccion" onClick={() => irALaAccion(element.tipo)} className="flexsearch--submit" type="submit" value="&#10140;" />
                         </li></>
                     ))}
-                    
+
                 </div>
             </div>
-            <hr></hr>              
+            <hr></hr>
             <button id="salirPlugin" onClick={onCancel}> Salir del plugin</button>
+            
         </div>
     );
 };
