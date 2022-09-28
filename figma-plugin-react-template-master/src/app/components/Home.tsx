@@ -20,7 +20,10 @@ const Home = ({}) => {
     const conBootstrap = () => {
 
         for(const node of figma.currentPage.selection){
-            node;
+
+            /*node.name == input;
+            ReactDOM.render(<AccionElegida tipo={}/>, document.getElementById('react-page'));*/
+
         }
 
         //Acá recuperamos el nombre del componente y ademas, manejamos un if else, donde nos damos cuenta si

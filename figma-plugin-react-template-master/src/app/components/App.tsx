@@ -6,10 +6,34 @@ import AccionElegida from './AccionElegida';
 import data from '../assets/accionesPrueba.json';
 
 
+
 declare function require(path: string): any;
 export const myFirstContext = React.createContext("");
 
 const App = ({}) => {
+
+
+
+    const accionesNoDuplicadas = [];
+    data.forEach(p => {
+        if(accionesNoDuplicadas.findIndex(pd => pd.tipo === p.tipo) === -1) {
+            accionesNoDuplicadas.push(p);
+        }
+    });
+
+   /*const accionesNoDuplicadas = sacarDuplicados();
+
+    function sacarDuplicados(){
+        const accionesNoDuplicadas = [];
+        data.forEach(p => {
+            if(accionesNoDuplicadas.findIndex(pd => pd.tipo === p.tipo) === -1) {
+                accionesNoDuplicadas.push(p);
+            }
+        
+        })
+        return accionesNoDuplicadas
+};*/
+
 
 
     const onCancel = () => {
@@ -17,8 +41,8 @@ const App = ({}) => {
     };
 
     const irALaAccion = (tipo:string) => {
-        <AccionElegida tipo={tipo}/>
-        ReactDOM.render(<AccionElegida tipo={tipo}/>, document.getElementById('react-page'));
+        <AccionElegida tipo={tipo} libreria={''}/>
+        ReactDOM.render(<AccionElegida tipo={tipo} libreria={''} />, document.getElementById('react-page'));
     };
 
     return (
@@ -40,7 +64,7 @@ const App = ({}) => {
 
             <div className="Listado">
                 <div id="mapListado">
-                    {data.map(element => (
+                    {accionesNoDuplicadas.map(element => (
                         <><li>Accion: {element.tipo}
                             <input id="botonIrAAccion" onClick={() => irALaAccion(element.tipo)} className="flexsearch--submit" type="submit" value="&#10140;" />
                         </li></>
@@ -50,7 +74,9 @@ const App = ({}) => {
             </div>
             <hr></hr>
             <button id="salirPlugin" onClick={onCancel}> Salir del plugin</button>
-            
+            <script>
+
+            </script>
         </div>
     );
 };

@@ -9,8 +9,14 @@ declare function require(path: string): any;
 
 const AccionElegida = (props) =>  {
 
-    const acciones = data.filter(accion => accion.tipo==props.tipo);
+    //filtrando por libreria o tipo
+    if(props.libreria == ''){
+        var acciones = data.filter(accion => accion.tipo==props.tipo);
+    }else{
+        var acciones = data.filter(accion => accion.libreria==props.libreria);
+    }
 
+    
     const onCancel = () => {
         parent.postMessage({pluginMessage: {type: 'salirPlugin'}}, '*');
     };
@@ -44,7 +50,7 @@ const AccionElegida = (props) =>  {
             <div className="Listado">
                 <div id="mapListado">
                     {acciones.map(element => (
-                        <><li>{element.descripcion}
+                        <><li>{element.descripcion}<br></br>{element.preCondicion}<br></br>{element.postCondicion}
                             <input id="descripcionAccion" onClick={() => { copiarAccion() }} className="flexsearch--submit" type="submit" value="&#10140;" />
                         </li><hr></hr></>
                     ))}
