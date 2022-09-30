@@ -8,12 +8,20 @@ import App from './App';
 declare function require(path: string): any;
 
 const AccionElegida = (props) =>  {
+    let acciones = data;
+    
 
     //filtrando por libreria o tipo
-    if(props.libreria == ''){
-        var acciones = data.filter(accion => accion.tipo==props.tipo);
-    }else{
-        var acciones = data.filter(accion => accion.libreria==props.libreria);
+
+    
+    if(props.libreria == '' ){
+        acciones = acciones.filter(accion => accion.tipo==props.tipo)
+    }
+    else{
+        acciones = acciones.filter(accion => accion.libreria==props.libreria);
+    }
+    if(props.palabra != null){
+        acciones = acciones.filter(accion => accion.descripcion.toLowerCase().includes(props.palabra.toLowerCase()));
     }
 
     
@@ -30,16 +38,21 @@ const AccionElegida = (props) =>  {
         parent.postMessage({pluginMessage:{type:'ingresarContenido'}}, '*');
     };
 
+    const buscarAccion = palabra => {   
+        <AccionElegida tipo={props.tipo} libreria={props.libreria} palabra={palabra.target.value} />
+        ReactDOM.render(<AccionElegida tipo={props.tipo} libreria={props.libreria} palabra={palabra.target.value}  />, document.getElementById('react-page')); 
+    }
+
     return (
         <div>
-            <p id="textoInicial" > Acción: {acciones[0].tipo}</p>
+            <p id="textoInicial" > Acción: {props.tipo}</p>
 
             <div className="flexsearch">
                 <div className="flexsearch--wrapper">
                     <form id="barraBusqueda" className="flexsearch--form" action="#" method="post">
                         <div className="flexsearch--input-wrapper">
-                            <input id="barraBusqueda" className="flexsearch--input" type="search" placeholder="Ingrese una variante..." />
-                            <input id="botonBuscar" className="flexsearch--submit" type="submit" value="&#x2315;" />
+                            <input id="barraBusqueda" onChange={buscarAccion} className="flexsearch--input" type="search" placeholder="Ingrese una variante..." />
+                            <img src={require('../assets/search-icon.png').default } width="20" height="20"/>
                         </div>
                     </form>
                 </div>
