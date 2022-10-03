@@ -29,7 +29,6 @@ const AccionElegida = (props) =>  {
     };
 
     const volver = () => {
-        //parent.postMessage({pluginMessage: {type: 'volver'}}, '*');
         ReactDOM.render(<App />, document.getElementById('react-page'));
     };
 

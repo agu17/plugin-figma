@@ -24,21 +24,6 @@ const App = (props) => {
         }
     });
 
-   /*const accionesNoDuplicadas = sacarDuplicados();
-
-    function sacarDuplicados(){
-        const accionesNoDuplicadas = [];
-        data.forEach(p => {
-            if(accionesNoDuplicadas.findIndex(pd => pd.tipo === p.tipo) === -1) {
-                accionesNoDuplicadas.push(p);
-            }
-        
-        })
-        return accionesNoDuplicadas
-};*/
-
-
-
     const onCancel = () => {
         parent.postMessage({ pluginMessage: { type: 'salirPlugin' } }, '*');
     };

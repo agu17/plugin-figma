@@ -19,6 +19,7 @@ const Home = ({}) => {
                 const acciones = data.filter(accion => accion.libreria==message);
                 let tipo;
                 const accion= acciones.map(element => ( tipo = element.tipo))
+
                 ReactDOM.render(<AccionElegida tipo={tipo} libreria={message}/>, document.getElementById('react-page'));
             }
         };
@@ -31,26 +32,6 @@ const Home = ({}) => {
 
     const conBootstrap = () => {
         parent.postMessage({ pluginMessage: { type: 'libreria' } }, '*');
-
-       /* const countRef = React.useCallback((element: string) => {
-            alert(element)
-        }, []);*/
-
-        
-
-        //Acá recuperamos el nombre del componente y ademas, manejamos un if else, donde nos damos cuenta si
-        //ejecuto el plugin sobre un componente de la libreria de boostrap 5, de esta manera pondriamos una alerta advirtiendole en caso de
-        //que no haya seleccionado un componente de dicha libreria, derivandolo a utilizar el plugin sin libreria.
-        //---
-        //teniendo el nombre del componente, renderizariamos AccionElegida con el nombre del componente.
-
-
-         /*figma.currentPage.selection();
-        
-        
-        
-        <AccionElegida tipo={}/>
-        ReactDOM.render(<AccionElegida tipo={}/>, document.getElementById('react-page'));*/
     };
     const sinBootstrap = () => {
         ReactDOM.render(<App />, document.getElementById('react-page'));

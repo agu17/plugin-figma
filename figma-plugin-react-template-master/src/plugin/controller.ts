@@ -8,16 +8,19 @@ figma.ui.onmessage = (msg) => {
             break;
         
         case 'libreria':
-            let nombreNodo;
-            for(let node of figma.currentPage.selection){
-                nombreNodo = node.name;
+            if(figma.currentPage.selection.length == 0 ){
+                alert("Se deberá seleccionar un componente")
             }
-            alert(nombreNodo);
-                figma.ui.postMessage({
-                    type: 'libreria',
-                    message: nombreNodo,
-                });
-            
+            else{
+                for(let node of figma.currentPage.selection){
+                
+                    figma.ui.postMessage({
+                        type: 'libreria',
+                        message: node.name,
+                    });
+                
+                }
+            }
             break;
 
         case 'accionElegida':
