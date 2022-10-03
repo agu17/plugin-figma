@@ -11,7 +11,6 @@ const AccionElegida = (props) =>  {
     let acciones = data;
     
 
-    //filtrando por libreria o tipo
 
     
     if(props.libreria == '' ){

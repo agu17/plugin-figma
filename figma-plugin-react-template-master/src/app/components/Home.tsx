@@ -12,19 +12,31 @@ export const myFirstContext = React.createContext("");
 
 const Home = ({}) => {
 
+    React.useEffect(() => {
+        window.onmessage = (event) => {
+            const {type, message} = event.data.pluginMessage;
+            if (type === 'libreria') {
+                const acciones = data.filter(accion => accion.libreria==message);
+                let tipo;
+                const accion= acciones.map(element => ( tipo = element.tipo))
+                ReactDOM.render(<AccionElegida tipo={tipo} libreria={message}/>, document.getElementById('react-page'));
+            }
+        };
+    }, []);
+
 
     const onCancel = () => {
         parent.postMessage({ pluginMessage: { type: 'salirPlugin' } }, '*');
     };
 
     const conBootstrap = () => {
+        parent.postMessage({ pluginMessage: { type: 'libreria' } }, '*');
 
-        for(const node of figma.currentPage.selection){
+       /* const countRef = React.useCallback((element: string) => {
+            alert(element)
+        }, []);*/
 
-            /*node.name == input;
-            ReactDOM.render(<AccionElegida tipo={}/>, document.getElementById('react-page'));*/
-
-        }
+        
 
         //Acá recuperamos el nombre del componente y ademas, manejamos un if else, donde nos damos cuenta si
         //ejecuto el plugin sobre un componente de la libreria de boostrap 5, de esta manera pondriamos una alerta advirtiendole en caso de
@@ -48,7 +60,6 @@ const Home = ({}) => {
         <div>
             <p id="textoInicial"> Seleccione el método de utilización del plugin.</p>
             <hr></hr>
-
             <button id="botonIrAAccion" onClick={conBootstrap}> Libreria</button>
             <button id="botonIrAAccion" onClick={sinBootstrap}> Sin libreria</button>
             <button id="salirPlugin" onClick={onCancel}> Salir del plugin</button>

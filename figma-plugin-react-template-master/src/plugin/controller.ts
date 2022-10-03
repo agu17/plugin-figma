@@ -1,3 +1,4 @@
+
 figma.showUI(__html__, {width: 320, height: 450});
 
 figma.ui.onmessage = (msg) => {
@@ -6,11 +7,18 @@ figma.ui.onmessage = (msg) => {
             figma.closePlugin()
             break;
         
-        case 'volver':
-            //figma.showUI(__html__, {width: 320, height: 450});
+        case 'libreria':
+            let nombreNodo;
+            for(let node of figma.currentPage.selection){
+                nombreNodo = node.name;
+            }
+            alert(nombreNodo);
+                figma.ui.postMessage({
+                    type: 'libreria',
+                    message: nombreNodo,
+                });
+            
             break;
-
-        //acciones
 
         case 'accionElegida':
             break;

@@ -54,7 +54,7 @@
       "descripcion": "Carrito. Click +: aumenta la cantidad del producto, Click -: Disminuye la cantidad del producto, en caso de llegar a 0 se elimina.",
       "preCondicion":"Pre: Haber agregado anteriormente un producto al carrito.",
       "postCondicion":"Post: Se habilita el botón de Finalizar compra si se tiene al menos 1 producto.",
-      "libreria": ""
+      "libreria": "click"
       }
       ,
     {
@@ -62,7 +62,7 @@
       "descripcion": "Registrarse.",
       "preCondicion":" Pre: Se deberá haber llenado los campos anteriores, se habilita el botón registrarse",
       "postCondicion":"Post: Se registra al usuario, si la carga es lenta, se deberá agregar una barra de progreso.",
-      "libreria": ""
+      "libreria": "click"
       }
       ,
       {
@@ -70,7 +70,7 @@
       "descripcion": "Iniciar Sesión. ",
       "preCondicion":"Pre: Se deberá haber llenado los campos requeridos para la autenticación. Se habilita el botón iniciar sesión.",
       "postCondicion":"Post: -Se mostrará una barra de progreso, de acorde al tiempo de carga de la validación. -Luego se mostrará una alerta donde se inició sesión correctamente o las credenciales son incorrectas.",
-      "libreria": ""
+      "libreria": "click"
       }
       ,
       {
