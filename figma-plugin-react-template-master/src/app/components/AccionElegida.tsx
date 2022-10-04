@@ -32,9 +32,31 @@ const AccionElegida = (props) =>  {
         ReactDOM.render(<App />, document.getElementById('react-page'));
     };
 
-    const copiarAccion = () => {
-        parent.postMessage({pluginMessage:{type:'ingresarContenido'}}, '*');
+    const editarTexto = (i: string) => {
+        let textoAEditar = document.getElementById(i);
+        if (textoAEditar.isContentEditable){
+            textoAEditar.contentEditable = "false";
+            textoAEditar.style.backgroundColor = '#7572E7';
+        }
+        else{
+            textoAEditar.contentEditable = "true";
+            textoAEditar.style.backgroundColor = '#C5C5C5'; 
+        }
+       
     };
+    
+    const copiarAccion = async(desc:string, pre:string, post:string) => {
+        try{
+            var a = new Clipboard();
+            var text = desc + pre + post;
+            a.writeText(text);
+            alert("Si se copio")
+        }
+        catch{
+            alert("No se copio")
+        }
+}
+    
 
     const buscarAccion = palabra => {   
         <AccionElegida tipo={props.tipo} libreria={props.libreria} palabra={palabra.target.value} />
@@ -61,8 +83,19 @@ const AccionElegida = (props) =>  {
             <div className="Listado">
                 <div id="mapListado">
                     {acciones.map(element => (
-                        <><li>{element.descripcion}<br></br>{element.preCondicion}<br></br>{element.postCondicion}
-                            <input id="descripcionAccion" onClick={() => { copiarAccion() }} className="flexsearch--submit" type="submit" value="&#10140;" />
+                        <><li>
+                            <div id={element.id} className='textoDeAccion' contentEditable="false">
+                               <p id='descripcion' > {element.descripcion} </p> 
+                               <p id='precondicion'> {element.preCondicion} </p> 
+                               <p id='postcondicion'> {element.postCondicion} </p> 
+                            </div>
+                            <button id="botonDeEdicionDeTexto" onClick={() => { editarTexto(element.id) }}  >
+                                <img   src={require('../assets/edit-button.png').default } width="20" height="20" />
+                            </button>
+                            <button id="botonDeCopiarAccion" onClick={() =>  { copiarAccion(element.id, element.preCondicion, element.postCondicion) }}>
+                                <img   src={require('../assets/icono-copiar.png').default } width="20" height="20" />
+                            </button>
+                            
                         </li><hr></hr></>
                     ))}
 

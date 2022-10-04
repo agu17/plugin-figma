@@ -4,21 +4,24 @@
       "descripcion": "Inicio de sesión" ,
       "preCondicion":"Pre: Estar situado en el campo email/usuario y llenarlo.",
       "postCondicion":"Post: Se habilitará el botón contraseña.",
-      "libreria": "input"
+      "libreria": "input",
+      "id": "1"
     },
     {
       "tipo": "ingresarContenido",
       "descripcion": "Inicio de sesión",
       "preCondicion":"Pre: Se habilitará el campo contraseña cuando se ingrese el mail/usuario.",
       "postCondicion":"Post: Se habilitará el botón de iniciar sesión",
-      "libreria": "input"
+      "libreria": "input",
+      "id": "2"
     },
     {
       "tipo": "ingresarContenido",
       "descripcion": "Llenar campos de tarjeta.",
       "preCondicion":"Pre:  Solo se permitirá ingresar números, Longitud de 16 caracteres. ",
       "postCondicion":"Post: Se habilitará el siguiente campo cuando se ingresen los 16 caracteres.",
-      "libreria": "input"
+      "libreria": "input",
+      "id": "3"
     },
     {
       "tipo": "ingresarContenido",
@@ -26,27 +29,32 @@
       "preCondicion":"Pre: Ingresar números, longitud exacta 3.",
       "postCondicion":"Post: Se habilitará el siguiente campo.",
       "libreria": "input"
+      ,
+      "id": "4"
     },
     {
       "tipo": "ingresarContenido",
       "descripcion": "Ingresar algún contenido de un campo, estableciendo la longitud.",
       "preCondicion":"Pre: Estar situado en el campo a llenar. Establecer una longitud para dicho campo.",
       "postCondicion":"Post: Se habilitará el siguiente campo o botón una vez que se ingresó el mínimo de caracteres especificados.",
-      "libreria": "input"
+      "libreria": "input",
+      "id": "5"
     },
     {
       "tipo": "ingresarContenido",
       "descripcion": "Cuando se ingresa el código de seguridad de una tarjeta. ",
       "preCondicion":"Pre: Ingresar números, longitud exacta 3. ",
       "postCondicion":"Post: Se habilitará el siguiente campo.",
-      "libreria": "input"
+      "libreria": "input",
+      "id": "6"
     },
     {
       "tipo": "ingresarContenido",
       "descripcion": "Fecha.",
       "preCondicion":"Pre: Formato de fecha.",
       "postCondicion":"Post: Se habilitará el siguiente campo.",
-      "libreria": "input"
+      "libreria": "input",
+      "id": "7"
     },
 
     {
@@ -54,7 +62,8 @@
       "descripcion": "Carrito. Click +: aumenta la cantidad del producto, Click -: Disminuye la cantidad del producto, en caso de llegar a 0 se elimina.",
       "preCondicion":"Pre: Haber agregado anteriormente un producto al carrito.",
       "postCondicion":"Post: Se habilita el botón de Finalizar compra si se tiene al menos 1 producto.",
-      "libreria": "click"
+      "libreria": "click",
+      "id": "8"
       }
       ,
     {
@@ -62,7 +71,8 @@
       "descripcion": "Registrarse.",
       "preCondicion":" Pre: Se deberá haber llenado los campos anteriores, se habilita el botón registrarse",
       "postCondicion":"Post: Se registra al usuario, si la carga es lenta, se deberá agregar una barra de progreso.",
-      "libreria": "click"
+      "libreria": "click",
+      "id": "9"
       }
       ,
       {
@@ -70,7 +80,8 @@
       "descripcion": "Iniciar Sesión. ",
       "preCondicion":"Pre: Se deberá haber llenado los campos requeridos para la autenticación. Se habilita el botón iniciar sesión.",
       "postCondicion":"Post: -Se mostrará una barra de progreso, de acorde al tiempo de carga de la validación. -Luego se mostrará una alerta donde se inició sesión correctamente o las credenciales son incorrectas.",
-      "libreria": "click"
+      "libreria": "click",
+      "id": "10"
       }
       ,
       {
@@ -78,7 +89,8 @@
       "descripcion": "Clicks general. ",
       "preCondicion":"Pre: - ",
       "postCondicion":"Post: Por cada vez que se cambia de página o sección, deberá haber una barra de progreso.",
-      "libreria": ""
+      "libreria": "",
+      "id": "11"
       }
 
       ,
@@ -87,7 +99,8 @@
       "descripcion": "Pago. ",
       "preCondicion":"Pre: - ",
       "postCondicion":"Post: Si esta marcado tarjeta, desplegará los campos a llenar para finalizar la compra, una vez completados, se habilitará el botón comprar. Si se selecciona efectivo simplemente se habilitará el botón comprar",
-      "libreria": ""
+      "libreria": "",
+      "id": "12"
       }
 
 

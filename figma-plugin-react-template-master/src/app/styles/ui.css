@@ -78,7 +78,19 @@ li{
     margin-left: 5px;
 }
 
-#descripcionAccion{
+#descripcion{
     font-weight: bold;
-    font-size: 15;
+    font-size: 13;
+}
+
+#botonDeEdicionDeTexto{
+    background: #E4E4E4;
+    margin-right: 50%;
+    border-radius: 25px; 
+}
+
+#botonDeCopiarAccion{
+    background: #E4E4E4;
+    
+    border-radius: 15px;
 }
