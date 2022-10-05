@@ -7,6 +7,7 @@ import App from './App';
 
 
 
+
 declare function require(path: string): any;
 export const myFirstContext = React.createContext("");
 
@@ -18,7 +19,7 @@ const Home = ({}) => {
             if (type === 'libreria') {
                 const acciones = data.filter(accion => accion.libreria==message);
                 let tipo;
-                const accion= acciones.map(element => ( tipo = element.tipo))
+                const accion= acciones.map(element => ( tipo = element.tipo)) //PARA QUE ESTA ESTA LINEA?
 
                 ReactDOM.render(<AccionElegida tipo={tipo} libreria={message}/>, document.getElementById('react-page'));
             }
