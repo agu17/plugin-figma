@@ -8,20 +8,38 @@ import App from './App';
 declare function require(path: string): any;
 
 const AccionElegida = (props) =>  {
-    let acciones = data;
-    
+    const acciones = data;
 
+    const [nombreAccion,setNombreAccion] = React.useState("");
+    const [accionesAMostrar, setAccionesAMostrar] = React.useState([]); 
 
+    React.useEffect(() => {
+        /*let accionesNoDuplicadas = [];
+        data.forEach(p => {
+        if(accionesNoDuplicadas.findIndex(pd => pd.tipo === p.tipo) === -1) {
+            accionesNoDuplicadas.push(p);
+        }
+        });
+        setAcciones(accionesNoDuplicadas)*/
+        if(props.libreria == '' ){
+            //aca se filtan accion del mismo tipo
+            setAccionesAMostrar(acciones.filter(accion => accion.tipo==props.tipo))
+        }
+        else{
+           // aca se filtran acciones de la misma lib
+           setAccionesAMostrar(acciones.filter(accion => accion.libreria==props.libreria));}
+    }, []);
     
-    if(props.libreria == '' ){
-        acciones = acciones.filter(accion => accion.tipo==props.tipo)
-    }
-    else{
-        acciones = acciones.filter(accion => accion.libreria==props.libreria);
-    }
-    if(props.palabra != null){
+    //FILTRADO SOLO POR DESCRIPCION
+    React.useEffect(() =>
+        setAccionesAMostrar(acciones.filter(accion => accion.descripcion.toLowerCase().includes(nombreAccion.toLowerCase()))), 
+        [nombreAccion]
+    );
+
+    /*if(props.palabra != null){
+        //aca es para la barra de busqueda
         acciones = acciones.filter(accion => accion.descripcion.toLowerCase().includes(props.palabra.toLowerCase()));
-    }
+    }*/
 
     
     const onCancel = () => {
@@ -34,15 +52,17 @@ const AccionElegida = (props) =>  {
 
     const editarTexto = (i: string) => {
         let textoAEditar = document.getElementById(i);
+        let colorBoton = document.getElementById("botonDeEdicionDeTexto");
         if (textoAEditar.isContentEditable){
             textoAEditar.contentEditable = "false";
             textoAEditar.style.backgroundColor = '#7572E7';
+            colorBoton.style.backgroundColor = '#E4E4E4';
         }
         else{
             textoAEditar.contentEditable = "true";
             textoAEditar.style.backgroundColor = '#C5C5C5'; 
+            colorBoton.style.backgroundColor = '#F37A7A';
         }
-       
     };
     
     const copiarAccion = async(desc:string, pre:string, post:string) => {
@@ -50,19 +70,13 @@ const AccionElegida = (props) =>  {
             var a = new Clipboard();
             var text = desc + pre + post;
             a.writeText(text);
-            alert("Si se copio")
+            //alert("Si se copio")
         }
         catch{
-            alert("No se copio")
+            //alert("No se copio")
         }
-}
-    
-
-    const buscarAccion = palabra => {   
-        <AccionElegida tipo={props.tipo} libreria={props.libreria} palabra={palabra.target.value} />
-        ReactDOM.render(<AccionElegida tipo={props.tipo} libreria={props.libreria} palabra={palabra.target.value}  />, document.getElementById('react-page')); 
     }
-
+    
     return (
         <div>
             <p id="textoInicial" > Acción: {props.tipo}</p>
@@ -71,7 +85,7 @@ const AccionElegida = (props) =>  {
                 <div className="flexsearch--wrapper">
                     <form id="barraBusqueda" className="flexsearch--form" action="#" method="post">
                         <div className="flexsearch--input-wrapper">
-                            <input id="barraBusqueda" onChange={buscarAccion} className="flexsearch--input" type="search" placeholder="Ingrese una variante..." />
+                            <input id="barraBusqueda" onChange={(e) => setNombreAccion(e.target.value)} className="flexsearch--input" type="search" placeholder="Ingrese una variante..." />
                             <img src={require('../assets/search-icon.png').default } width="20" height="20"/>
                         </div>
                     </form>
@@ -82,7 +96,7 @@ const AccionElegida = (props) =>  {
 
             <div className="Listado">
                 <div id="mapListado">
-                    {acciones.map(element => (
+                    {accionesAMostrar.map(element => (
                         <><li>
                             <div id={element.id} className='textoDeAccion' contentEditable="false">
                                <p id='descripcion' > {element.descripcion} </p> 
