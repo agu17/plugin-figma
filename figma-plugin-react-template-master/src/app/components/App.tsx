@@ -44,6 +44,9 @@ const App = () => {
         ReactDOM.render(<AccionElegida tipo={tipo} libreria={''} />, document.getElementById('react-page'));
     };
 
+    const aa = () => {
+        return null
+    }
 
     return (
         <div>
@@ -51,9 +54,9 @@ const App = () => {
 
             <div className="flexsearch">
                 <div className="flexsearch--wrapper">
-                    <form id="barraBusqueda" className="flexsearch--form" action="#" method="post">
+                    <form id="barraBusqueda" className="flexsearch--form">
                         <div className="flexsearch--input-wrapper">
-                            <input id="barraBusqueda" onChange={(e) => setNombreAccion(e.target.value)} className="flexsearch--input" type="search" placeholder="Ingrese una acción..." /> 
+                            <input id="barraBusqueda" onChange={(e) => setNombreAccion(e.target.value)} className="flexsearch--input" onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }} type="search" placeholder="Ingrese una acción..." /> 
                             <img src={require('../assets/search-icon.png').default } width="20" height="20"/>
                         </div>
                     </form>

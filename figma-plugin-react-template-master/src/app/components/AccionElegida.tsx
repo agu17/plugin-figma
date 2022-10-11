@@ -14,19 +14,10 @@ const AccionElegida = (props) =>  {
     const [accionesAMostrar, setAccionesAMostrar] = React.useState([]); 
 
     React.useEffect(() => {
-        /*let accionesNoDuplicadas = [];
-        data.forEach(p => {
-        if(accionesNoDuplicadas.findIndex(pd => pd.tipo === p.tipo) === -1) {
-            accionesNoDuplicadas.push(p);
-        }
-        });
-        setAcciones(accionesNoDuplicadas)*/
         if(props.libreria == '' ){
-            //aca se filtan accion del mismo tipo
             setAccionesAMostrar(acciones.filter(accion => accion.tipo==props.tipo))
         }
         else{
-           // aca se filtran acciones de la misma lib
            setAccionesAMostrar(acciones.filter(accion => accion.libreria==props.libreria));}
     }, []);
     
@@ -36,12 +27,6 @@ const AccionElegida = (props) =>  {
         [nombreAccion]
     );
 
-    /*if(props.palabra != null){
-        //aca es para la barra de busqueda
-        acciones = acciones.filter(accion => accion.descripcion.toLowerCase().includes(props.palabra.toLowerCase()));
-    }*/
-
-    
     const onCancel = () => {
         parent.postMessage({pluginMessage: {type: 'salirPlugin'}}, '*');
     };
@@ -83,9 +68,9 @@ const AccionElegida = (props) =>  {
 
             <div className="flexsearch">
                 <div className="flexsearch--wrapper">
-                    <form id="barraBusqueda" className="flexsearch--form" action="#" method="post">
+                    <form id="barraBusqueda" className="flexsearch--form" >
                         <div className="flexsearch--input-wrapper">
-                            <input id="barraBusqueda" onChange={(e) => setNombreAccion(e.target.value)} className="flexsearch--input" type="search" placeholder="Ingrese una variante..." />
+                            <input id="barraBusqueda" onChange={(e) => setNombreAccion(e.target.value)} className="flexsearch--input" onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }} type="search" placeholder="Ingrese una variante..." />
                             <img src={require('../assets/search-icon.png').default } width="20" height="20"/>
                         </div>
                     </form>
