@@ -44,9 +44,6 @@ const App = () => {
         ReactDOM.render(<AccionElegida tipo={tipo} libreria={''} />, document.getElementById('react-page'));
     };
 
-    const aa = () => {
-        return null
-    }
 
     return (
         <div>

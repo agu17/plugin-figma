@@ -14,17 +14,25 @@ const AccionElegida = (props) =>  {
     const [accionesAMostrar, setAccionesAMostrar] = React.useState([]); 
 
     React.useEffect(() => {
+        let acc = [];
         if(props.libreria == '' ){
-            setAccionesAMostrar(acciones.filter(accion => accion.tipo==props.tipo))
+            acc = acciones.filter(accion => accion.tipo==props.tipo)
         }
         else{
-           setAccionesAMostrar(acciones.filter(accion => accion.libreria==props.libreria));}
+           acc = acciones.filter(accion => accion.libreria==props.libreria);
+        }
+        setAccionesAMostrar(acc);
     }, []);
     
+    
     //FILTRADO SOLO POR DESCRIPCION
-    React.useEffect(() =>
-        setAccionesAMostrar(acciones.filter(accion => accion.descripcion.toLowerCase().includes(nombreAccion.toLowerCase()))), 
-        [nombreAccion]
+    React.useEffect(() =>{    
+        if (nombreAccion != ""){
+            setAccionesAMostrar(accionesAMostrar.filter(accion => accion.descripcion.toLowerCase().includes(nombreAccion.toLowerCase() ) ) ) }
+        else{
+            setAccionesAMostrar(acciones.filter(accion => accion.tipo==props.tipo))
+        }
+        [nombreAccion]}
     );
 
     const onCancel = () => {
