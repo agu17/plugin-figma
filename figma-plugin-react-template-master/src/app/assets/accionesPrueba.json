@@ -88,11 +88,48 @@
     "id": "11"
   },
   {
-    "tipo": "seleccionarElemento",
-    "descripcion": "Pago. ",
-    "preCondicion": "Pre: - ",
-    "postCondicion": "Post: Si esta marcado tarjeta, desplegará los campos a llenar para finalizar la compra, una vez completados, se habilitará el botón comprar. Si se selecciona efectivo simplemente se habilitará el botón comprar",
-    "libreria": "",
-    "id": "12"
+    "tipo": "click",
+    "descripcion": "Finalizar evento/acción ",
+    "preCondicion":"Pre: Se deberá tener activo el botón para finalizar por ejemplo una compra/acción.",
+    "postCondicion":"Post:Se mostrará una barra de progreso hasta finalizar dicha acción, seguido de una alerta especificando la culminación del evento.",
+    "libreria": "click",
+    "id": "11"
+    }
+  ,
+  {
+  "tipo": "seleccionarElemento",
+  "descripcion": "Pago. ",
+  "preCondicion":"Pre: - ",
+  "postCondicion":"Post: Si esta marcado tarjeta, desplegará los campos a llenar para finalizar la compra, una vez completados, se habilitará el botón comprar. Si se selecciona efectivo simplemente se habilitará el botón comprar",
+  "libreria": "seleccionarElemento",
+  "id": "12"
   }
+  ,
+  {
+  "tipo": "seleccionarElemento",
+  "descripcion": "Pago. ",
+  "preCondicion":"Pre: Se deberá tener una lista de opciones a seleccionar, ejemplo ciudades. ",
+  "postCondicion":"Post: Se deberá haber seleccionado un elemento de esa lista.",
+  "libreria": "seleccionarElemento",
+  "id": "13"
+  }
+  ,
+  {
+  "tipo": "Pre-Post Click",
+  "descripcion": "Estado COLOR",
+  "preCondicion":"El estado/color de un botón se debe encontrar de cierta manera. ",
+  "postCondicion":"Post:  Cuando clickeamos ese botón, el estado/color cambia.",
+  "libreria": "seleccionarElemento",
+  "id": "14"
+  }
+  ,
+  {
+  "tipo": "Pre-Post Click",
+  "descripcion": "Posición del mouse.",
+  "preCondicion":"Pre:  El estado/color de un botón se debe encontrar de cierta manera. ",
+  "postCondicion":"Post: Cuando ubicamos el mouse  sobre el botón, el estado/color cambia.",
+  "libreria": "seleccionarElemento",
+  "id": "15"
+  }
+
 ]
