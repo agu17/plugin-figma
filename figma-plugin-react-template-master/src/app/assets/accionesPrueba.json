@@ -119,7 +119,7 @@
   "descripcion": "Estado COLOR",
   "preCondicion":"El estado/color de un botón se debe encontrar de cierta manera. ",
   "postCondicion":"Post:  Cuando clickeamos ese botón, el estado/color cambia.",
-  "libreria": "seleccionarElemento",
+  "libreria": "",
   "id": "14"
   }
   ,
@@ -128,7 +128,7 @@
   "descripcion": "Posición del mouse.",
   "preCondicion":"Pre:  El estado/color de un botón se debe encontrar de cierta manera. ",
   "postCondicion":"Post: Cuando ubicamos el mouse  sobre el botón, el estado/color cambia.",
-  "libreria": "seleccionarElemento",
+  "libreria": "",
   "id": "15"
   }
 

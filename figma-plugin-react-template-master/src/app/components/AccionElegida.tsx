@@ -45,7 +45,7 @@ const AccionElegida = (props) =>  {
 
     const editarTexto = (i: string) => {
         let textoAEditar = document.getElementById(i);
-        let colorBoton = document.getElementById("botonDeEdicionDeTexto");
+        let colorBoton = document.getElementById(i + "botonDeEdicionDeTexto");
         if (textoAEditar.isContentEditable){
             textoAEditar.contentEditable = "false";
             textoAEditar.style.backgroundColor = '#7572E7';
@@ -56,14 +56,16 @@ const AccionElegida = (props) =>  {
             textoAEditar.style.backgroundColor = '#C5C5C5'; 
             colorBoton.style.backgroundColor = '#F37A7A';
         }
-    };
+    }
     
-    const copiarAccion = async(desc:string, pre:string, post:string) => {
+    const copiarAccion = async(id:string) => {
+
         var copyTextarea = document.createElement("textarea");
         copyTextarea.style.position = "fixed";
         copyTextarea.style.opacity = "0";
-        copyTextarea.textContent = desc + " " + pre + " " + post
- 
+        let pre = document.getElementById(id + "precondicion").innerHTML;
+        let post = document.getElementById(id + "postcondicion").innerHTML;
+        copyTextarea.textContent = pre + post;
         document.body.appendChild(copyTextarea);
         copyTextarea.select();
         document.execCommand("copy");
@@ -93,16 +95,18 @@ const AccionElegida = (props) =>  {
                     {accionesAMostrar.map(element => (
                         <><li>
                             <div id={element.id} className='textoDeAccion' contentEditable="false">
-                               <p id='descripcion' > {element.descripcion} </p> 
-                               <p id='precondicion'> {element.preCondicion} </p> 
-                               <p id='postcondicion'> {element.postCondicion} </p> 
+                               <p id={element.id + 'descripcion'} > {element.descripcion} </p> 
+                               <p id={element.id + 'precondicion'} > {element.preCondicion} </p> 
+                               <p id={element.id + 'postcondicion'} > {element.postCondicion} </p>
+                               
                             </div>
-                            <button id="botonDeEdicionDeTexto" onClick={() => { editarTexto(element.id) }}  >
+                            <button id={element.id + "botonDeEdicionDeTexto"} className="botonDeEdicionDeTexto" onClick={() => { editarTexto(element.id) }}  >
                                 <img   src={require('../assets/edit-button.png').default } width="20" height="20" />
                             </button>
-                            <button id="botonDeCopiarAccion" onClick={() =>  { copiarAccion(element.descripcion, element.preCondicion, element.postCondicion) }}>
+                            <button id="botonDeCopiarAccion" onClick={() =>  { copiarAccion(element.id) }}>
                                 <img   src={require('../assets/icono-copiar.png').default } width="20" height="20" />
                             </button>
+                            
                             
                         </li><hr></hr></>
                     ))}

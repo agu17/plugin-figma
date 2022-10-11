@@ -83,11 +83,12 @@ li{
     font-size: 13;
 }
 
-#botonDeEdicionDeTexto{
+.botonDeEdicionDeTexto{
     background: #E4E4E4;
     margin-right: 50%;
     border-radius: 25px; 
 }
+
 
 #botonDeCopiarAccion{
     background: #E4E4E4;
