@@ -59,15 +59,16 @@ const AccionElegida = (props) =>  {
     };
     
     const copiarAccion = async(desc:string, pre:string, post:string) => {
-        try{
-            var a = new Clipboard();
-            var text = desc + pre + post;
-            a.writeText(text);
-            //alert("Si se copio")
-        }
-        catch{
-            //alert("No se copio")
-        }
+        var copyTextarea = document.createElement("textarea");
+        copyTextarea.style.position = "fixed";
+        copyTextarea.style.opacity = "0";
+        copyTextarea.textContent = desc + " " + pre + " " + post
+ 
+        document.body.appendChild(copyTextarea);
+        copyTextarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(copyTextarea);
+      
     }
     
     return (
@@ -99,7 +100,7 @@ const AccionElegida = (props) =>  {
                             <button id="botonDeEdicionDeTexto" onClick={() => { editarTexto(element.id) }}  >
                                 <img   src={require('../assets/edit-button.png').default } width="20" height="20" />
                             </button>
-                            <button id="botonDeCopiarAccion" onClick={() =>  { copiarAccion(element.id, element.preCondicion, element.postCondicion) }}>
+                            <button id="botonDeCopiarAccion" onClick={() =>  { copiarAccion(element.descripcion, element.preCondicion, element.postCondicion) }}>
                                 <img   src={require('../assets/icono-copiar.png').default } width="20" height="20" />
                             </button>
                             
