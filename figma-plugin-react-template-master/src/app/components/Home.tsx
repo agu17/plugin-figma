@@ -17,10 +17,10 @@ const Home = ({}) => {
         window.onmessage = (event) => {
             const {type, message} = event.data.pluginMessage;
             if (type === 'libreria') {
+                alert(message)
                 const acciones = data.filter(accion => accion.libreria==message);
                 let tipo;
-                const accion= acciones.map(element => ( tipo = element.tipo)) //PARA QUE ESTA ESTA LINEA?
-
+                acciones.map(element => ( tipo = element.tipo)) 
                 ReactDOM.render(<AccionElegida tipo={tipo} libreria={message}/>, document.getElementById('react-page'));
             }
         };

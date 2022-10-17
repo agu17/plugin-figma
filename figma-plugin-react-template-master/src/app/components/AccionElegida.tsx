@@ -14,13 +14,22 @@ const AccionElegida = (props) =>  {
     const [accionesAMostrar, setAccionesAMostrar] = React.useState([]); 
 
     React.useEffect(() => {
+        let componentesDeEstaVista = [""];
+        componentesDeEstaVista = props.libreria;
         let acc = [];
         if(props.libreria == '' ){
+            alert("hola")
             acc = acciones.filter(accion => accion.tipo==props.tipo)
         }
-        else{
-           acc = acciones.filter(accion => accion.libreria==props.libreria);
+        else{ 
+
+            //FUNCIONA MAL
+
+            for (let componente of componentesDeEstaVista){ 
+                acc = acciones.filter(accion => componente.toLowerCase().includes(accion.libreria.toLowerCase()));
+            }
         }
+        alert(acc.length)
         setAccionesAMostrar(acc);
     }, []);
     
@@ -30,7 +39,7 @@ const AccionElegida = (props) =>  {
         if (nombreAccion != ""){
             setAccionesAMostrar(accionesAMostrar.filter(accion => accion.descripcion.toLowerCase().includes(nombreAccion.toLowerCase() ) ) ) }
         else{
-            setAccionesAMostrar(acciones.filter(accion => accion.tipo==props.tipo))
+            //setAccionesAMostrar(acciones.filter(accion => accion.tipo==props.tipo))
         }
         [nombreAccion]}
     );
