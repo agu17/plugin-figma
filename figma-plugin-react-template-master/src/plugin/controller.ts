@@ -15,7 +15,6 @@ figma.ui.onmessage = (msg) => {
                 let vec = []
                 for(let node of figma.currentPage.selection){
                     vec.push(node.name)
-                    alert(node.name)
                     };
                 figma.ui.postMessage({
                     type: 'libreria',

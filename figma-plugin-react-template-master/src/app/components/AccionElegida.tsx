@@ -18,7 +18,6 @@ const AccionElegida = (props) =>  {
         componentesDeEstaVista = props.libreria;
         let acc = [];
         if(props.libreria == '' ){
-            alert("hola")
             acc = acciones.filter(accion => accion.tipo==props.tipo)
         }
         else{ 
@@ -29,7 +28,6 @@ const AccionElegida = (props) =>  {
                 acc = acciones.filter(accion => componente.toLowerCase().includes(accion.libreria.toLowerCase()));
             }
         }
-        alert(acc.length)
         setAccionesAMostrar(acc);
     }, []);
     
@@ -39,6 +37,7 @@ const AccionElegida = (props) =>  {
         if (nombreAccion != ""){
             setAccionesAMostrar(accionesAMostrar.filter(accion => accion.descripcion.toLowerCase().includes(nombreAccion.toLowerCase() ) ) ) }
         else{
+            //TODAVIA HAY QUE SOLUCIONAR EL PRIMER FILTRADO
             //setAccionesAMostrar(acciones.filter(accion => accion.tipo==props.tipo))
         }
         [nombreAccion]}

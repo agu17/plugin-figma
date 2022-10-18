@@ -17,7 +17,6 @@ const Home = ({}) => {
         window.onmessage = (event) => {
             const {type, message} = event.data.pluginMessage;
             if (type === 'libreria') {
-                alert(message)
                 const acciones = data.filter(accion => accion.libreria==message);
                 let tipo;
                 acciones.map(element => ( tipo = element.tipo)) 
