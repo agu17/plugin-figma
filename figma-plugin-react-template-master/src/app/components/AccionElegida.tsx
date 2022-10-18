@@ -62,6 +62,7 @@ const AccionElegida = (props) =>  {
 
         var copyTextarea = document.createElement("textarea");
         copyTextarea.style.position = "fixed";
+        //copyTextarea.style.position = "fixed";
         copyTextarea.style.opacity = "0";
         let pre = document.getElementById(id + "precondicion").innerHTML;
         let post = document.getElementById(id + "postcondicion").innerHTML;
