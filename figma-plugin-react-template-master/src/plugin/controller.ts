@@ -11,15 +11,16 @@ figma.ui.onmessage = (msg) => {
             if(figma.currentPage.selection.length == 0 ){
                 alert("Se deberá seleccionar un componente")
             }
-            let componentes = []
-                var selected = figma.currentPage.selection
-                console.log(selected)
-                for(let node of selected){
-                    componentes.push(node.name);
-                    if (node.type == "INSTANCE"){
-                        if (node.name == "form" || node.name == "input" || node.name== "button"){
-                            for (let hijo of node.children){
-                                componentes.push(hijo.name)
+            let componentes: string[] = []
+                var seleccion = figma.currentPage.selection
+               // alert(figma.fileKey)
+                for(let componente of seleccion){
+                    //alert(componente.x + " y " + componente.y + " y " + componente.id)
+                    componentes.push(componente.name);
+                    if (componente.type == "INSTANCE"){
+                        if (componente.name == "form" || componente.name == "input" || componente.name== "button"){
+                            for (let componeneteHijo of componente.children){
+                                componentes.push(componeneteHijo.name)
                             }
                         }
                     }

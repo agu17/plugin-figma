@@ -25,7 +25,7 @@ const AccionElegida = (props) =>  {
             //FUNCIONA MAL
 
             for (let componente of componentesDeEstaVista){ 
-                acc = acciones.filter(accion => componente.toLowerCase().includes(accion.libreria.toLowerCase()));
+                acc = acciones.filter(accion => componente.includes(accion.libreria));
             }
         }
         setAccionesAMostrar(acc);

@@ -68,7 +68,7 @@
     "descripcion": "Registrarse.",
     "preCondicion": " Pre: Se deberá haber llenado los campos anteriores, se habilita el botón registrarse",
     "postCondicion": "Post: Se registra al usuario, si la carga es lenta, se deberá agregar una barra de progreso.",
-    "libreria": "click",
+    "libreria": "form",
     "id": "9"
   },
   {
@@ -76,7 +76,7 @@
     "descripcion": "Iniciar Sesión. ",
     "preCondicion": "Pre: Se deberá haber llenado los campos requeridos para la autenticación. Se habilita el botón iniciar sesión.",
     "postCondicion": "Post: -Se mostrará una barra de progreso, de acorde al tiempo de carga de la validación. -Luego se mostrará una alerta donde se inició sesión correctamente o las credenciales son incorrectas.",
-    "libreria": "click",
+    "libreria": "form-item",
     "id": "10"
   },
   {
@@ -84,7 +84,7 @@
     "descripcion": "Clicks general. ",
     "preCondicion": "Pre: - ",
     "postCondicion": "Post: Por cada vez que se cambia de página o sección, deberá haber una barra de progreso.",
-    "libreria": "",
+    "libreria": "aaaa",
     "id": "11"
   },
   {
@@ -119,7 +119,7 @@
   "descripcion": "Estado COLOR",
   "preCondicion":"El estado/color de un botón se debe encontrar de cierta manera. ",
   "postCondicion":"Post:  Cuando clickeamos ese botón, el estado/color cambia.",
-  "libreria": "",
+  "libreria": "aaaaa",
   "id": "14"
   }
   ,
@@ -128,7 +128,7 @@
   "descripcion": "Posición del mouse.",
   "preCondicion":"Pre:  El estado/color de un botón se debe encontrar de cierta manera. ",
   "postCondicion":"Post: Cuando ubicamos el mouse  sobre el botón, el estado/color cambia.",
-  "libreria": "",
+  "libreria": "a",
   "id": "15"
   }
 
