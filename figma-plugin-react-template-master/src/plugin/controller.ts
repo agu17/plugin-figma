@@ -11,23 +11,23 @@ figma.ui.onmessage = (msg) => {
             if(figma.currentPage.selection.length == 0 ){
                 alert("Se deberá seleccionar un componente")
             }
-            else{
-                let vec = []
-                for(let node of figma.currentPage.selection){
-                    vec.push(node.name)
+            let componentes = []
+                var selected = figma.currentPage.selection
+                console.log(selected)
+                for(let node of selected){
+                    componentes.push(node.name);
+                    if (node.type == "INSTANCE"){
+                        if (node.name == "form" || node.name == "input" || node.name== "button"){
+                            for (let hijo of node.children){
+                                componentes.push(hijo.name)
+                            }
+                        }
+                    }
                     };
                 figma.ui.postMessage({
                     type: 'libreria',
-                    message: vec,
+                    message: componentes,
                 });
-                /*for(let node of figma.currentPage.selection){
-                    figma.ui.postMessage({
-                        type: 'libreria',
-                        message: node.name,
-                    });
-                
-                }*/
-            }
             break;
 
         case 'accionElegida':

@@ -10,6 +10,9 @@ declare function require(path: string): any;
 export const myFirstContext = React.createContext("");
 
 const App = () => {
+    
+    //SE PODRIA USAR USE MEMO PARA EL SET DE ACCIONES
+
     const [acciones, setAcciones] = React.useState([]);
     const [nombreAccion,setNombreAccion] = React.useState("");
     const [accionesAMostrar, setAccionesAMostrar] = React.useState([]); 
@@ -53,7 +56,7 @@ const App = () => {
                 <div className="flexsearch--wrapper">
                     <form id="barraBusqueda" className="flexsearch--form">
                         <div className="flexsearch--input-wrapper">
-                            <input id="barraBusqueda" onChange={(e) => setNombreAccion(e.target.value)} className="flexsearch--input" onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }} type="search" placeholder="Ingrese una acción..." /> 
+                            <input id="barraBusqueda" onChange={(e) => setNombreAccion(e.target.value)} className="flexsearch--input" onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }} type="text" value={nombreAccion} placeholder="Ingrese una acción..." /> 
                             <img src={require('../assets/search-icon.png').default } width="20" height="20"/>
                         </div>
                     </form>
@@ -67,7 +70,6 @@ const App = () => {
                             <input id="botonIrAAccion" onClick={() => irALaAccion(element.tipo)} className="flexsearch--submit" type="submit" value="&#10140;" />
                         </li></>
                     ))}
-
                 </div>
             </div>
             <hr></hr>
