@@ -16,15 +16,23 @@ const Home = ({}) => {
     React.useEffect(() => {
         window.onmessage = (event) => {
             const {type, message} = event.data.pluginMessage;
-            if (type === 'libreria') {
-                let vec = [];
+            if (type === 'nombreBootstrap') {
+                /*let vec = [];
                 vec = message;
-                alert(vec.length)
-                const acciones = data.filter(accion => accion.libreria==message);
-                let tipo;
-                acciones.map(element => ( tipo = element.tipo)) 
-                ReactDOM.render(<AccionElegida tipo={tipo} libreria={message}/>, document.getElementById('react-page'));
+                var acciones = [];
+                var v = []; 
+                for(let component of vec){
+                    v = (data.filter(accion => accion.nombreBootstrap.includes(component)));
+                    for( let aux of v){
+                        acciones.push(aux);
+                    }
+
+                }*/
+            
+                //CREO QUE ACA ESTA EL ERROR, PORQ SE QUEDARIA CON EL ULTIMO TIPO
+                ReactDOM.render(<App nombreBootstrap={message}/>, document.getElementById('react-page'));
             }
+           
         };
     }, []);
 
@@ -34,10 +42,10 @@ const Home = ({}) => {
     };
 
     const conBootstrap = () => {
-        parent.postMessage({ pluginMessage: { type: 'libreria' } }, '*');
+        parent.postMessage({ pluginMessage: { type: 'nombreBootstrap' } }, '*');
     };
     const sinBootstrap = () => {
-        ReactDOM.render(<App />, document.getElementById('react-page'));
+        ReactDOM.render(<App nombreBootstrap=''/>, document.getElementById('react-page'));
     };
 
     return (

@@ -9,23 +9,56 @@ import data from '../assets/accionesPrueba.json';
 declare function require(path: string): any;
 export const myFirstContext = React.createContext("");
 
-const App = () => {
+const App = (props) => {
     
     //SE PODRIA USAR USE MEMO PARA EL SET DE ACCIONES
-
+    const accioness = data;
     const [acciones, setAcciones] = React.useState([]);
     const [nombreAccion,setNombreAccion] = React.useState("");
     const [accionesAMostrar, setAccionesAMostrar] = React.useState([]); 
 
     React.useEffect(() => {
-        let accionesNoDuplicadas = [];
-        data.forEach(p => {
-        if(accionesNoDuplicadas.findIndex(pd => pd.tipo === p.tipo) === -1) {
-            accionesNoDuplicadas.push(p);
+        if (props.nombreBootstrap.length == 0){
+            let accionesNoDuplicadas = [];
+            data.forEach(p =>{
+            if(accionesNoDuplicadas.findIndex(pd => pd.tipo === p.tipo) === -1) {
+                accionesNoDuplicadas.push(p);
+            }
+            });
+            setAcciones(accionesNoDuplicadas)
+
         }
-        });
-        setAcciones(accionesNoDuplicadas)
+        else{
+            
+            let componentesDeEstaVista = [];
+            componentesDeEstaVista = funcionAuxiliar();
+            console.log(componentesDeEstaVista)
+            //let acc = [];//
+            /*for (let componente of componentesDeEstaVista){
+
+                acc = (accioness.filter(accion => componente.toLowerCase().includes(accion.nombreBootstrap.toLowerCase())))
+        
+            }*/
+            setAcciones(componentesDeEstaVista);
+        } 
     }, []);
+
+    function funcionAuxiliar(){
+        let vec = [];
+        vec = props.nombreBootstrap;
+                var acciones = [];
+                var v = []; 
+                for(let component of vec){
+                    v = (data.filter(accion => accion.nombreBootstrap.includes(component)));
+                    for( let aux of v){
+                        acciones.push(aux);
+                    }
+                }
+        return acciones;
+
+
+    }
+
 
     React.useEffect(() =>
         setAccionesAMostrar(acciones), 
@@ -37,16 +70,14 @@ const App = () => {
         [nombreAccion]
     );
 
-
     const onCancel = () => {
         parent.postMessage({ pluginMessage: { type: 'salirPlugin' } }, '*');
     };
 
-    const irALaAccion = (tipo:string) => {
-        <AccionElegida tipo={tipo} libreria={''}/>
-        ReactDOM.render(<AccionElegida tipo={tipo} libreria={''} />, document.getElementById('react-page'));
+    const irALaAccion = (tipo:string, nombreBootstrap:string) => {
+        <AccionElegida tipo={tipo} nombreBootstrap={nombreBootstrap}/>
+        ReactDOM.render(<AccionElegida tipo={tipo} nombreBootstrap={nombreBootstrap} accionesVuelta={props.nombreBootstrap} />, document.getElementById('react-page')); 
     };
-
 
     return (
         <div>
@@ -66,8 +97,8 @@ const App = () => {
             <div className="Listado">
                 <div id="mapListado">
                     {accionesAMostrar.map(element => (
-                        <><li>Accion: {element.tipo}
-                            <input id="botonIrAAccion" onClick={() => irALaAccion(element.tipo)} className="flexsearch--submit" type="submit" value="&#10140;" />
+                        <><li>Accion: {element.tipo} Componente: {element.nombreBootstrap}
+                            <input id="botonIrAAccion" onClick={() => irALaAccion(element.tipo, element.nombreBootstrap)} className="flexsearch--submit" type="submit" value="&#10140;" />
                         </li></>
                     ))}
                 </div>

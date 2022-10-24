@@ -4,7 +4,7 @@
     "descripcion": "Inicio de sesión",
     "preCondicion": "Pre: Estar situado en el campo email/usuario y llenarlo.",
     "postCondicion": "Post: Se habilitará el botón contraseña.",
-    "libreria": "input",
+    "nombreBootstrap": "input",
     "id": "1"
   },
   {
@@ -12,7 +12,7 @@
     "descripcion": "Inicio de sesión",
     "preCondicion": "Pre: Se habilitará el campo contraseña cuando se ingrese el mail/usuario.",
     "postCondicion": "Post: Se habilitará el botón de iniciar sesión",
-    "libreria": "input",
+    "nombreBootstrap": "input",
     "id": "2"
   },
   {
@@ -20,7 +20,7 @@
     "descripcion": "Llenar campos de tarjeta.",
     "preCondicion": "Pre:  Solo se permitirá ingresar números, Longitud de 16 caracteres. ",
     "postCondicion": "Post: Se habilitará el siguiente campo cuando se ingresen los 16 caracteres.",
-    "libreria": "input",
+    "nombreBootstrap": "input-credit-card",
     "id": "3"
   },
   {
@@ -28,7 +28,7 @@
     "descripcion": "Cuando se ingresa el código de seguridad de una tarjeta.",
     "preCondicion": "Pre: Ingresar números, longitud exacta 3.",
     "postCondicion": "Post: Se habilitará el siguiente campo.",
-    "libreria": "input",
+    "nombreBootstrap": "input-number",
     "id": "4"
   },
   {
@@ -36,7 +36,7 @@
     "descripcion": "Ingresar algún contenido de un campo, estableciendo la longitud.",
     "preCondicion": "Pre: Estar situado en el campo a llenar. Establecer una longitud para dicho campo.",
     "postCondicion": "Post: Se habilitará el siguiente campo o botón una vez que se ingresó el mínimo de caracteres especificados.",
-    "libreria": "input",
+    "nombreBootstrap": "input",
     "id": "5"
   },
   {
@@ -44,7 +44,7 @@
     "descripcion": "Cuando se ingresa el código de seguridad de una tarjeta. ",
     "preCondicion": "Pre: Ingresar números, longitud exacta 3. ",
     "postCondicion": "Post: Se habilitará el siguiente campo.",
-    "libreria": "input",
+    "nombreBootstrap": "input",
     "id": "6"
   },
   {
@@ -52,7 +52,7 @@
     "descripcion": "Fecha.",
     "preCondicion": "Pre: Formato de fecha.",
     "postCondicion": "Post: Se habilitará el siguiente campo.",
-    "libreria": "input",
+    "nombreBootstrap": "input",
     "id": "7"
   },
   {
@@ -60,7 +60,7 @@
     "descripcion": "Carrito. Click +: aumenta la cantidad del producto, Click -: Disminuye la cantidad del producto, en caso de llegar a 0 se elimina.",
     "preCondicion": "Pre: Haber agregado anteriormente un producto al carrito.",
     "postCondicion": "Post: Se habilita el botón de Finalizar compra si se tiene al menos 1 producto.",
-    "libreria": "click",
+    "nombreBootstrap": "button",
     "id": "8"
   },
   {
@@ -68,7 +68,7 @@
     "descripcion": "Registrarse.",
     "preCondicion": " Pre: Se deberá haber llenado los campos anteriores, se habilita el botón registrarse",
     "postCondicion": "Post: Se registra al usuario, si la carga es lenta, se deberá agregar una barra de progreso.",
-    "libreria": "form",
+    "nombreBootstrap": "button",
     "id": "9"
   },
   {
@@ -76,7 +76,7 @@
     "descripcion": "Iniciar Sesión. ",
     "preCondicion": "Pre: Se deberá haber llenado los campos requeridos para la autenticación. Se habilita el botón iniciar sesión.",
     "postCondicion": "Post: -Se mostrará una barra de progreso, de acorde al tiempo de carga de la validación. -Luego se mostrará una alerta donde se inició sesión correctamente o las credenciales son incorrectas.",
-    "libreria": "form-item",
+    "nombreBootstrap": "button",
     "id": "10"
   },
   {
@@ -84,7 +84,7 @@
     "descripcion": "Clicks general. ",
     "preCondicion": "Pre: - ",
     "postCondicion": "Post: Por cada vez que se cambia de página o sección, deberá haber una barra de progreso.",
-    "libreria": "aaaa",
+    "nombreBootstrap": "button",
     "id": "11"
   },
   {
@@ -92,8 +92,8 @@
     "descripcion": "Finalizar evento/acción ",
     "preCondicion":"Pre: Se deberá tener activo el botón para finalizar por ejemplo una compra/acción.",
     "postCondicion":"Post:Se mostrará una barra de progreso hasta finalizar dicha acción, seguido de una alerta especificando la culminación del evento.",
-    "libreria": "click",
-    "id": "11"
+    "nombreBootstrap": "button",
+    "id": "12"
     }
   ,
   {
@@ -101,8 +101,8 @@
   "descripcion": "Pago. ",
   "preCondicion":"Pre: - ",
   "postCondicion":"Post: Si esta marcado tarjeta, desplegará los campos a llenar para finalizar la compra, una vez completados, se habilitará el botón comprar. Si se selecciona efectivo simplemente se habilitará el botón comprar",
-  "libreria": "seleccionarElemento",
-  "id": "12"
+  "nombreBootstrap": "checkbox",
+  "id": "13"
   }
   ,
   {
@@ -110,8 +110,8 @@
   "descripcion": "Pago. ",
   "preCondicion":"Pre: Se deberá tener una lista de opciones a seleccionar, ejemplo ciudades. ",
   "postCondicion":"Post: Se deberá haber seleccionado un elemento de esa lista.",
-  "libreria": "seleccionarElemento",
-  "id": "13"
+  "nombreBootstrap": "select",
+  "id": "14"
   }
   ,
   {
@@ -119,8 +119,8 @@
   "descripcion": "Estado COLOR",
   "preCondicion":"El estado/color de un botón se debe encontrar de cierta manera. ",
   "postCondicion":"Post:  Cuando clickeamos ese botón, el estado/color cambia.",
-  "libreria": "aaaaa",
-  "id": "14"
+  "nombreBootstrap": "aaaaa",
+  "id": "15"
   }
   ,
   {
@@ -128,8 +128,8 @@
   "descripcion": "Posición del mouse.",
   "preCondicion":"Pre:  El estado/color de un botón se debe encontrar de cierta manera. ",
   "postCondicion":"Post: Cuando ubicamos el mouse  sobre el botón, el estado/color cambia.",
-  "libreria": "a",
-  "id": "15"
+  "nombreBootstrap": "a",
+  "id": "16"
   }
 
 ]

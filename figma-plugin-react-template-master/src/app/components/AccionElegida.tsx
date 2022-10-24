@@ -14,19 +14,14 @@ const AccionElegida = (props) =>  {
     const [accionesAMostrar, setAccionesAMostrar] = React.useState([]); 
 
     React.useEffect(() => {
-        let componentesDeEstaVista = [""];
-        componentesDeEstaVista = props.libreria;
+        let nombreComponente = props.nombreBootstrap;
         let acc = [];
-        if(props.libreria == '' ){
+        if(props.nombreBootstrap == '' ){
             acc = acciones.filter(accion => accion.tipo==props.tipo)
         }
         else{ 
-
-            //FUNCIONA MAL
-
-            for (let componente of componentesDeEstaVista){ 
-                acc = acciones.filter(accion => componente.includes(accion.libreria));
-            }
+            acc = acciones.filter(accion => nombreComponente.includes(accion.nombreBootstrap));
+            
         }
         setAccionesAMostrar(acc);
     }, []);
@@ -48,7 +43,7 @@ const AccionElegida = (props) =>  {
     };
 
     const volver = () => {
-        ReactDOM.render(<App />, document.getElementById('react-page'));
+        ReactDOM.render(<App tipo = {nombreAccion} nombreBootstrap={props.accionesVuelta}/>, document.getElementById('react-page'));
     };
 
     const editarTexto = (i: string) => {

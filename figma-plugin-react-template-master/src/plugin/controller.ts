@@ -7,26 +7,26 @@ figma.ui.onmessage = (msg) => {
             figma.closePlugin()
             break;
         
-        case 'libreria':
+        case 'nombreBootstrap':
             if(figma.currentPage.selection.length == 0 ){
                 alert("Se deberá seleccionar un componente")
             }
             let componentes: string[] = []
-                var seleccion = figma.currentPage.selection
+                var seleccion = figma.currentPage.selection;
                // alert(figma.fileKey)
                 for(let componente of seleccion){
                     //alert(componente.x + " y " + componente.y + " y " + componente.id)
                     componentes.push(componente.name);
                     if (componente.type == "INSTANCE"){
                         if (componente.name == "form" || componente.name == "input" || componente.name== "button"){
-                            for (let componeneteHijo of componente.children){
-                                componentes.push(componeneteHijo.name)
+                            for (let componenteHijo of componente.children){
+                                componentes.push(componenteHijo.name)
                             }
                         }
                     }
                     };
                 figma.ui.postMessage({
-                    type: 'libreria',
+                    type: 'nombreBootstrap',
                     message: componentes,
                 });
             break;
