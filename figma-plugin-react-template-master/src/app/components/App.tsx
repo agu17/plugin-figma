@@ -32,6 +32,7 @@ const App = (props) => {
 
     function funcionAuxiliar(){
         let vec = [];
+        console.log(props)
         vec = props.nombreBootstrap;
                 var acciones = [];
                 //var v = []; 

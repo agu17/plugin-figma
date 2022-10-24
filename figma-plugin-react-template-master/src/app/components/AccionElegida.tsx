@@ -83,6 +83,36 @@ const AccionElegida = (props) =>  {
         document.body.removeChild(copyTextarea);
       
     }
+
+    const postear = async() => {
+        alert("HOLAAAA");
+        var myHeaders = new Headers();
+        myHeaders.append("X-FIGMA-TOKEN", "figd_sj_r0clxObCjK0OVPspbTdMPjx8AzZRA-IPNR661");
+        myHeaders.append("Content-Type", "application/json");
+
+        var raw = JSON.stringify({
+        "message": "posteo desde figma",
+        "client_meta": {
+            "node_id": "794:72422",
+            "node_offset": {
+            "x": "895",
+            "y": "444"
+            }
+        }
+        });
+
+        var requestOptions:RequestInit = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+
+        fetch("https://api.figma.com/v1/files/iaHv18dF5oR94Jl0sCa6c5/comments", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+    }
     
     return (
         <div>
@@ -116,6 +146,9 @@ const AccionElegida = (props) =>  {
                             </button>
                             <button id="botonDeCopiarAccion" onClick={() =>  { copiarAccion(element.id) }}>
                                 <img   src={require('../assets/icono-copiar.png').default } width="20" height="20" />
+                            </button>
+                            <button id="botonDepost" onClick={() =>  { postear() }}>
+                                <img   src={require('../assets/comentario.png').default } width="20" height="20" />
                             </button>
                             
                             

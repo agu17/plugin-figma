@@ -95,3 +95,18 @@ li{
     
     border-radius: 15px;
 }
+
+#inputDelToken{
+    margin-top: 60px;
+    color: #E4E4E4;
+    border: none;
+    outline: none;
+    padding: 10px;
+    border-radius: 25px;
+    background: black;
+}
+#inputDelToken::placeholder {
+    font-weight: bold;
+    opacity: .5;
+    color: #E4E4E4;
+}
