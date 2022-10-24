@@ -3,6 +3,7 @@ import * as ReactDOM from 'react-dom';
 import '../styles/ui.css';
 import data from '../assets/accionesPrueba.json';
 import App from './App';
+import SinLibreria from './sinLibreria';
 
 
 declare function require(path: string): any;
@@ -43,7 +44,14 @@ const AccionElegida = (props) =>  {
     };
 
     const volver = () => {
-        ReactDOM.render(<App tipo = {nombreAccion} nombreBootstrap={props.accionesVuelta}/>, document.getElementById('react-page'));
+        if(props.nombreBootstrap === ''){
+            ReactDOM.render(<SinLibreria />, document.getElementById('react-page'));
+            
+        }
+        else {
+            ReactDOM.render(<App tipo = {nombreAccion} nombreBootstrap={props.accionesVuelta}/>, document.getElementById('react-page'));
+        }
+        
     };
 
     const editarTexto = (i: string) => {

@@ -18,7 +18,7 @@ figma.ui.onmessage = (msg) => {
                     //alert(componente.x + " y " + componente.y + " y " + componente.id)
                     componentes.push(componente.name);
                     if (componente.type == "INSTANCE"){
-                        if (componente.name == "form" || componente.name == "input" || componente.name== "button"){
+                        if (componente.name == "form" ){
                             for (let componenteHijo of componente.children){
                                 componentes.push(componenteHijo.name)
                             }

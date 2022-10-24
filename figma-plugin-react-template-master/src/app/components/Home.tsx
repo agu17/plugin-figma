@@ -4,6 +4,7 @@ import '../styles/ui.css';
 import AccionElegida from './AccionElegida';
 import data from '../assets/accionesPrueba.json';
 import App from './App';
+import SinLibreria from './sinLibreria';
 
 
 
@@ -45,7 +46,7 @@ const Home = ({}) => {
         parent.postMessage({ pluginMessage: { type: 'nombreBootstrap' } }, '*');
     };
     const sinBootstrap = () => {
-        ReactDOM.render(<App nombreBootstrap=''/>, document.getElementById('react-page'));
+        ReactDOM.render(<SinLibreria/>, document.getElementById('react-page'));
     };
 
     return (

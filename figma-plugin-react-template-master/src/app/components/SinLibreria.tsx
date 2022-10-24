@@ -1,4 +1,3 @@
-
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import '../styles/ui.css';
@@ -9,43 +8,24 @@ import data from '../assets/accionesPrueba.json';
 declare function require(path: string): any;
 export const myFirstContext = React.createContext("");
 
-const App = (props) => {
+const SinLibreria = () => {
     
     //SE PODRIA USAR USE MEMO PARA EL SET DE ACCIONES
-    const accioness = data;
     const [acciones, setAcciones] = React.useState([]);
     const [nombreAccion,setNombreAccion] = React.useState("");
     const [accionesAMostrar, setAccionesAMostrar] = React.useState([]); 
 
     React.useEffect(() => {
-            let componentesDeEstaVista = [];
-            componentesDeEstaVista = funcionAuxiliar();
-            //let acc = [];//
-            /*for (let componente of componentesDeEstaVista){
-
-                acc = (accioness.filter(accion => componente.toLowerCase().includes(accion.nombreBootstrap.toLowerCase())))
-        
-            }*/
-            setAcciones(componentesDeEstaVista);
-        
+            let accionesNoDuplicadas = [];
+            data.forEach(p =>{
+            if(accionesNoDuplicadas.findIndex(pd => pd.tipo === p.tipo) === -1) {
+                accionesNoDuplicadas.push(p);
+            }
+            });
+            setAcciones(accionesNoDuplicadas)
     }, []);
 
-    function funcionAuxiliar(){
-        let vec = [];
-        vec = props.nombreBootstrap;
-                var acciones = [];
-                //var v = []; 
-                for(let component of vec){
-                    /*v = (data.filter(accion => accion.nombreBootstrap.includes(component)));
-                    for( let aux of v){
-                        acciones.push(aux);
-                    }*/
-                    acciones.push(component);
-                }
-        return acciones;
-
-
-    }
+ 
 
 
     React.useEffect(() =>
@@ -62,10 +42,10 @@ const App = (props) => {
         parent.postMessage({ pluginMessage: { type: 'salirPlugin' } }, '*');
     };
 
-    const irALaAccion = (nombreBootstrap:string) => {
+    const irALaAccion = (tipo:string ) => {
 
-        <AccionElegida  nombreBootstrap={nombreBootstrap}/>
-        ReactDOM.render(<AccionElegida nombreBootstrap={nombreBootstrap} accionesVuelta={props.nombreBootstrap} />, document.getElementById('react-page')); 
+        <AccionElegida tipo={tipo} nombreBootstrap={''}/>
+        ReactDOM.render(<AccionElegida tipo={tipo}  nombreBootstrap={''} />, document.getElementById('react-page')); 
     };
 
     return (
@@ -86,8 +66,8 @@ const App = (props) => {
             <div className="Listado">
                 <div id="mapListado">
                     {accionesAMostrar.map(element => (
-                        <><li>Componente: {element}
-                            <input id="botonIrAAccion" onClick={() => irALaAccion(element)} className="flexsearch--submit" type="submit" value="&#10140;" />
+                        <><li>Acción: {element.tipo}
+                            <input id="botonIrAAccion" onClick={() => irALaAccion(element.tipo)} className="flexsearch--submit" type="submit" value="&#10140;" />
                         </li></>
                     ))}
                 </div>
@@ -98,4 +78,4 @@ const App = (props) => {
     );
 };
 
-export default App;
+export default SinLibreria;
