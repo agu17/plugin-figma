@@ -44,8 +44,8 @@ const SinLibreria = () => {
 
     const irALaAccion = (tipo:string ) => {
 
-        <AccionElegida tipo={tipo} nombreBootstrap={''}/>
-        ReactDOM.render(<AccionElegida tipo={tipo}  nombreBootstrap={''} />, document.getElementById('react-page')); 
+        <AccionElegida tipo={tipo} nombreBootstrap={''} accionesVuelta={''} parametrosDeComentario={''}/>
+        ReactDOM.render(<AccionElegida tipo={tipo}  nombreBootstrap={''}  accionesVuelta={''} parametrosDeComentario={''}/>, document.getElementById('react-page')); 
     };
 
     return (

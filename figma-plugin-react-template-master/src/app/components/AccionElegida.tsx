@@ -33,14 +33,18 @@ const AccionElegida = (props) =>  {
         setAccionesAMostrar(acc);
     }, []);
     
-    
-    //FILTRADO SOLO POR DESCRIPCION
+
     React.useEffect(() =>{    
         if (nombreAccion != ""){
             setAccionesAMostrar(accionesAMostrar.filter(accion => accion.descripcion.toLowerCase().includes(nombreAccion.toLowerCase() ) ) ) }
         else{
-            let nombreComponente = props.nombreBootstrap;
-            setAccionesAMostrar(acciones.filter(accion => nombreComponente.includes(accion.nombreBootstrap)));
+            if(props.nombreBootstrap== ''){
+                setAccionesAMostrar(acciones.filter(accion =>  accion.tipo==props.tipo));
+            }else{
+                let nombreComponente = props.nombreBootstrap;
+                setAccionesAMostrar(acciones.filter(accion => nombreComponente.includes(accion.nombreBootstrap)));
+            }
+            
         }
         [nombreAccion]}
     );
