@@ -83,6 +83,7 @@ li{
     font-size: 13;
 }
 
+
 .botonDeEdicionDeTexto{
     background: #E4E4E4;
     margin-right: 50%;
@@ -94,6 +95,13 @@ li{
     background: #E4E4E4;
     
     border-radius: 15px;
+}
+
+.botonDepost{
+    background: #E4E4E4;
+    margin-left: 25%;
+    margin-right: 25%;
+    border-radius: 25px;
 }
 
 #inputDelToken{
@@ -110,3 +118,5 @@ li{
     opacity: .5;
     color: #E4E4E4;
 }
+
+

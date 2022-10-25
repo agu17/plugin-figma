@@ -12,7 +12,6 @@ export const myFirstContext = React.createContext("");
 const App = (props) => {
     
     //SE PODRIA USAR USE MEMO PARA EL SET DE ACCIONES
-    const accioness = data;
     const [acciones, setAcciones] = React.useState([]);
     const [nombreAccion,setNombreAccion] = React.useState("");
     const [accionesAMostrar, setAccionesAMostrar] = React.useState([]); 
@@ -32,7 +31,6 @@ const App = (props) => {
 
     function funcionAuxiliar(){
         let vec = [];
-        console.log(props)
         vec = props.nombreBootstrap;
                 var acciones = [];
                 //var v = []; 
@@ -55,7 +53,7 @@ const App = (props) => {
     );
 
     React.useEffect(() =>
-        setAccionesAMostrar(acciones.filter(accion => accion.tipo.toLowerCase().includes(nombreAccion.toLowerCase()))), 
+        setAccionesAMostrar(acciones.filter(accion => accion.toLowerCase().includes(nombreAccion.toLowerCase()))), 
         [nombreAccion]
     );
 
@@ -66,7 +64,7 @@ const App = (props) => {
     const irALaAccion = (nombreBootstrap:string) => {
 
         <AccionElegida  nombreBootstrap={nombreBootstrap}/>
-        ReactDOM.render(<AccionElegida nombreBootstrap={nombreBootstrap} accionesVuelta={props.nombreBootstrap} />, document.getElementById('react-page')); 
+        ReactDOM.render(<AccionElegida nombreBootstrap={nombreBootstrap} accionesVuelta={props.nombreBootstrap} parametrosDeComentario={props.parametrosDeComentario}/>, document.getElementById('react-page')); 
     };
 
     return (

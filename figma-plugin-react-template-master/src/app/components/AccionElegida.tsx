@@ -10,9 +10,15 @@ declare function require(path: string): any;
 
 const AccionElegida = (props) =>  {
     const acciones = data;
-
     const [nombreAccion,setNombreAccion] = React.useState("");
     const [accionesAMostrar, setAccionesAMostrar] = React.useState([]); 
+
+    const fileKey = props.parametrosDeComentario[0];
+    const idNodo = props.parametrosDeComentario[1];
+    const posX = props.parametrosDeComentario[2];
+    const posY = props.parametrosDeComentario[3];
+    const token = props.parametrosDeComentario[4];
+    var comentario:string;
 
     React.useEffect(() => {
         let nombreComponente = props.nombreBootstrap;
@@ -33,8 +39,8 @@ const AccionElegida = (props) =>  {
         if (nombreAccion != ""){
             setAccionesAMostrar(accionesAMostrar.filter(accion => accion.descripcion.toLowerCase().includes(nombreAccion.toLowerCase() ) ) ) }
         else{
-            //TODAVIA HAY QUE SOLUCIONAR EL PRIMER FILTRADO
-            //setAccionesAMostrar(acciones.filter(accion => accion.tipo==props.tipo))
+            let nombreComponente = props.nombreBootstrap;
+            setAccionesAMostrar(acciones.filter(accion => nombreComponente.includes(accion.nombreBootstrap)));
         }
         [nombreAccion]}
     );
@@ -49,7 +55,7 @@ const AccionElegida = (props) =>  {
             
         }
         else {
-            ReactDOM.render(<App tipo = {nombreAccion} nombreBootstrap={props.accionesVuelta}/>, document.getElementById('react-page'));
+            ReactDOM.render(<App tipo = {nombreAccion} nombreBootstrap={props.accionesVuelta} parametrosDeComentario={props.parametrosDeComentario}/>, document.getElementById('react-page'));
         }
         
     };
@@ -70,35 +76,39 @@ const AccionElegida = (props) =>  {
     }
     
     const copiarAccion = async(id:string) => {
-
         var copyTextarea = document.createElement("textarea");
         copyTextarea.style.position = "fixed";
         copyTextarea.style.opacity = "0";
-        let pre = document.getElementById(id + "precondicion").innerHTML;
-        let post = document.getElementById(id + "postcondicion").innerHTML;
-        copyTextarea.textContent = pre + post;
+        //let pre = document.getElementById(id + "precondicion").innerHTML;
+       // let post = document.getElementById(id + "postcondicion").innerHTML;
+        let tip = document.getElementById(id + "tip").innerHTML;
+        tip = tip.replace('<br><br>', '\n' );
+        tip = tip.replace('<br><br>', '\n' );
+        copyTextarea.textContent = tip;
         document.body.appendChild(copyTextarea);
         copyTextarea.select();
         document.execCommand("copy");
         document.body.removeChild(copyTextarea);
-      
     }
 
-    const postear = async() => {
-        alert("HOLAAAA");
+    const postear = async(id:string) => {
+        let tip = document.getElementById(id + "tip").innerHTML;
+        tip = tip.replace('<br><br>', '\n' );
+        tip = tip.replace('<br><br>', '\n' );
+        comentario = tip;
         var myHeaders = new Headers();
-        myHeaders.append("X-FIGMA-TOKEN", "figd_sj_r0clxObCjK0OVPspbTdMPjx8AzZRA-IPNR661");
+        myHeaders.append("X-FIGMA-TOKEN", token);
         myHeaders.append("Content-Type", "application/json");
 
         var raw = JSON.stringify({
-        "message": "posteo desde figma",
-        "client_meta": {
-            "node_id": "794:72422",
-            "node_offset": {
-            "x": "895",
-            "y": "444"
+            "message": comentario,
+            "client_meta": {
+                "node_id": idNodo,
+                "node_offset": {
+                "x": posX,
+                "y": posY
+                }
             }
-        }
         });
 
         var requestOptions:RequestInit = {
@@ -108,7 +118,7 @@ const AccionElegida = (props) =>  {
             redirect: 'follow'
         };
 
-        fetch("https://api.figma.com/v1/files/iaHv18dF5oR94Jl0sCa6c5/comments", requestOptions)
+        fetch("https://api.figma.com/v1/files/"+ fileKey +"/comments", requestOptions)
         .then(response => response.text())
         .then(result => console.log(result))
         .catch(error => console.log('error', error));
@@ -136,21 +146,19 @@ const AccionElegida = (props) =>  {
                     {accionesAMostrar.map(element => (
                         <><li>
                             <div id={element.id} className='textoDeAccion' contentEditable="false">
-                               <p id={element.id + 'descripcion'} > {element.descripcion} </p> 
-                               <p id={element.id + 'precondicion'} > {element.preCondicion} </p> 
-                               <p id={element.id + 'postcondicion'} > {element.postCondicion} </p>
-                               
+                               <p id={element.id + 'tip'} > {element.descripcion} <br/><br/> {element.preCondicion} <br/><br/> {element.postCondicion} </p> 
                             </div>
-                            <button id={element.id + "botonDeEdicionDeTexto"} className="botonDeEdicionDeTexto" onClick={() => { editarTexto(element.id) }}  >
-                                <img   src={require('../assets/edit-button.png').default } width="20" height="20" />
-                            </button>
-                            <button id="botonDeCopiarAccion" onClick={() =>  { copiarAccion(element.id) }}>
-                                <img   src={require('../assets/icono-copiar.png').default } width="20" height="20" />
-                            </button>
-                            <button id="botonDepost" onClick={() =>  { postear() }}>
-                                <img   src={require('../assets/comentario.png').default } width="20" height="20" />
-                            </button>
-                            
+                            <div className="Bottones">
+                                <button id={element.id + "botonDeEdicionDeTexto"} className="botonDeEdicionDeTexto" onClick={() => { editarTexto(element.id) }}  >
+                                    <img   src={require('../assets/edit-button.png').default } width="20" height="20" />
+                                </button>
+                                <button id="botonDeCopiarAccion" onClick={() =>  { copiarAccion(element.id) }}>
+                                    <img   src={require('../assets/icono-copiar.png').default } width="20" height="20" />
+                                </button>
+                                <button id="botonDepost" className="botonDepost" onClick={() =>  { postear(element.id) }}>
+                                    <img   src={require('../assets/comentario.png').default } width="20" height="20" />
+                                </button>
+                            </div>
                             
                         </li><hr></hr></>
                     ))}

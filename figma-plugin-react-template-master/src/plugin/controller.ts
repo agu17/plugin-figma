@@ -27,6 +27,7 @@ figma.ui.onmessage = async (msg) => {
             mensaje.push(seleccion[0].id);
             mensaje.push(seleccion[0].x);
             mensaje.push(seleccion[0].y);
+            mensaje.push(await getToken());
                // alert(figma.fileKey)
                 for(let componente of seleccion){
                     //alert(componente.x + " y " + componente.y + " y " + componente.id)
