@@ -3,7 +3,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import '../styles/ui.css';
 import AccionElegida from './AccionElegida';
-import data from '../assets/accionesPrueba.json';
+//import data from '../assets/accionesPrueba.json';
 
 
 declare function require(path: string): any;

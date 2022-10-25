@@ -1,8 +1,8 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import '../styles/ui.css';
-import AccionElegida from './AccionElegida';
-import data from '../assets/accionesPrueba.json';
+//import AccionElegida from './AccionElegida';
+//import data from '../assets/accionesPrueba.json';
 import App from './App';
 import SinLibreria from './sinLibreria';
 
@@ -35,9 +35,7 @@ const Home = ({}) => {
                 //CREO QUE ACA ESTA EL ERROR, PORQ SE QUEDARIA CON EL ULTIMO TIPO
                 console.log(message)
                 let componentes = message.pop()
-                console.log(componentes)
-                console.log(message)
-                ReactDOM.render(<App nombreBootstrap={componentes} parametrosDeComentario={message}/>, document.getElementById('react-page'));
+                ReactDOM.render(<App nombreBootstrap={componentes} parametrosDeComentario={message} />, document.getElementById('react-page'));
             }
            
         };

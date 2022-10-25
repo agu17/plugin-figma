@@ -24,32 +24,30 @@ figma.ui.onmessage = async (msg) => {
             
             let componentes: string[] = []
             var seleccion = figma.currentPage.selection;
+
             mensaje.push(seleccion[0].id);
             mensaje.push(seleccion[0].x);
             mensaje.push(seleccion[0].y);
             mensaje.push(await getToken());
-               // alert(figma.fileKey)
+
                 for(let componente of seleccion){
-                    //alert(componente.x + " y " + componente.y + " y " + componente.id)
                     componentes.push(componente.name);
-                    if (componente.type == "INSTANCE"){
+                    if (componente.type == "INSTANCE" || componente.type == "FRAME"){
                         if (componente.name == "form" ){
                             for (let componenteHijo of componente.children){
                                 componentes.push(componenteHijo.name)
                             }
                         }
                     }
-                    };
+                    
                 mensaje.push(componentes)
                 figma.ui.postMessage({
                     type: 'nombreBootstrap',
                     message: mensaje,
                 });
             break;
-
-        case 'accionElegida':
-            break;
         }
+    }
 };
 async function setToken(token)  {
     try{ 
