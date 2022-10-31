@@ -5,9 +5,7 @@ import '../styles/ui.css';
 //import data from '../assets/accionesPrueba.json';
 import App from './App';
 import SinLibreria from './sinLibreria';
-
-
-
+import toast, { Toaster } from 'react-hot-toast';
 
 declare function require(path: string): any;
 export const myFirstContext = React.createContext("");
@@ -56,6 +54,7 @@ const Home = ({}) => {
 
     const setearToken = () => {
         parent.postMessage({ pluginMessage: { type: 'setearToken', mens: nombreToken } }, '*');
+        toast.success("Se ha guardado el token!");
     }
 
     return (
@@ -67,6 +66,7 @@ const Home = ({}) => {
             
             <button id="salirPlugin" onClick={onCancel}> Salir del plugin</button>
             <hr></hr>
+            <Toaster />
             <div className="flexsearch--input-wrapper">
                 <input id="inputDelToken" placeholder='Ingrese su token' className="inputDelToken" onChange={(e) => setNombreToken(e.target.value)}/>
                 <button id="botonDeCopiarAccion" onClick={setearToken}>

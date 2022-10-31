@@ -9,8 +9,6 @@ figma.ui.onmessage = async (msg) => {
 
         case 'setearToken':
             await setToken(msg.mens);
-            let i = await getToken();
-            alert("el token es: " + i)
             break;
         
         case 'nombreBootstrap':
@@ -31,6 +29,7 @@ figma.ui.onmessage = async (msg) => {
             mensaje.push(await getToken());
 
                 for(let componente of seleccion){
+                    
                     componentes.push(componente.name);
                     if (componente.type == "INSTANCE" || componente.type == "FRAME" || componente.type == "GROUP" ){
                         //if (componente.name == "form" ){
@@ -43,7 +42,7 @@ figma.ui.onmessage = async (msg) => {
                         //}
                     }
                 }
-                
+
                 const myUniqueArray = [...new Set(componentes)]; 
                 mensaje.push(myUniqueArray)
                 figma.ui.postMessage({

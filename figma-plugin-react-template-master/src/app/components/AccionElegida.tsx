@@ -5,10 +5,13 @@ import data from '../assets/accionesPrueba.json';
 import App from './App';
 import SinLibreria from './sinLibreria';
 
+import toast, { Toaster } from 'react-hot-toast';
+
 
 declare function require(path: string): any;
 
 const AccionElegida = (props) =>  {
+    
     const acciones = data;
     const [nombreAccion,setNombreAccion] = React.useState("");
     const [accionesAMostrar, setAccionesAMostrar] = React.useState([]); 
@@ -93,6 +96,7 @@ const AccionElegida = (props) =>  {
         copyTextarea.select();
         document.execCommand("copy");
         document.body.removeChild(copyTextarea);
+        toast("Copiado!");
     }
 
     const postear = async(id:string) => {
@@ -126,6 +130,8 @@ const AccionElegida = (props) =>  {
         .then(response => response.text())
         .then(result => console.log(result))
         .catch(error => console.log('error', error));
+
+        toast("El comentario se posteo con exito!");
     }
     
     return (
@@ -144,7 +150,7 @@ const AccionElegida = (props) =>  {
             </div>
 
             <hr></hr>
-
+            
             <div className="Listado">
                 <div id="mapListado">
                     {accionesAMostrar.map(element => (
@@ -152,6 +158,7 @@ const AccionElegida = (props) =>  {
                             <div id={element.id} className='textoDeAccion' contentEditable="false">
                                <p id={element.id + 'tip'} > {element.descripcion} <br/><br/> {element.preCondicion} <br/><br/> {element.postCondicion} </p> 
                             </div>
+                            <Toaster />
                             <div className="Bottones">
                                 <button id={element.id + "botonDeEdicionDeTexto"} className="botonDeEdicionDeTexto" onClick={() => { editarTexto(element.id) }}  >
                                     <img   src={require('../assets/edit-button.png').default } width="20" height="20" />
