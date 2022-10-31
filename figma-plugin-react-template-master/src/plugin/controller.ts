@@ -32,21 +32,26 @@ figma.ui.onmessage = async (msg) => {
 
                 for(let componente of seleccion){
                     componentes.push(componente.name);
-                    if (componente.type == "INSTANCE" || componente.type == "FRAME"){
-                        if (componente.name == "form" ){
+                    if (componente.type == "INSTANCE" || componente.type == "FRAME" || componente.type == "GROUP" ){
+                        //if (componente.name == "form" ){
                             for (let componenteHijo of componente.children){
-                                componentes.push(componenteHijo.name)
+                                if ( componenteHijo.name.toLowerCase().includes("input") || componenteHijo.name.toLowerCase().includes("button")) {
+                                    componentes.push(componenteHijo.name)
+                                }
+                                
                             }
-                        }
+                        //}
                     }
-                    
-                mensaje.push(componentes)
+                }
+                
+                const myUniqueArray = [...new Set(componentes)]; 
+                mensaje.push(myUniqueArray)
                 figma.ui.postMessage({
                     type: 'nombreBootstrap',
                     message: mensaje,
                 });
             break;
-        }
+        
     }
 };
 async function setToken(token)  {

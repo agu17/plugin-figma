@@ -33,8 +33,9 @@ const Home = ({}) => {
                 }*/
             
                 //CREO QUE ACA ESTA EL ERROR, PORQ SE QUEDARIA CON EL ULTIMO TIPO
-                console.log(message)
+                
                 let componentes = message.pop()
+                alert("fff" + componentes.length)
                 ReactDOM.render(<App nombreBootstrap={componentes} parametrosDeComentario={message} />, document.getElementById('react-page'));
             }
            

@@ -34,11 +34,13 @@ const App = (props) => {
         vec = props.nombreBootstrap;
                 var acciones = [];
                 //var v = []; 
+                
                 for(let component of vec){
                     /*v = (data.filter(accion => accion.nombreBootstrap.includes(component)));
                     for( let aux of v){
                         acciones.push(aux);
                     }*/
+                    
                     acciones.push(component);
                 }
         return acciones;
@@ -69,7 +71,7 @@ const App = (props) => {
 
     return (
         <div>
-            <p id="textoInicial"> Selecciona una acción, le recomendamos copiar dicha accion en un comentario sobre el componente seleccionado</p>
+            <p id="textoInicial"> Componentes detectados del frame {accionesAMostrar[0]}</p>
 
             <div className="flexsearch">
                 <div className="flexsearch--wrapper">
