@@ -2,15 +2,14 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import '../styles/ui.css';
 import AccionElegida from './AccionElegida';
-//import data from '../assets/accionesPrueba.json';
 
 declare function require(path: string): any;
 export const myFirstContext = React.createContext('');
 
-const App = (props) => {
-    //SE PODRIA USAR USE MEMO PARA EL SET DE ACCIONES
+const RelacionComponente = (props) => {
+    var estado: string = ' ';
+
     const [acciones, setAcciones] = React.useState([]);
-    const [nombreAccion, setNombreAccion] = React.useState('');
     const [accionesAMostrar, setAccionesAMostrar] = React.useState([]);
 
     React.useEffect(() => {
@@ -21,7 +20,7 @@ const App = (props) => {
 
     function funcionAuxiliar() {
         let vec = [];
-        vec = props.nombreBootstrap;
+        vec = props.componenteRelacion;
         var acciones = [];
         for (let component of vec) {
             acciones.push(component);
@@ -31,53 +30,30 @@ const App = (props) => {
 
     React.useEffect(() => setAccionesAMostrar(acciones), [acciones]);
 
-    React.useEffect(
-        () =>
-            setAccionesAMostrar(acciones.filter((accion) => accion.toLowerCase().includes(nombreAccion.toLowerCase()))),
-        [nombreAccion]
-    );
-
     const onCancel = () => {
         parent.postMessage({pluginMessage: {type: 'salirPlugin'}}, '*');
     };
 
-    const irALaAccion = (nombreBootstrap: string) => {
-        <AccionElegida nombreBootstrap={nombreBootstrap} />;
+    const relacionar = (nombreComponente: string) => {
         ReactDOM.render(
             <AccionElegida
-                nombreBootstrap={nombreBootstrap}
-                accionesVuelta={props.nombreBootstrap}
+                nombreBootstrap={props.nombreBootstrap}
+                accionesVuelta={props.accionesVuelta}
                 parametrosDeComentario={props.parametrosDeComentario}
-                componenteRelacion={''}
+                componenteRelacion={nombreComponente + estado}
             />,
             document.getElementById('react-page')
         );
     };
 
+    function setEstado(event) {
+        estado = event.target.value;
+        console.log(event.target.value);
+    }
+
     return (
         <div>
-            <p id="textoInicial"> Componentes detectados del frame {accionesAMostrar[0]}</p>
-
-            <div className="flexsearch">
-                <div className="flexsearch--wrapper">
-                    <form id="barraBusqueda" className="flexsearch--form">
-                        <div className="flexsearch--input-wrapper">
-                            <input
-                                id="barraBusqueda"
-                                onChange={(e) => setNombreAccion(e.target.value)}
-                                className="flexsearch--input"
-                                onKeyPress={(e) => {
-                                    e.key === 'Enter' && e.preventDefault();
-                                }}
-                                type="text"
-                                value={nombreAccion}
-                                placeholder="Ingrese una acción..."
-                            />
-                            <img src={require('../assets/search-icon.png').default} width="20" height="20" />
-                        </div>
-                    </form>
-                </div>
-            </div>
+            <p id="textoInicial"> Componentes que pueden establecer una relación con: {accionesAMostrar[0]}</p>
             <hr></hr>
             <div className="Listado">
                 <div id="mapListado">
@@ -86,12 +62,16 @@ const App = (props) => {
                             <li>
                                 Componente: {element}
                                 <input
-                                    id="botonIrAAccion"
-                                    onClick={() => irALaAccion(element)}
+                                    id="botonLinkeo"
+                                    onClick={() => relacionar(element)}
                                     className="flexsearch--submit"
                                     type="submit"
                                     value="&#10140;"
                                 />
+                                <div onChange={setEstado.bind(this)}>
+                                    <input type="radio" value=" lleno" name="gender" /> Lleno
+                                    <input type="radio" value=" vacio" name="gender" /> Vacio
+                                </div>
                             </li>
                         </>
                     ))}
@@ -106,4 +86,4 @@ const App = (props) => {
     );
 };
 
-export default App;
+export default RelacionComponente;
