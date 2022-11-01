@@ -71,7 +71,6 @@ const AccionElegida = (props) => {
     };
 
     const relacionarComponente = () => {
-        alert(props.nombreBootstrap);
         if (props.nombreBootstrap != '') {
             let acc = [];
             acc = props.accionesVuelta;
@@ -157,7 +156,7 @@ const AccionElegida = (props) => {
 
     return (
         <div>
-            <p id="textoInicial"> Acción: {props.tipo}</p>
+            <p id="textoInicial"> Componente: {props.nombreBootstrap}</p>
 
             <div className="flexsearch">
                 <div className="flexsearch--wrapper">
@@ -237,7 +236,7 @@ const AccionElegida = (props) => {
                                             relacionarComponente();
                                         }}
                                     >
-                                        <img src={require('../assets/comentario.png').default} width="20" height="20" />
+                                        <img src={require('../assets/icono-vinculacion.png').default} width="20" height="20" />
                                     </button>
                                 </div>
                             </li>

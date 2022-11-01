@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import '../styles/ui.css';
 import AccionElegida from './AccionElegida';
+import Home from './home';
 //import data from '../assets/accionesPrueba.json';
 
 declare function require(path: string): any;
@@ -54,6 +55,13 @@ const App = (props) => {
         );
     };
 
+    const volver = () => {
+            ReactDOM.render(
+                <Home/>,
+                document.getElementById('react-page')
+            );
+    };
+
     return (
         <div>
             <p id="textoInicial"> Componentes detectados del frame {accionesAMostrar[0]}</p>
@@ -101,6 +109,10 @@ const App = (props) => {
             <button id="salirPlugin" onClick={onCancel}>
                 {' '}
                 Salir del plugin
+            </button>
+            <button id="volver" onClick={volver}>
+                {' '}
+                Volver
             </button>
         </div>
     );

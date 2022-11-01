@@ -51,6 +51,18 @@ const RelacionComponente = (props) => {
         console.log(event.target.value);
     }
 
+    const volver = () => {
+            ReactDOM.render(
+                <AccionElegida
+                nombreBootstrap={props.nombreBootstrap}
+                accionesVuelta={props.accionesVuelta}
+                parametrosDeComentario={props.parametrosDeComentario}
+                componenteRelacion={""}
+                />,
+                document.getElementById('react-page')
+            );
+    };
+
     return (
         <div>
             <p id="textoInicial"> Componentes que pueden establecer una relación con: {accionesAMostrar[0]}</p>
@@ -61,13 +73,14 @@ const RelacionComponente = (props) => {
                         <>
                             <li>
                                 Componente: {element}
-                                <input
+                                <button
                                     id="botonLinkeo"
                                     onClick={() => relacionar(element)}
-                                    className="flexsearch--submit"
+                                    className="botonLinkeo"
                                     type="submit"
-                                    value="&#10140;"
-                                />
+                                    value="Vincular">
+                                    <img src={require('../assets/icono-vinculacion.png').default} width="15" height="14" />
+                                </button>    
                                 <div onChange={setEstado.bind(this)}>
                                     <input type="radio" value=" lleno" name="gender" /> Lleno
                                     <input type="radio" value=" vacio" name="gender" /> Vacio
@@ -81,6 +94,10 @@ const RelacionComponente = (props) => {
             <button id="salirPlugin" onClick={onCancel}>
                 {' '}
                 Salir del plugin
+            </button>
+            <button id="volver" onClick={volver}>
+                {' '}
+                Volver
             </button>
         </div>
     );

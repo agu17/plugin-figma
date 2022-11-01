@@ -44,21 +44,20 @@ const Home = ({}) => {
         <div>
             <p id="textoInicial"> Seleccione el método de utilización del plugin.</p>
 
-            <button id="botonIrAAccion" onClick={conBootstrap}>
+            <button id="botonHome" onClick={conBootstrap}>
                 {' '}
                 Libreria
             </button>
-            <button id="botonIrAAccion" onClick={sinBootstrap}>
+            <button id="botonHome" onClick={sinBootstrap}>
                 {' '}
                 Sin libreria
             </button>
 
-            <button id="salirPlugin" onClick={onCancel}>
-                {' '}
-                Salir del plugin
-            </button>
             <Toaster />
             <hr></hr>
+
+            <p id="textoDelToken">Ingrese su token personal si no lo has ingresado o si lo deseas cambiar</p>
+
             <div className="flexsearch--input-wrapper">
                 <input
                     id="inputDelToken"
@@ -66,10 +65,15 @@ const Home = ({}) => {
                     className="inputDelToken"
                     onChange={(e) => setNombreToken(e.target.value)}
                 />
-                <button id="botonDeCopiarAccion" onClick={setearToken}>
-                    <img src={require('../assets/icono-copiar.png').default} width="20" height="20" />
+                <button id="botonDeAgregarToken" onClick={setearToken}>
+                    <img src={require('../assets/icono-copiar.png').default} width="15" height="15" />
                 </button>
             </div>
+
+            <button id="salirPluginHome" className='salirPluginHome' onClick={onCancel}>
+                {' '}
+                Salir del plugin
+            </button>
         </div>
     );
 };
