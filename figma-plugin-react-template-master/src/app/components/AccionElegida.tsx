@@ -80,6 +80,7 @@ const AccionElegida = (props) => {
                     nombreBootstrap={props.nombreBootstrap}
                     accionesVuelta={props.accionesVuelta}
                     parametrosDeComentario={props.parametrosDeComentario}
+                    nombreDelComponenteARelacionar={props.nombreBootstrap}
                     componenteRelacion={acc}
                 />,
                 document.getElementById('react-page')

@@ -15,7 +15,9 @@ figma.ui.onmessage = async (msg) => {
             
             if(figma.currentPage.selection.length == 0 ){
                 alert("Se deberá seleccionar un componente")
+                break;
             }
+
             var mensaje = []
             mensaje.push(figma.fileKey);
             
@@ -25,8 +27,9 @@ figma.ui.onmessage = async (msg) => {
             mensaje.push(seleccion[0].x);
             mensaje.push(seleccion[0].y);
             mensaje.push(await getToken());
-
+            mensaje.push(seleccion[0].name);
                 for(let componente of seleccion){
+
                     if (esValido(componente)){
                         componentes.push(componente.name)
                         }
@@ -39,8 +42,8 @@ figma.ui.onmessage = async (msg) => {
                     }
                 }
                 console.log(componentes)
-                const myUniqueArray = [...new Set(componentes)]; 
-                mensaje.push(myUniqueArray)
+                const componentesSinRepetir = [...new Set(componentes)]; 
+                mensaje.push(componentesSinRepetir)
                 figma.ui.postMessage({
                     type: 'nombreBootstrap',
                     message: mensaje,

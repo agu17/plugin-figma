@@ -64,7 +64,7 @@ const App = (props) => {
 
     return (
         <div>
-            <p id="textoInicial"> Componentes detectados del frame {accionesAMostrar[0]}</p>
+            <p id="textoInicial"> Componentes detectados del frame {props.parametrosDeComentario[5]}</p>
 
             <div className="flexsearch">
                 <div className="flexsearch--wrapper">
