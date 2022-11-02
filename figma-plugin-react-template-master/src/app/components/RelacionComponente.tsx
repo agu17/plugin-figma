@@ -85,7 +85,7 @@ const RelacionComponente = (props) => {
 
     return (
         <div>
-            <p id="textoInicial"> Componentes que pueden establecer una relación con: {accionesAMostrar[0]}</p>
+            <p id="textoInicial"> Componentes que pueden establecer una relación con {accionesAMostrar[0]}</p>
             <hr></hr>
             <div className="Listado">
                 <div id="mapListado">
