@@ -25,16 +25,16 @@ figma.ui.onmessage = async (msg) => {
             mensaje.push(seleccion[0].x);
             mensaje.push(seleccion[0].y);
             mensaje.push(await getToken());
-            
+
                 for(let componente of seleccion){
-                    if (componente.type == "INSTANCE" || componente.type == "FRAME" || componente.type == "GROUP" ){
+                    if (esValido(componente)){
+                        componentes.push(componente.name)
+                        }
+                    else{
+                        if (componente.type == "INSTANCE" || componente.type == "FRAME" || componente.type == "GROUP" ){
                             for (let componenteHijo of componente.children){
                                 busquedaDeComponentesValidos(componenteHijo);
-                        }
-                    }
-                    else{
-                        if (esValido(componente)){
-                        componentes.push(componente.name)
+                            }
                         }
                     }
                 }
