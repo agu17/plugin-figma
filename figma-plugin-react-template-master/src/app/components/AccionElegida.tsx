@@ -5,8 +5,8 @@ import data from '../assets/accionesPrueba.json';
 import App from './App';
 import SinLibreria from './sinLibreria';
 import RelacionComponente from './RelacionComponente';
-
 import toast, {Toaster} from 'react-hot-toast';
+
 
 declare function require(path: string): any;
 
@@ -14,7 +14,6 @@ const AccionElegida = (props) => {
     const acciones = data;
     const [nombreAccion, setNombreAccion] = React.useState('');
     const [accionesAMostrar, setAccionesAMostrar] = React.useState([]);
-
     const fileKey = props.parametrosDeComentario[0];
     const idNodo = props.parametrosDeComentario[1];
     const posX = props.parametrosDeComentario[2];
@@ -116,7 +115,7 @@ const AccionElegida = (props) => {
         copyTextarea.select();
         document.execCommand('copy');
         document.body.removeChild(copyTextarea);
-        toast('Copiado!');
+        toast.success('Copiado!');
     };
 
     const postear = async (id: string) => {
@@ -151,9 +150,8 @@ const AccionElegida = (props) => {
             .then((result) => console.log(result))
             .catch((error) => console.log('error', error));
 
-        toast('El comentario se posteo con exito!');
+        toast.success('El comentario se posteo con exito!');
     };
-
     return (
         <div>
             <p id="textoInicial"> Componente: {props.nombreBootstrap}</p>
@@ -189,7 +187,7 @@ const AccionElegida = (props) => {
                                     <p id={element.id + 'tip'}>
                                         {' '}
                                         {element.descripcion} <br />
-                                        <br /> {element.preCondicion} {props.componenteRelacion} <br />
+                                        <br /> {element.preCondicion} <br /> {props.componenteRelacion} <br />
                                         <br /> {element.postCondicion}{' '}
                                     </p>
                                 </div>
@@ -197,6 +195,7 @@ const AccionElegida = (props) => {
                                 <div className="Bottones">
                                     <button
                                         id={element.id + 'botonDeEdicionDeTexto'}
+                                        title='Editar tip'
                                         className="botonDeEdicionDeTexto"
                                         onClick={() => {
                                             editarTexto(element.id);
@@ -210,6 +209,7 @@ const AccionElegida = (props) => {
                                     </button>
                                     <button
                                         id="botonDeCopiarAccion"
+                                        title='Copiar tip'
                                         onClick={() => {
                                             copiarAccion(element.id);
                                         }}
@@ -223,6 +223,7 @@ const AccionElegida = (props) => {
                                     <button
                                         id="botonDepost"
                                         className="botonDepost"
+                                        title='Realizar un comentario con este tip'
                                         onClick={() => {
                                             postear(element.id);
                                         }}
@@ -231,6 +232,7 @@ const AccionElegida = (props) => {
                                     </button>
                                     <button
                                         id="botonDeRelacion"
+                                        title='Relacionar este componente con otros'
                                         className="botonDeRelacion"
                                         onClick={() => {
                                             relacionarComponente();

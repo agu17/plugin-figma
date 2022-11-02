@@ -42,7 +42,7 @@ const Home = ({}) => {
 
     return (
         <div>
-            <p id="textoInicial"> Seleccione el método de utilización del plugin.</p>
+            <p id="textoInicial">Seleccione el método de utilización del plugin</p>
 
             <button id="botonHome" onClick={conBootstrap}>
                 {' '}
@@ -65,7 +65,7 @@ const Home = ({}) => {
                     className="inputDelToken"
                     onChange={(e) => setNombreToken(e.target.value)}
                 />
-                <button id="botonDeAgregarToken" onClick={setearToken}>
+                <button id="botonDeAgregarToken" title='Guardar token' onClick={setearToken}>
                     <img src={require('../assets/icono-copiar.png').default} width="15" height="15" />
                 </button>
             </div>

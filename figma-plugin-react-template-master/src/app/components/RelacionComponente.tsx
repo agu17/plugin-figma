@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import toast, {Toaster} from 'react-hot-toast';
 import '../styles/ui.css';
 import AccionElegida from './AccionElegida';
 
@@ -7,10 +8,11 @@ declare function require(path: string): any;
 export const myFirstContext = React.createContext('');
 
 const RelacionComponente = (props) => {
-    var estado: string = ' ';
+    var estado: string = ' lleno.';
 
     const [acciones, setAcciones] = React.useState([]);
     const [accionesAMostrar, setAccionesAMostrar] = React.useState([]);
+    var componentesRelacionados = []
 
     React.useEffect(() => {
         let componentesDeEstaVista = [];
@@ -34,21 +36,29 @@ const RelacionComponente = (props) => {
         parent.postMessage({pluginMessage: {type: 'salirPlugin'}}, '*');
     };
 
-    const relacionar = (nombreComponente: string) => {
-        ReactDOM.render(
-            <AccionElegida
-                nombreBootstrap={props.nombreBootstrap}
-                accionesVuelta={props.accionesVuelta}
-                parametrosDeComentario={props.parametrosDeComentario}
-                componenteRelacion={nombreComponente + estado}
-            />,
-            document.getElementById('react-page')
-        );
+    const relacionar = (/*nombreComponente: string*/) => {
+        if (componentesRelacionados.length < 1){
+            toast.error("No se ha seleccionado ningun componente")
+        }
+        else{
+            let componentes:string= "";
+            for (let c of componentesRelacionados){
+                componentes+= c + ", ";
+            }
+            ReactDOM.render(
+                <AccionElegida
+                    nombreBootstrap={props.nombreBootstrap}
+                    accionesVuelta={props.accionesVuelta}
+                    parametrosDeComentario={props.parametrosDeComentario}
+                    componenteRelacion={componentes + estado}
+                />,
+                document.getElementById('react-page')
+            );
+        }
     };
 
     function setEstado(event) {
         estado = event.target.value;
-        console.log(event.target.value);
     }
 
     const volver = () => {
@@ -63,6 +73,16 @@ const RelacionComponente = (props) => {
             );
     };
 
+    const agregarComponenteALaRelacion = (componente:string, check:boolean) =>{
+        
+        if (check){
+            componentesRelacionados.push(componente)
+        }
+        else{
+            componentesRelacionados = componentesRelacionados.filter((comp) => comp != componente);
+        }
+    }
+
     return (
         <div>
             <p id="textoInicial"> Componentes que pueden establecer una relación con: {accionesAMostrar[0]}</p>
@@ -73,23 +93,21 @@ const RelacionComponente = (props) => {
                         <>
                             <li>
                                 Componente: {element}
-                                <button
-                                    id="botonLinkeo"
-                                    onClick={() => relacionar(element)}
-                                    className="botonLinkeo"
-                                    type="submit"
-                                    value="Vincular">
-                                    <img src={require('../assets/icono-vinculacion.png').default} width="15" height="14" />
-                                </button>    
-                                <div onChange={setEstado.bind(this)}>
-                                    <input type="radio" value=" lleno" name="gender" /> Lleno
-                                    <input type="radio" value=" vacio" name="gender" /> Vacio
-                                </div>
+                                <input type="checkbox"  onChange={(e) => agregarComponenteALaRelacion(element, e.target.checked)} />  
                             </li>
                         </>
                     ))}
                 </div>
             </div>
+            <Toaster/>
+            <div onChange={setEstado.bind(this)}>
+                <input type="radio" value=" lleno." name="gender" checked/> Lleno
+                <input type="radio" value=" vacio." name="gender" /> Vacio
+            </div>
+            <button id="relacionar" onClick={relacionar}>
+                {' '}
+                Relacionar
+            </button>
             <hr></hr>
             <button id="salirPlugin" onClick={onCancel}>
                 {' '}
