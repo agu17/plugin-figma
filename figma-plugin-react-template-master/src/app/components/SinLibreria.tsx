@@ -3,6 +3,7 @@ import * as ReactDOM from 'react-dom';
 import '../styles/ui.css';
 import AccionElegida from './AccionElegida';
 import data from '../assets/accionesPrueba.json';
+import Home from './home';
 
 
 declare function require(path: string): any;
@@ -47,6 +48,12 @@ const SinLibreria = () => {
         <AccionElegida tipo={tipo} nombreBootstrap={''} accionesVuelta={''} parametrosDeComentario={''}/>
         ReactDOM.render(<AccionElegida tipo={tipo}  nombreBootstrap={''}  accionesVuelta={''} parametrosDeComentario={''}/>, document.getElementById('react-page')); 
     };
+    const volver = () => {
+        ReactDOM.render(
+            <Home/>,
+            document.getElementById('react-page')
+        );
+};
 
     return (
         <div>
@@ -74,6 +81,10 @@ const SinLibreria = () => {
             </div>
             <hr></hr>
             <button id="salirPlugin" onClick={onCancel}> Salir del plugin</button>
+            <button id="volver" onClick={volver}>
+                {' '}
+                Volver
+            </button>
         </div>
     );
 };
