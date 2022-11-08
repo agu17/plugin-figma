@@ -3,6 +3,7 @@ import * as ReactDOM from 'react-dom';
 import toast, {Toaster} from 'react-hot-toast';
 import '../styles/ui.css';
 import AccionElegida from './AccionElegida';
+import Select from 'react-select';
 
 declare function require(path: string): any;
 export const myFirstContext = React.createContext('');
@@ -10,9 +11,12 @@ export const myFirstContext = React.createContext('');
 const RelacionComponente = (props) => {
     var estado: string = ' lleno.';
 
+    // <input type="radio" value=" lleno." name="gender" checked/> Lleno
+    // <input type="radio" value=" vacio." name="gender" /> Vacio
+    2;
     const [acciones, setAcciones] = React.useState([]);
     const [accionesAMostrar, setAccionesAMostrar] = React.useState([]);
-    var componentesRelacionados = []
+    var componentesRelacionados = [];
 
     React.useEffect(() => {
         let componentesDeEstaVista = [];
@@ -37,13 +41,12 @@ const RelacionComponente = (props) => {
     };
 
     const relacionar = (/*nombreComponente: string*/) => {
-        if (componentesRelacionados.length < 1){
-            toast.error("No se ha seleccionado ningun componente")
-        }
-        else{
-            let componentes:string= "";
-            for (let c of componentesRelacionados){
-                componentes+= c + ", ";
+        if (componentesRelacionados.length < 1) {
+            toast.error('No se ha seleccionado ningun componente');
+        } else {
+            let componentes: string = '';
+            for (let c of componentesRelacionados) {
+                componentes += c + ', ';
             }
             ReactDOM.render(
                 <AccionElegida
@@ -62,30 +65,31 @@ const RelacionComponente = (props) => {
     }
 
     const volver = () => {
-            ReactDOM.render(
-                <AccionElegida
+        ReactDOM.render(
+            <AccionElegida
                 nombreBootstrap={props.nombreBootstrap}
                 accionesVuelta={props.accionesVuelta}
                 parametrosDeComentario={props.parametrosDeComentario}
-                componenteRelacion={""}
-                />,
-                document.getElementById('react-page')
-            );
+                componenteRelacion={''}
+            />,
+            document.getElementById('react-page')
+        );
     };
 
-    const agregarComponenteALaRelacion = (componente:string, check:boolean) =>{
-        
-        if (check){
-            componentesRelacionados.push(componente)
-        }
-        else{
+    const agregarComponenteALaRelacion = (componente: string, check: boolean) => {
+        if (check) {
+            componentesRelacionados.push(componente);
+        } else {
             componentesRelacionados = componentesRelacionados.filter((comp) => comp != componente);
         }
-    }
+    };
 
     return (
         <div>
-            <p id="textoInicial"> Componentes que pueden establecer una relación con {props.nombreDelComponenteARelacionar}</p>
+            <p id="textoInicial">
+                {' '}
+                Componentes que pueden establecer una relación con {props.nombreDelComponenteARelacionar}
+            </p>
             <hr></hr>
             <div className="Listado">
                 <div id="mapListado">
@@ -93,16 +97,23 @@ const RelacionComponente = (props) => {
                         <>
                             <li>
                                 Componente: {element}
-                                <input type="checkbox"  onChange={(e) => agregarComponenteALaRelacion(element, e.target.checked)} />  
+                                <input
+                                    type="checkbox"
+                                    onChange={(e) => agregarComponenteALaRelacion(element, e.target.checked)}
+                                />
                             </li>
                         </>
                     ))}
                 </div>
             </div>
-            <Toaster/>
+            <Toaster />
             <div onChange={setEstado.bind(this)}>
-                <input type="radio" value=" lleno." name="gender" checked/> Lleno
-                <input type="radio" value=" vacio." name="gender" /> Vacio
+                <select>
+                    <option value="lleno">Lleno</option>
+                    <option value="vacio">Vacío</option>
+                    <option value="habilitado">Habilitado</option>
+                    <option value="deshabilitado">Deshabilitado</option>
+                </select>
             </div>
             <button id="relacionar" onClick={relacionar}>
                 {' '}
