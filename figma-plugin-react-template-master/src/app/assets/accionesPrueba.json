@@ -64,6 +64,14 @@
         "id": "17"
     },
     {
+        "tipo": "ingresarContenido",
+        "descripcion": "Mail.",
+        "preCondicion": "Pre: Formato de mail.",
+        "postCondicion": "Post: Se habilitará el siguiente campo.",
+        "nombreBootstrap": "input",
+        "id": "23"
+    },
+    {
         "tipo": "click",
         "descripcion": "Carrito. Click +: aumenta la cantidad del producto, Click -: Disminuye la cantidad del producto, en caso de llegar a 0 se elimina.",
         "preCondicion": "Pre: Haber agregado anteriormente un producto al carrito.",
@@ -83,7 +91,7 @@
         "tipo": "click",
         "descripcion": "Fallo envio de formulario.",
         "preCondicion": " Pre:  No se llenan los campos requeridos y se clickea el botón",
-        "postCondicion": "Post: Se marcarán los bordes de los campos con rojo que falten llenar.",
+        "postCondicion": "Post: Se marcarán los bordes de los campos con rojo que falten llenar o seleccionar.",
         "nombreBootstrap": "button",
         "id": "18"
     },
@@ -153,11 +161,35 @@
     },
     {
         "tipo": "seleccionarElemento",
+        "descripcion": "RADIO. ",
+        "preCondicion": "Pre: Seleccionar la opción que necesita del radio.",
+        "postCondicion": "Post: Se cambiará a un color determinado el fondo de la opción elegida.",
+        "nombreBootstrap": "radio",
+        "id": "26"
+    },
+    {
+        "tipo": "seleccionarElemento",
         "descripcion": "Checkbox.",
         "preCondicion": "Pre: Se mostrará múltiples opciones, donde se podrá elegir una o más. ",
         "postCondicion": "Post: Se deberá haber seleccionado al menos un elemento de esas opciones.",
         "nombreBootstrap": "checkbox",
         "id": "22"
+    },
+    {
+        "tipo": "seleccionarElemento",
+        "descripcion": "Select.",
+        "preCondicion": "Pre: Desplegar las opciones del select ",
+        "postCondicion": "Post: Al posar el cursor sobre las opciones del select se irá cambiando al color: .",
+        "nombreBootstrap": "select",
+        "id": "24"
+    },
+    {
+        "tipo": "seleccionarElemento",
+        "descripcion": "Checkbox.",
+        "preCondicion": "Pre: Seleccionar al menos una opción del checkbox.",
+        "postCondicion": "Post: Se cambiará a un color determinado el fondo de la opción elegida.",
+        "nombreBootstrap": "checkbox",
+        "id": "25"
     },
     {
         "tipo": "Pre-Post Click",
@@ -167,6 +199,7 @@
         "nombreBootstrap": "aaaaa",
         "id": "15"
     },
+
     {
         "tipo": "Pre-Post Click",
         "descripcion": "Posición del mouse.",
