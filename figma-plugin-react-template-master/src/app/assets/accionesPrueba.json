@@ -73,14 +73,6 @@
     },
     {
         "tipo": "click",
-        "descripcion": "Carrito. Click +: aumenta la cantidad del producto, Click -: Disminuye la cantidad del producto, en caso de llegar a 0 se elimina.",
-        "preCondicion": "Pre: Haber agregado anteriormente un producto al carrito.",
-        "postCondicion": "Post: Se habilita el botón de Finalizar compra si se tiene al menos 1 producto.",
-        "nombreBootstrap": "button",
-        "id": "8"
-    },
-    {
-        "tipo": "click",
         "descripcion": "Registrarse.",
         "preCondicion": " Pre: Se deberá haber llenado los campos anteriores, se habilita el botón registrarse",
         "postCondicion": "Post: Se registra al usuario, si la carga es lenta, se deberá agregar una barra de progreso.",
@@ -134,6 +126,14 @@
         "postCondicion": "Post:Se mostrará una barra de progreso hasta finalizar dicha acción, seguido de una alerta especificando la culminación del evento.",
         "nombreBootstrap": "button",
         "id": "12"
+    },
+    {
+        "tipo": "click",
+        "descripcion": "Carrito. Click +: aumenta la cantidad del producto, Click -: Disminuye la cantidad del producto, en caso de llegar a 0 se elimina.",
+        "preCondicion": "Pre: Haber agregado anteriormente un producto al carrito.",
+        "postCondicion": "Post: Se habilita el botón de Finalizar compra si se tiene al menos 1 producto.",
+        "nombreBootstrap": "button",
+        "id": "8"
     },
     {
         "tipo": "seleccionarElemento",
