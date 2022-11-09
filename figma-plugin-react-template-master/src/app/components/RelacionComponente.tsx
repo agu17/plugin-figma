@@ -108,7 +108,11 @@ const RelacionComponente = (props) => {
             </div>
             <Toaster />
             <div onChange={setEstado.bind(this)}>
-                <select>
+                <p id="textoInicial">
+                    {' '}
+                    Condicion de la relacion:
+                </p>
+                <select id="selectorDeCondicion">
                     <option value="lleno">Lleno</option>
                     <option value="vacio">Vacío</option>
                     <option value="habilitado">Habilitado</option>
