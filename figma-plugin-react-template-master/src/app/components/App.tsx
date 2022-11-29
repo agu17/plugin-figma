@@ -64,7 +64,7 @@ const App = (props) => {
 
     return (
         <div>
-            <p id="textoInicial"> Componentes detectados del frame {props.parametrosDeComentario[5]}</p>
+            
 
             <div className="flexsearch">
                 <div className="flexsearch--wrapper">
@@ -87,6 +87,7 @@ const App = (props) => {
                 </div>
             </div>
             <hr></hr>
+            <p id="textoInicial"> Componentes detectados del frame {props.parametrosDeComentario[5]}</p>
             <div className="Listado">
                 <div id="mapListado">
                     {accionesAMostrar.map((element) => (

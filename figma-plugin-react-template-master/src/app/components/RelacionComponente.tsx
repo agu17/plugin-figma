@@ -3,17 +3,12 @@ import * as ReactDOM from 'react-dom';
 import toast, {Toaster} from 'react-hot-toast';
 import '../styles/ui.css';
 import AccionElegida from './AccionElegida';
-import Select from 'react-select';
 
 declare function require(path: string): any;
 export const myFirstContext = React.createContext('');
 
 const RelacionComponente = (props) => {
     var estado: string = ' lleno.';
-
-    // <input type="radio" value=" lleno." name="gender" checked/> Lleno
-    // <input type="radio" value=" vacio." name="gender" /> Vacio
-    2;
     const [acciones, setAcciones] = React.useState([]);
     const [accionesAMostrar, setAccionesAMostrar] = React.useState([]);
     var componentesRelacionados = [];
@@ -40,7 +35,7 @@ const RelacionComponente = (props) => {
         parent.postMessage({pluginMessage: {type: 'salirPlugin'}}, '*');
     };
 
-    const relacionar = (/*nombreComponente: string*/) => {
+    const relacionar = () => {
         if (componentesRelacionados.length < 1) {
             toast.error('No se ha seleccionado ningun componente');
         } else {
