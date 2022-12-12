@@ -2,7 +2,7 @@
     {
         "tipo": "ingresarContenido",
         "descripcion": "Inicio de sesión",
-        "preCondicion": "Pre: Estar situado en el campo email/usuario y llenarlo.",
+        "preCondicion": "Pre: - ",
         "postCondicion": "Post: Se habilitará el botón contraseña.",
         "nombreBootstrap": "input",
         "id": "1"
@@ -18,39 +18,23 @@
     {
         "tipo": "ingresarContenido",
         "descripcion": "Llenar campos de tarjeta.",
-        "preCondicion": "Pre:  Solo se permitirá ingresar números, Longitud de 16 caracteres. ",
-        "postCondicion": "Post: Se habilitará el siguiente campo cuando se ingresen los 16 caracteres.",
+        "preCondicion": "Pre:  - ",
+        "postCondicion": "Post: Se habilitará el siguiente campo cuando haya llenado el campo numérico de tarjeta.",
         "nombreBootstrap": "input-credit-card",
         "id": "3"
     },
     {
         "tipo": "ingresarContenido",
         "descripcion": "Cuando se ingresa el código de seguridad de una tarjeta.",
-        "preCondicion": "Pre: Ingresar números, longitud exacta 3.",
+        "preCondicion": "Pre: -",
         "postCondicion": "Post: Se habilitará el siguiente campo.",
         "nombreBootstrap": "input-number",
         "id": "4"
     },
     {
         "tipo": "ingresarContenido",
-        "descripcion": "Ingresar algún contenido de un campo, estableciendo la longitud.",
-        "preCondicion": "Pre: Estar situado en el campo a llenar. Establecer una longitud para dicho campo.",
-        "postCondicion": "Post: Se habilitará el siguiente campo o botón una vez que se ingresó el mínimo de caracteres especificados.",
-        "nombreBootstrap": "input",
-        "id": "5"
-    },
-    {
-        "tipo": "ingresarContenido",
-        "descripcion": "Cuando se ingresa el código de seguridad de una tarjeta. ",
-        "preCondicion": "Pre: Ingresar números, longitud exacta 3. ",
-        "postCondicion": "Post: Se habilitará el siguiente campo.",
-        "nombreBootstrap": "input",
-        "id": "6"
-    },
-    {
-        "tipo": "ingresarContenido",
         "descripcion": "Fecha.",
-        "preCondicion": "Pre: Formato de fecha.",
+        "preCondicion": "Pre: - ",
         "postCondicion": "Post: Se habilitará el siguiente campo.",
         "nombreBootstrap": "input",
         "id": "7"
@@ -58,7 +42,7 @@
     {
         "tipo": "ingresarContenido",
         "descripcion": "Archivo.",
-        "preCondicion": "Pre: Se deberá haber completado los campos obligatorios anteriormente.",
+        "preCondicion": "Pre: - ",
         "postCondicion": "Post: Se habilitará la carga del archivo, limitada a un tamaño de 50 mb.",
         "nombreBootstrap": "input",
         "id": "17"
@@ -66,7 +50,7 @@
     {
         "tipo": "ingresarContenido",
         "descripcion": "Mail.",
-        "preCondicion": "Pre: Formato de mail.",
+        "preCondicion": "Pre: - ",
         "postCondicion": "Post: Se habilitará el siguiente campo.",
         "nombreBootstrap": "input",
         "id": "23"
@@ -82,18 +66,10 @@
     {
         "tipo": "click",
         "descripcion": "Fallo envio de formulario.",
-        "preCondicion": " Pre:  No se llenan los campos requeridos y se clickea el botón",
-        "postCondicion": "Post: Se marcarán los bordes de los campos con rojo que falten llenar o seleccionar.",
+        "preCondicion": " Pre:  ",
+        "postCondicion": "Post:  Si no se llenaron los campos requeridos correctamente, se marcarán los bordes de los campos con rojo que falten llenar o seleccionar. En caso de haberse llenado correctamente, se registra al usuario, si la carga es lenta, se deberá agregar una barra de progreso.",
         "nombreBootstrap": "button",
         "id": "18"
-    },
-    {
-        "tipo": "click",
-        "descripcion": "Menú.",
-        "preCondicion": " Pre:  Poseer 1 o más secciones en el menú.",
-        "postCondicion": "Post: Se desplegarán las secciones relacionadas al menú.",
-        "nombreBootstrap": "button",
-        "id": "19"
     },
     {
         "tipo": "click",
@@ -121,9 +97,9 @@
     },
     {
         "tipo": "click",
-        "descripcion": "Finalizar evento/acción ",
-        "preCondicion": "Pre: Se deberá tener activo el botón para finalizar por ejemplo una compra/acción.",
-        "postCondicion": "Post:Se mostrará una barra de progreso hasta finalizar dicha acción, seguido de una alerta especificando la culminación del evento.",
+        "descripcion": "Finalizar proceso.",
+        "preCondicion": "Pre: -",
+        "postCondicion": "Post: Se mostrará una barra de progreso hasta finalizar la acción, seguido de una alerta especificando la culminación del evento.",
         "nombreBootstrap": "button",
         "id": "12"
     },
@@ -139,25 +115,9 @@
         "tipo": "seleccionarElemento",
         "descripcion": "Pago. ",
         "preCondicion": "Pre: - ",
-        "postCondicion": "Post: Si esta marcado tarjeta, desplegará los campos a llenar para finalizar la compra, una vez completados, se habilitará el botón comprar. Si se selecciona efectivo simplemente se habilitará el botón comprar",
+        "postCondicion": "Post: Si esta marcado tarjeta, desplegará los campos a llenar para finalizar la compra, una vez completados, se habilitará el botón comprar. Si se selecciona efectivo simplemente se habilitará el botón comprar.",
         "nombreBootstrap": "checkbox",
         "id": "13"
-    },
-    {
-        "tipo": "seleccionarElemento",
-        "descripcion": "Pago. ",
-        "preCondicion": "Pre: Se deberá tener una lista de opciones a seleccionar, ejemplo ciudades. ",
-        "postCondicion": "Post: Se deberá haber seleccionado un elemento de esa lista.",
-        "nombreBootstrap": "select",
-        "id": "14"
-    },
-    {
-        "tipo": "seleccionarElemento",
-        "descripcion": "RADIO. ",
-        "preCondicion": "Pre: Se mostrará múltiples opciones, donde se podrá elegir una ",
-        "postCondicion": "Post: Se deberá haber seleccionado un elemento de esas opciones.",
-        "nombreBootstrap": "radio",
-        "id": "21"
     },
     {
         "tipo": "seleccionarElemento",
@@ -194,18 +154,18 @@
     {
         "tipo": "Pre-Post Click",
         "descripcion": "Estado COLOR",
-        "preCondicion": "El estado/color de un botón se debe encontrar de cierta manera. ",
+        "preCondicion": "Pre: - ",
         "postCondicion": "Post:  Cuando clickeamos ese botón, el estado/color cambia.",
-        "nombreBootstrap": "aaaaa",
+        "nombreBootstrap": "button",
         "id": "15"
     },
 
     {
         "tipo": "Pre-Post Click",
         "descripcion": "Posición del mouse.",
-        "preCondicion": "Pre:  El estado/color de un botón se debe encontrar de cierta manera. ",
+        "preCondicion": "Pre:  -  ",
         "postCondicion": "Post: Cuando ubicamos el mouse  sobre el botón, el estado/color cambia.",
-        "nombreBootstrap": "a",
+        "nombreBootstrap": "button",
         "id": "16"
     }
 ]
