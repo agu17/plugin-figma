@@ -16,10 +16,17 @@ const Home = ({}) => {
             const {type, message} = event.data.pluginMessage;
             if (type === 'nombreBootstrap') {
                 let componentes = message.pop();
-                ReactDOM.render(
-                    <App nombreBootstrap={componentes} parametrosDeComentario={message} />,
-                    document.getElementById('react-page')
-                );
+                console.log(componentes.length);
+                if (componentes.length == 0) {
+                    toast.error(
+                        'No se encontraron tips que tengan relacion con los nombres de los componentes seleccionados.'
+                    );
+                } else {
+                    ReactDOM.render(
+                        <App nombreBootstrap={componentes} parametrosDeComentario={message} />,
+                        document.getElementById('react-page')
+                    );
+                }
             }
         };
     }, []);
@@ -65,12 +72,13 @@ const Home = ({}) => {
                     className="inputDelToken"
                     onChange={(e) => setNombreToken(e.target.value)}
                 />
-                <button id="botonDeAgregarToken" title='Guardar token' onClick={setearToken}>
+                <button id="botonDeAgregarToken" title="Guardar token" onClick={setearToken}>
                     <img src={require('../assets/icono-copiar.png').default} width="15" height="15" />
                 </button>
+                <Toaster />
             </div>
 
-            <button id="salirPluginHome" className='salirPluginHome' onClick={onCancel}>
+            <button id="salirPluginHome" className="salirPluginHome" onClick={onCancel}>
                 {' '}
                 Salir del plugin
             </button>

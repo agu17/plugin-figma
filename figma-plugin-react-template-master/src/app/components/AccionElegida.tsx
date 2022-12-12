@@ -7,7 +7,6 @@ import SinLibreria from './sinLibreria';
 import RelacionComponente from './RelacionComponente';
 import toast, {Toaster} from 'react-hot-toast';
 
-
 declare function require(path: string): any;
 
 const AccionElegida = (props) => {
@@ -120,38 +119,42 @@ const AccionElegida = (props) => {
     };
 
     const postear = async (id: string) => {
-        let tip = document.getElementById(id + 'tip').innerHTML;
-        tip = tip.replace('<br><br>', '\n');
-        tip = tip.replace('<br><br>', '\n');
-        comentario = tip;
-        var myHeaders = new Headers();
-        myHeaders.append('X-FIGMA-TOKEN', token);
-        myHeaders.append('Content-Type', 'application/json');
+        if (props.nombreBootstrap != '') {
+            let tip = document.getElementById(id + 'tip').innerHTML;
+            tip = tip.replace('<br><br>', '\n');
+            tip = tip.replace('<br><br>', '\n');
+            comentario = tip;
+            var myHeaders = new Headers();
+            myHeaders.append('X-FIGMA-TOKEN', token);
+            myHeaders.append('Content-Type', 'application/json');
 
-        var raw = JSON.stringify({
-            message: comentario,
-            client_meta: {
-                node_id: idNodo,
-                node_offset: {
-                    x: posX,
-                    y: posY,
+            var raw = JSON.stringify({
+                message: comentario,
+                client_meta: {
+                    node_id: idNodo,
+                    node_offset: {
+                        x: posX,
+                        y: posY,
+                    },
                 },
-            },
-        });
+            });
 
-        var requestOptions: RequestInit = {
-            method: 'POST',
-            headers: myHeaders,
-            body: raw,
-            redirect: 'follow',
-        };
+            var requestOptions: RequestInit = {
+                method: 'POST',
+                headers: myHeaders,
+                body: raw,
+                redirect: 'follow',
+            };
 
-        fetch('https://api.figma.com/v1/files/' + fileKey + '/comments', requestOptions)
-            .then((response) => response.text())
-            .then((result) => console.log(result))
-            .catch((error) => console.log('error', error));
+            fetch('https://api.figma.com/v1/files/' + fileKey + '/comments', requestOptions)
+                .then((response) => response.text())
+                .then((result) => console.log(result))
+                .catch((error) => console.log('error', error));
 
-        toast.success('El comentario se posteo con exito!');
+            toast.success('El comentario se posteo con exito!');
+        } else {
+            toast.error('Esta funcionalidad no esta disponible para el modo sin libreria!');
+        }
     };
     return (
         <div>
@@ -196,7 +199,7 @@ const AccionElegida = (props) => {
                                 <div className="Bottones">
                                     <button
                                         id={element.id + 'botonDeEdicionDeTexto'}
-                                        title='Editar tip'
+                                        title="Editar tip"
                                         className="botonDeEdicionDeTexto"
                                         onClick={() => {
                                             editarTexto(element.id);
@@ -210,7 +213,7 @@ const AccionElegida = (props) => {
                                     </button>
                                     <button
                                         id="botonDeCopiarAccion"
-                                        title='Copiar tip'
+                                        title="Copiar tip"
                                         onClick={() => {
                                             copiarAccion(element.id);
                                         }}
@@ -224,7 +227,7 @@ const AccionElegida = (props) => {
                                     <button
                                         id="botonDepost"
                                         className="botonDepost"
-                                        title='Realizar un comentario con este tip'
+                                        title="Realizar un comentario con este tip"
                                         onClick={() => {
                                             postear(element.id);
                                         }}
@@ -233,13 +236,17 @@ const AccionElegida = (props) => {
                                     </button>
                                     <button
                                         id="botonDeRelacion"
-                                        title='Relacionar este componente con otros'
+                                        title="Relacionar este componente con otros"
                                         className="botonDeRelacion"
                                         onClick={() => {
                                             relacionarComponente();
                                         }}
                                     >
-                                        <img src={require('../assets/icono-vinculacion.png').default} width="20" height="20" />
+                                        <img
+                                            src={require('../assets/icono-vinculacion.png').default}
+                                            width="20"
+                                            height="20"
+                                        />
                                     </button>
                                 </div>
                             </li>

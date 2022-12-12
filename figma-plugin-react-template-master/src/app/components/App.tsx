@@ -17,10 +17,6 @@ const App = (props) => {
         let componentesDeEstaVista = [];
         componentesDeEstaVista = funcionAuxiliar();
         setAcciones(componentesDeEstaVista);
-        console.log(accionesAMostrar);
-        if (accionesAMostrar.length == 0) {
-            toast.error('Los nombres de los componentes no se encuentran relacionados con ningún tip');
-        }
     }, []);
 
     function funcionAuxiliar() {
@@ -33,7 +29,9 @@ const App = (props) => {
         return acciones;
     }
 
-    React.useEffect(() => setAccionesAMostrar(acciones), [acciones]);
+    React.useEffect(() => {
+        setAccionesAMostrar(acciones);
+    }, [acciones]);
 
     React.useEffect(
         //barra de busqueda
@@ -89,7 +87,6 @@ const App = (props) => {
             <p id="textoInicial"> Componentes detectados del frame {props.parametrosDeComentario[5]}</p>
             <div className="Listado">
                 <div id="mapListado">
-                    <Toaster />
                     {accionesAMostrar.map((element) => (
                         <>
                             <li>
