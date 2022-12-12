@@ -1,15 +1,14 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import toast, {Toaster} from 'react-hot-toast';
 import '../styles/ui.css';
 import AccionElegida from './AccionElegida';
 import Home from './home';
-//import data from '../assets/accionesPrueba.json';
 
 declare function require(path: string): any;
 export const myFirstContext = React.createContext('');
 
 const App = (props) => {
-    //SE PODRIA USAR USE MEMO PARA EL SET DE ACCIONES
     const [acciones, setAcciones] = React.useState([]);
     const [nombreAccion, setNombreAccion] = React.useState('');
     const [accionesAMostrar, setAccionesAMostrar] = React.useState([]);
@@ -18,6 +17,10 @@ const App = (props) => {
         let componentesDeEstaVista = [];
         componentesDeEstaVista = funcionAuxiliar();
         setAcciones(componentesDeEstaVista);
+        console.log(accionesAMostrar);
+        if (accionesAMostrar.length == 0) {
+            toast.error('Los nombres de los componentes no se encuentran relacionados con ningún tip');
+        }
     }, []);
 
     function funcionAuxiliar() {
@@ -33,6 +36,7 @@ const App = (props) => {
     React.useEffect(() => setAccionesAMostrar(acciones), [acciones]);
 
     React.useEffect(
+        //barra de busqueda
         () =>
             setAccionesAMostrar(acciones.filter((accion) => accion.toLowerCase().includes(nombreAccion.toLowerCase()))),
         [nombreAccion]
@@ -56,16 +60,11 @@ const App = (props) => {
     };
 
     const volver = () => {
-            ReactDOM.render(
-                <Home/>,
-                document.getElementById('react-page')
-            );
+        ReactDOM.render(<Home />, document.getElementById('react-page'));
     };
 
     return (
         <div>
-            
-
             <div className="flexsearch">
                 <div className="flexsearch--wrapper">
                     <form id="barraBusqueda" className="flexsearch--form">
@@ -90,6 +89,7 @@ const App = (props) => {
             <p id="textoInicial"> Componentes detectados del frame {props.parametrosDeComentario[5]}</p>
             <div className="Listado">
                 <div id="mapListado">
+                    <Toaster />
                     {accionesAMostrar.map((element) => (
                         <>
                             <li>
