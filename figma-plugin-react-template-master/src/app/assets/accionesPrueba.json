@@ -167,5 +167,13 @@
         "postCondicion": "Post: Cuando ubicamos el mouse  sobre el botón, el estado/color cambia.",
         "nombreBootstrap": "button",
         "id": "16"
+    },
+    {
+        "tipo": "Selección Múltiple.",
+        "descripcion": "Borrado, Compartir con y Mover a .",
+        "preCondicion": "Pre: Haber seleccionado distintos elementos (Por ejemplo mails).",
+        "postCondicion": "Se habilitará los botónes de “Borrar”, “Compartir con” y “Mover a”.",
+        "nombreBootstrap": "----",
+        "id": "27"
     }
 ]
