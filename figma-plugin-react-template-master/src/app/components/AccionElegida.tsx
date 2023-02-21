@@ -2,10 +2,12 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import '../styles/ui.css';
 import data from '../assets/accionesPrueba.json';
+import dataRestricciones from '../assets/restricciones.json';
 import App from './App';
 import SinLibreria from './sinLibreria';
 import RelacionComponente from './RelacionComponente';
 import toast, {Toaster} from 'react-hot-toast';
+import Restriccion from './Restriccion';
 
 declare function require(path: string): any;
 
@@ -81,6 +83,7 @@ const AccionElegida = (props) => {
                     parametrosDeComentario={props.parametrosDeComentario}
                     nombreDelComponenteARelacionar={props.nombreBootstrap}
                     componenteRelacion={acc}
+                    listadoRestricciones={props.listadoRestricciones}
                 />,
                 document.getElementById('react-page')
             );
@@ -103,13 +106,22 @@ const AccionElegida = (props) => {
         }
     };
 
+    function sacarSaltosDeLinea(tip) {
+        tip = tip.replace('<br><br>', '\n');
+        tip = tip.replace('<br><br>', '\n');
+        tip = tip.replace('<br>', '\n');
+        tip = tip.replace('<br>', '\n');
+        tip = tip.replace('<br>', '\n');
+        tip = tip.replace('<br>', '\n');
+        return tip;
+    }
+
     const copiarAccion = async (id: string) => {
         var copyTextarea = document.createElement('textarea');
         copyTextarea.style.position = 'fixed';
         copyTextarea.style.opacity = '0';
         let tip = document.getElementById(id + 'tip').innerHTML;
-        tip = tip.replace('<br><br>', '\n');
-        tip = tip.replace('<br><br>', '\n');
+        tip = sacarSaltosDeLinea(tip);
         copyTextarea.textContent = tip;
         document.body.appendChild(copyTextarea);
         copyTextarea.select();
@@ -121,8 +133,7 @@ const AccionElegida = (props) => {
     const postear = async (id: string) => {
         if (props.nombreBootstrap != '') {
             let tip = document.getElementById(id + 'tip').innerHTML;
-            tip = tip.replace('<br><br>', '\n');
-            tip = tip.replace('<br><br>', '\n');
+            tip = sacarSaltosDeLinea(tip);
             comentario = tip;
             var myHeaders = new Headers();
             myHeaders.append('X-FIGMA-TOKEN', token);
@@ -156,6 +167,32 @@ const AccionElegida = (props) => {
             toast.error('Esta funcionalidad no esta disponible para el modo sin libreria!');
         }
     };
+
+    const agregarRestricciones = () => {
+        if (props.nombreBootstrap != '') {
+            let restricciones = [];
+            restricciones = dataRestricciones;
+            console.log(props.nombreBootstrap);
+            restricciones = restricciones.filter((restriccion) =>
+                props.nombreBootstrap.toLowerCase().includes(restriccion.tipo.toLowerCase())
+            );
+            <Restriccion listadoRestricciones={restricciones} />;
+            ReactDOM.render(
+                <Restriccion
+                    nombreBootstrap={props.nombreBootstrap}
+                    accionesVuelta={props.accionesVuelta}
+                    parametrosDeComentario={props.parametrosDeComentario}
+                    nombreDelComponenteARelacionar={props.nombreBootstrap}
+                    componenteRelacion={props.componenteRelacion}
+                    listadoRestricciones={restricciones}
+                />,
+                document.getElementById('react-page')
+            );
+        } else {
+            toast.error('Esta funcionalidad no esta disponible para el modo sin libreria!');
+        }
+    };
+
     return (
         <div>
             <p id="textoInicial"> Componente: {props.nombreBootstrap}</p>
@@ -191,12 +228,14 @@ const AccionElegida = (props) => {
                                     <p id={element.id + 'tip'}>
                                         {' '}
                                         {element.descripcion} <br />
-                                        <br /> {element.preCondicion} <br /> {props.componenteRelacion} <br />
-                                        <br /> {element.postCondicion}{' '}
+                                        <br /> {element.preCondicion} <br /> <br />
+                                        <br /> {element.postCondicion} <br />
+                                        RELACIÓN: {props.componenteRelacion} <br />
+                                        RESTRICCIÓN: {props.listadoRestricciones} <br />
                                     </p>
                                 </div>
                                 <Toaster />
-                                <div className="Bottones">
+                                <div className="Botones">
                                     <button
                                         id={element.id + 'botonDeEdicionDeTexto'}
                                         title="Editar tip"
@@ -240,6 +279,20 @@ const AccionElegida = (props) => {
                                         className="botonDeRelacion"
                                         onClick={() => {
                                             relacionarComponente();
+                                        }}
+                                    >
+                                        <img
+                                            src={require('../assets/icono-vinculacion.png').default}
+                                            width="20"
+                                            height="20"
+                                        />
+                                    </button>
+                                    <button
+                                        id="botonDeRestricciones"
+                                        title="Agregar una restriccion al componente"
+                                        className="botonDeRestricciones"
+                                        onClick={() => {
+                                            agregarRestricciones();
                                         }}
                                     >
                                         <img

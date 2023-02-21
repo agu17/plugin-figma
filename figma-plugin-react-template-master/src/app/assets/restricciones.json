@@ -1,0 +1,12 @@
+[
+    {
+        "tipo": "input",
+        "descripcion": "La longitud del campo será de 20 caracteres",
+        "id": "1"
+    },
+    {
+        "tipo": "button",
+        "descripcion": "No se puede clickear porque me pinto",
+        "id": "2"
+    }
+]

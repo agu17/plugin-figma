@@ -52,6 +52,7 @@ const App = (props) => {
                 accionesVuelta={props.nombreBootstrap}
                 parametrosDeComentario={props.parametrosDeComentario}
                 componenteRelacion={''}
+                restricciones={''}
             />,
             document.getElementById('react-page')
         );

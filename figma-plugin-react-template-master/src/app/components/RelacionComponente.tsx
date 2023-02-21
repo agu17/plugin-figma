@@ -49,6 +49,7 @@ const RelacionComponente = (props) => {
                     accionesVuelta={props.accionesVuelta}
                     parametrosDeComentario={props.parametrosDeComentario}
                     componenteRelacion={componentes + estado}
+                    listadoRestricciones={props.listadoRestricciones}
                 />,
                 document.getElementById('react-page')
             );
@@ -66,6 +67,7 @@ const RelacionComponente = (props) => {
                 accionesVuelta={props.accionesVuelta}
                 parametrosDeComentario={props.parametrosDeComentario}
                 componenteRelacion={''}
+                listadoRestricciones={props.listadoRestricciones}
             />,
             document.getElementById('react-page')
         );
@@ -103,10 +105,7 @@ const RelacionComponente = (props) => {
             </div>
             <Toaster />
             <div onChange={setEstado.bind(this)}>
-                <p id="textoInicial">
-                    {' '}
-                    Condicion de la relacion:
-                </p>
+                <p id="textoInicial"> Condicion de la relacion:</p>
                 <select id="selectorDeCondicion">
                     <option value="lleno">Lleno</option>
                     <option value="vacio">Vacío</option>
