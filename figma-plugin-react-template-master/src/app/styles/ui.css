@@ -85,29 +85,6 @@ li{
     font-size: 13;
 }
 
-
-.botonDeEdicionDeTexto{
-    background: #E4E4E4;
-    margin-right: 3%;
-    margin-left: 3%;
-    border-radius: 25px; 
-}
-
-
-#botonDeCopiarAccion{
-    background: #E4E4E4;
-    border-radius: 15px;
-    margin-right: 3%;
-    margin-left: 3%;
-}
-
-.botonDepost{
-    background: #E4E4E4;
-    margin-right: 3%;
-    margin-left: 3%;
-    border-radius: 25px;
-}
-
 #inputDelToken{
     color: #E4E4E4;
     border: none;
@@ -120,20 +97,6 @@ li{
     font-weight: bold;
     opacity: .5;
     color: #E4E4E4;
-}
-
-.botonDeRelacion{
-    background: #E4E4E4;
-    margin-right: 3%;
-    margin-left: 3%;
-    margin-bottom: 5%;
-    border-radius: 25px;
-}
-
-.botonLinkeo{
-    background: #E4E4E4;
-    border-radius: 25px;
-    margin-left: 1%;
 }
 
 #botonDeAgregarToken{
@@ -198,4 +161,10 @@ li{
     margin: 0 5px;
     box-shadow: inset 0 0 0 1px black;
     outline: none;
+}
+.BotonesDeAccion
+{
+    background: #E4E4E4;
+    border-radius: 25px; 
+    margin: 1%;
 }

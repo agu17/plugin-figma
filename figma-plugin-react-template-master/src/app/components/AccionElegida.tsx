@@ -235,11 +235,11 @@ const AccionElegida = (props) => {
                                     </p>
                                 </div>
                                 <Toaster />
-                                <div className="Botones">
+                                <div className="Botoness">
                                     <button
                                         id={element.id + 'botonDeEdicionDeTexto'}
                                         title="Editar tip"
-                                        className="botonDeEdicionDeTexto"
+                                        className="BotonesDeAccion"
                                         onClick={() => {
                                             editarTexto(element.id);
                                         }}
@@ -253,6 +253,7 @@ const AccionElegida = (props) => {
                                     <button
                                         id="botonDeCopiarAccion"
                                         title="Copiar tip"
+                                        className="BotonesDeAccion"
                                         onClick={() => {
                                             copiarAccion(element.id);
                                         }}
@@ -265,18 +266,18 @@ const AccionElegida = (props) => {
                                     </button>
                                     <button
                                         id="botonDepost"
-                                        className="botonDepost"
+                                        className="BotonesDeAccion"
                                         title="Realizar un comentario con este tip"
                                         onClick={() => {
                                             postear(element.id);
                                         }}
                                     >
-                                        <img src={require('../assets/comentario.png').default} width="20" height="20" />
+                                        <img src={require('../assets/icono-comentario.png').default} width="20" height="20" />
                                     </button>
                                     <button
                                         id="botonDeRelacion"
                                         title="Relacionar este componente con otros"
-                                        className="botonDeRelacion"
+                                        className="BotonesDeAccion"
                                         onClick={() => {
                                             relacionarComponente();
                                         }}
@@ -290,13 +291,13 @@ const AccionElegida = (props) => {
                                     <button
                                         id="botonDeRestricciones"
                                         title="Agregar una restriccion al componente"
-                                        className="botonDeRestricciones"
+                                        className="BotonesDeAccion"
                                         onClick={() => {
                                             agregarRestricciones();
                                         }}
                                     >
                                         <img
-                                            src={require('../assets/icono-vinculacion.png').default}
+                                            src={require('../assets/icono-restringido.png').default}
                                             width="20"
                                             height="20"
                                         />
