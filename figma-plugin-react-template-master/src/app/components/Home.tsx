@@ -50,15 +50,16 @@ const Home = ({}) => {
     return (
         <div>
             <p id="textoInicial">Seleccione el método de utilización del plugin</p>
-
-            <button id="botonHome" onClick={conBootstrap}>
-                {' '}
-                Libreria
-            </button>
-            <button id="botonHome" onClick={sinBootstrap}>
-                {' '}
-                Sin libreria
-            </button>
+            <div>
+                <button id="botonHome" onClick={conBootstrap}>
+                    {' '}
+                    Nomenclatura
+                </button>
+                <button id="botonHome" onClick={sinBootstrap}>
+                    {' '}
+                    Sin nomenclatura
+                </button>
+            </div>
 
             <Toaster />
             <hr></hr>

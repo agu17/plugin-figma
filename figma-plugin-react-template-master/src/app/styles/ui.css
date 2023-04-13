@@ -3,7 +3,7 @@ body {
     text-align: center;
     margin: 20px;
     color: black;
-    background:#E4E4E4;
+    background: #e4e4e4;
 }
 
 #barraBusqueda {
@@ -12,42 +12,42 @@ body {
     outline: none;
     padding: 3px;
     border-radius: 25px;
-    background: #7572E7;
+    background: #7572e7;
 }
 
 #barraBusqueda::placeholder {
     font-weight: bold;
-    opacity: .5;
+    opacity: 0.5;
     color: black;
 }
 
-li{
+li {
     margin: 10px;
-    background: #7572E7;
+    background: #7572e7;
     border-radius: 25px;
-    padding: 5px; 
+    padding: 5px;
 }
-#textoInicial { 
-    font: 12px sans-serif; 
+#textoInicial {
+    font: 12px sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 15;
 }
 
-#botonBuscar{
+#botonBuscar {
     background: black;
-    color: #E4E4E4;
-    border-radius: 25px; 
+    color: #e4e4e4;
+    border-radius: 25px;
     font-size: 25px;
     transform: rotateZ(270deg);
     border: none;
     outline: none;
 }
 
-#salirPlugin{
+#salirPlugin {
     border-radius: 25px;
     font-weight: bold;
-    background: #D00505;
+    background: #d00505;
     color: black;
     border: none;
     padding: 10px;
@@ -57,7 +57,7 @@ li{
     margin: 20px;
 }
 
-#volver{
+#volver {
     border-radius: 25px;
     font-weight: bold;
     background: black;
@@ -70,23 +70,22 @@ li{
     margin: 20px;
 }
 
-
-#botonIrAAccion{
+#botonIrAAccion {
     background: black;
-    color: #E4E4E4;
+    color: #e4e4e4;
     border: none;
     outline: none;
-    border-radius: 25px; 
+    border-radius: 25px;
     margin-left: 5px;
 }
 
-#descripcion{
+#descripcion {
     font-weight: bold;
     font-size: 13;
 }
 
-#inputDelToken{
-    color: #E4E4E4;
+#inputDelToken {
+    color: #e4e4e4;
     border: none;
     outline: none;
     padding: 10px;
@@ -95,43 +94,43 @@ li{
 }
 #inputDelToken::placeholder {
     font-weight: bold;
-    opacity: .5;
-    color: #E4E4E4;
+    opacity: 0.5;
+    color: #e4e4e4;
 }
 
-#botonDeAgregarToken{
+#botonDeAgregarToken {
     padding-bottom: 3%;
     padding-top: 2%;
-    background: #E4E4E4;
+    background: #e4e4e4;
     border-radius: 25px;
     margin-left: 3%;
     align-self: flex-start;
 }
 
-#textoDelToken{
+#textoDelToken {
     margin-top: 70px;
-    font: 12px sans-serif; 
+    font: 12px sans-serif;
     font-weight: bold;
     font-size: 15;
 }
 
-#botonHome{
+#botonHome {
     background: black;
-    color: #E4E4E4;
+    color: #e4e4e4;
     border: none;
     outline: none;
-    border-radius: 25px; 
-    margin-left: 25px;
-    margin-right: 25px;
+    border-radius: 25px;
+    margin-left: 5px;
+    margin-right: 5px;
     padding: 12px;
     margin-top: 40px;
     margin-bottom: 40px;
 }
 
-#salirPluginHome{
+#salirPluginHome {
     border-radius: 25px;
     font-weight: bold;
-    background: #D00505;
+    background: #d00505;
     color: black;
     border: none;
     padding: 10px;
@@ -140,7 +139,7 @@ li{
     margin-top: 40px;
 }
 
-#relacionar{
+#relacionar {
     border-radius: 25px;
     background: black;
     color: white;
@@ -152,9 +151,9 @@ li{
     margin: 10px;
 }
 
-#selectorDeCondicion{
+#selectorDeCondicion {
     border-radius: 25px;
-    background: #7572E7;
+    background: #7572e7;
     color: black;
     border: none;
     padding: 3px;
@@ -162,9 +161,8 @@ li{
     box-shadow: inset 0 0 0 1px black;
     outline: none;
 }
-.BotonesDeAccion
-{
-    background: #E4E4E4;
-    border-radius: 25px; 
+.BotonesDeAccion {
+    background: #e4e4e4;
+    border-radius: 25px;
     margin: 1%;
 }

@@ -1,6 +1,5 @@
 var componentes: string[] = [];
 figma.showUI(__html__, {width: 320, height: 450});
-
 figma.ui.onmessage = async (msg) => {
     switch (msg.type) {
         case 'salirPlugin':

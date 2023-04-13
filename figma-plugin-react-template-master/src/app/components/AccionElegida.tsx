@@ -88,7 +88,7 @@ const AccionElegida = (props) => {
                 document.getElementById('react-page')
             );
         } else {
-            toast.error('Esta funcionalidad no esta disponible para el modo sin libreria!');
+            toast.error('Esta funcionalidad no esta disponible para el modo sin nomenclatura!');
         }
     };
 
@@ -164,7 +164,7 @@ const AccionElegida = (props) => {
 
             toast.success('El comentario se posteo con exito!');
         } else {
-            toast.error('Esta funcionalidad no esta disponible para el modo sin libreria!');
+            toast.error('Esta funcionalidad no esta disponible para el modo sin nomenclatura!');
         }
     };
 
@@ -189,7 +189,7 @@ const AccionElegida = (props) => {
                 document.getElementById('react-page')
             );
         } else {
-            toast.error('Esta funcionalidad no esta disponible para el modo sin libreria!');
+            toast.error('Esta funcionalidad no esta disponible para el modo sin nomenclatura!');
         }
     };
 
@@ -272,7 +272,11 @@ const AccionElegida = (props) => {
                                             postear(element.id);
                                         }}
                                     >
-                                        <img src={require('../assets/icono-comentario.png').default} width="20" height="20" />
+                                        <img
+                                            src={require('../assets/icono-comentario.png').default}
+                                            width="20"
+                                            height="20"
+                                        />
                                     </button>
                                     <button
                                         id="botonDeRelacion"
