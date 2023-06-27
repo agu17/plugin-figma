@@ -177,7 +177,7 @@
         "id": "27"
     },
     {
-        "tipo": "link.",
+        "tipo": "Link.",
         "descripcion": "Link que desplega una nueva ventana .",
         "preCondicion": "PRE: - ",
         "postCondicion": "POST: Se desplegará un pop-up.",
@@ -185,7 +185,7 @@
         "id": "28"
     },
     {
-        "tipo": "link.",
+        "tipo": "Link.",
         "descripcion": "Link que te redirige a un sitio externo.",
         "preCondicion": "PRE: - ",
         "postCondicion": "POST: Se redirigirá a una url externa.",
@@ -193,7 +193,7 @@
         "id": "29"
     },
     {
-        "tipo": "link.",
+        "tipo": "Link.",
         "descripcion": "Link que te redirige a un sitio interno.",
         "preCondicion": "PRE: - ",
         "postCondicion": "POST: Se redirigirá a una url interna.",
@@ -201,7 +201,7 @@
         "id": "30"
     },
     {
-        "tipo": "link.",
+        "tipo": "Link.",
         "descripcion": "Link que antes de redirigir visualiza un “cargando”.",
         "preCondicion": "PRE: - ",
         "postCondicion": "POST: Se desplegará una barra de progreso mientras se redirigé a otro sitio.",

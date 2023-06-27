@@ -70,7 +70,8 @@ function esValido(componenteAComprobar) {
         componenteAComprobar.name.toLowerCase().includes('button') ||
         componenteAComprobar.name.toLowerCase().includes('checkbox') ||
         componenteAComprobar.name.toLowerCase().includes('select') ||
-        componenteAComprobar.name.toLowerCase().includes('radio')
+        componenteAComprobar.name.toLowerCase().includes('radio') ||
+        componenteAComprobar.name.toLowerCase().includes('link')
     ) {
         return true;
     } else {

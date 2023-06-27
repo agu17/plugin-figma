@@ -4,7 +4,7 @@ import '../styles/ui.css';
 import data from '../assets/accionesPrueba.json';
 import dataRestricciones from '../assets/restricciones.json';
 import App from './App';
-import SinLibreria from './sinLibreria';
+import SinLibreria from './SinLibreria';
 import RelacionComponente from './RelacionComponente';
 import toast, {Toaster} from 'react-hot-toast';
 import Restriccion from './Restriccion';
@@ -173,9 +173,9 @@ const AccionElegida = (props) => {
             let restricciones = [];
             restricciones = dataRestricciones;
             console.log(props.nombreBootstrap);
-            restricciones = restricciones.filter((restriccion) =>
+            /*restricciones = restricciones.filter((restriccion) =>
                 props.nombreBootstrap.toLowerCase().includes(restriccion.tipo.toLowerCase())
-            );
+            );*/
             <Restriccion listadoRestricciones={restricciones} />;
             ReactDOM.render(
                 <Restriccion

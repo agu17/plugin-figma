@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import '../styles/ui.css';
 import App from './App';
-import SinLibreria from './sinLibreria';
+import SinLibreria from './SinLibreria';
 import toast, {Toaster} from 'react-hot-toast';
 
 declare function require(path: string): any;
