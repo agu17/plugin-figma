@@ -1,12 +1,57 @@
 [
     {
-        "tipo": "input",
-        "descripcion": "La longitud del campo será de 20 caracteres",
+        "tipo": "longitud_mail",
+        "descripcion": "longitud_mail.El campo tendrá como máximo 50 caracteres de longitud",
         "id": "1"
     },
     {
-        "tipo": "button",
-        "descripcion": "No se puede clickear porque me pinto",
+        "tipo": "longitud_num_tarjeta",
+        "descripcion": "El campo tendrá 16 caracteres de longitud",
         "id": "2"
+    },
+    {
+        "tipo": "longitud_input",
+        "descripcion": "El campo tendrá 30 caracteres de longitud",
+        "id": "3"
+    },
+    {
+        "tipo": "longitud_fecha",
+        "descripcion": "El campo tendrá 10 caracteres de longitud",
+        "id": "4"
+    },
+    {
+        "tipo": "longitud_cod_tarjeta",
+        "descripcion": "El campo tendrá 3 caracteres de longitud",
+        "id": "5"
+    },
+    {
+        "tipo": "formato_mail",
+        "descripcion": "El campo deberá poseer un @",
+        "id": "6"
+    },
+    {
+        "tipo": "formato_num_tarjeta",
+        "descripcion": "El campo será de tipo numerico",
+        "id": "7"
+    },
+    {
+        "tipo": "formato_input",
+        "descripcion": "El campo será de tipo alfanumerico",
+        "id": "8"
+    },
+    {
+        "tipo": "formato_fecha",
+        "descripcion": "El campo será del tipo date",
+        "id": "9"
+    },
+    {
+        "tipo": "formato_cod_tarjeta",
+        "descripcion": "El campo será de tipo numerico",
+        "id": "10"
+    },
+    {
+        "tipo": "peso_archivo",
+        "descripcion": "El tamaño máximo del archivo será de 50 MB",
+        "id": "11"
     }
 ]
