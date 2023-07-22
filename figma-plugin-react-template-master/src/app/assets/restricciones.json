@@ -1,57 +1,57 @@
 [
     {
-        "tipo": "longitud_mail",
-        "descripcion": "longitud_mail.El campo tendrá como máximo 50 caracteres de longitud",
+        "tipo": "Longitud mail.",
+        "descripcion": "El campo tendrá como máximo 50 caracteres de longitud.",
         "id": "1"
     },
     {
-        "tipo": "longitud_num_tarjeta",
-        "descripcion": "El campo tendrá 16 caracteres de longitud",
+        "tipo": "Longitud num de tarjeta.",
+        "descripcion": "El campo tendrá 16 caracteres de longitud.",
         "id": "2"
     },
     {
-        "tipo": "longitud_input",
-        "descripcion": "El campo tendrá 30 caracteres de longitud",
+        "tipo": "Longitud input",
+        "descripcion": "El campo tendrá 30 caracteres de longitud.",
         "id": "3"
     },
     {
-        "tipo": "longitud_fecha",
-        "descripcion": "El campo tendrá 10 caracteres de longitud",
+        "tipo": "Longitud fecha.",
+        "descripcion": "El campo tendrá 10 caracteres de longitud.",
         "id": "4"
     },
     {
-        "tipo": "longitud_cod_tarjeta",
-        "descripcion": "El campo tendrá 3 caracteres de longitud",
+        "tipo": "Longitud cod de tarjeta.",
+        "descripcion": "El campo tendrá 3 caracteres de longitud.",
         "id": "5"
     },
     {
-        "tipo": "formato_mail",
-        "descripcion": "El campo deberá poseer un @",
+        "tipo": "Formato mail.",
+        "descripcion": "El campo deberá poseer un @.",
         "id": "6"
     },
     {
-        "tipo": "formato_num_tarjeta",
-        "descripcion": "El campo será de tipo numerico",
+        "tipo": "Formato num de tarjeta.",
+        "descripcion": "El campo será de tipo numerico.",
         "id": "7"
     },
     {
-        "tipo": "formato_input",
-        "descripcion": "El campo será de tipo alfanumerico",
+        "tipo": "Formato input.",
+        "descripcion": "El campo será de tipo alfanumerico.",
         "id": "8"
     },
     {
-        "tipo": "formato_fecha",
-        "descripcion": "El campo será del tipo date",
+        "tipo": "Formato fecha.",
+        "descripcion": "El campo será del tipo date.",
         "id": "9"
     },
     {
-        "tipo": "formato_cod_tarjeta",
-        "descripcion": "El campo será de tipo numerico",
+        "tipo": "Formato cod de tarjeta.",
+        "descripcion": "El campo será de tipo numerico.",
         "id": "10"
     },
     {
-        "tipo": "peso_archivo",
-        "descripcion": "El tamaño máximo del archivo será de 50 MB",
+        "tipo": "Peso archivo.",
+        "descripcion": "El tamaño máximo del archivo será de 50 MB.",
         "id": "11"
     }
 ]

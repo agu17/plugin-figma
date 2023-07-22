@@ -86,6 +86,8 @@ const Restriccion = (props) => {
                         <>
                             <li>
                                 Restricción: {element.tipo}
+                                <br />
+                                {element.descripcion}
                                 <input
                                     type="checkbox"
                                     onChange={(e) => agregarRestriccionAlComponente(element, e.target.checked)}
