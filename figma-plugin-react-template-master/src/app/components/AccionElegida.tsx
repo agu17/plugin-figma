@@ -173,9 +173,6 @@ const AccionElegida = (props) => {
             let restricciones = [];
             restricciones = dataRestricciones;
             console.log(props.nombreBootstrap);
-            /*restricciones = restricciones.filter((restriccion) =>
-                props.nombreBootstrap.toLowerCase().includes(restriccion.tipo.toLowerCase())
-            );*/
             <Restriccion listadoRestricciones={restricciones} />;
             ReactDOM.render(
                 <Restriccion
