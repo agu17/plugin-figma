@@ -224,10 +224,11 @@ const AccionElegida = (props) => {
                                 <div id={element.id} className="textoDeAccion" contentEditable="false">
                                     <p id={element.id + 'tip'}>
                                         {' '}
+                                        <br />
                                         {element.descripcion} <br />
                                         <br /> {element.preCondicion} <br /> <br />
-                                        <br /> {element.postCondicion} <br />
-                                        RELACIÓN: {props.componenteRelacion} <br />
+                                        <br /> {element.postCondicion} <br /> <br />
+                                        RELACIÓN: {props.componenteRelacion} <br /> <br />
                                         RESTRICCIÓN: {props.listadoRestricciones} <br />
                                     </p>
                                 </div>

@@ -8,7 +8,7 @@ declare function require(path: string): any;
 export const myFirstContext = React.createContext('');
 
 const RelacionComponente = (props) => {
-    var estado: string = ' lleno.';
+    var estado: string = ' lleno';
     const [acciones, setAcciones] = React.useState([]);
     const [accionesAMostrar, setAccionesAMostrar] = React.useState([]);
     var componentesRelacionados = [];
@@ -39,16 +39,18 @@ const RelacionComponente = (props) => {
         if (componentesRelacionados.length < 1) {
             toast.error('No se ha seleccionado ningun componente');
         } else {
-            let componentes: string = '';
+            let componentes: string = 'Los siguientes componentes deben estar ' + estado + 's :';
             for (let c of componentesRelacionados) {
                 componentes += c + ', ';
             }
+            let final: string = ' para que este componente este habilitado.';
+            componentes = componentes + final;
             ReactDOM.render(
                 <AccionElegida
                     nombreBootstrap={props.nombreBootstrap}
                     accionesVuelta={props.accionesVuelta}
                     parametrosDeComentario={props.parametrosDeComentario}
-                    componenteRelacion={componentes + estado}
+                    componenteRelacion={componentes}
                     listadoRestricciones={props.listadoRestricciones}
                 />,
                 document.getElementById('react-page')
