@@ -35,10 +35,10 @@ const Home = ({}) => {
         parent.postMessage({pluginMessage: {type: 'salirPlugin'}}, '*');
     };
 
-    const conBootstrap = () => {
+    const conNomenclatura = () => {
         parent.postMessage({pluginMessage: {type: 'nomenclatura'}}, '*');
     };
-    const sinBootstrap = () => {
+    const sinNomenclatura = () => {
         ReactDOM.render(<SinNomenclatura />, document.getElementById('react-page'));
     };
 
@@ -51,11 +51,11 @@ const Home = ({}) => {
         <div>
             <p id="textoInicial">Seleccione el método de utilización del plugin</p>
             <div>
-                <button id="botonHome" onClick={conBootstrap}>
+                <button id="botonHome" onClick={conNomenclatura}>
                     {' '}
                     Nomenclatura
                 </button>
-                <button id="botonHome" onClick={sinBootstrap}>
+                <button id="botonHome" onClick={sinNomenclatura}>
                     {' '}
                     Sin nomenclatura
                 </button>

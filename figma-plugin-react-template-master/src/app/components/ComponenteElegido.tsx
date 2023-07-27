@@ -11,7 +11,7 @@ import Restriccion from './Restriccion';
 
 declare function require(path: string): any;
 
-const AccionElegida = (props) => {
+const ComponenteElegido = (props) => {
     const acciones = data;
     const [nombreAccion, setNombreAccion] = React.useState('');
     const [accionesAMostrar, setAccionesAMostrar] = React.useState([]);
@@ -337,4 +337,4 @@ const AccionElegida = (props) => {
     );
 };
 
-export default AccionElegida;
+export default ComponenteElegido;

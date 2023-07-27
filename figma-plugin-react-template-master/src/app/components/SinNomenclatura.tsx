@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import '../styles/ui.css';
-import AccionElegida from './AccionElegida';
+import ComponenteElegido from './ComponenteElegido';
 import data from '../assets/accionesPrueba.json';
 import Home from './home';
 
@@ -38,9 +38,9 @@ const SinNomenclatura = () => {
     };
 
     const irALaAccion = (tipo: string) => {
-        <AccionElegida tipo={tipo} componentes={''} accionesVuelta={''} parametrosDeComentario={''} />;
+        <ComponenteElegido tipo={tipo} componentes={''} accionesVuelta={''} parametrosDeComentario={''} />;
         ReactDOM.render(
-            <AccionElegida tipo={tipo} componentes={''} accionesVuelta={''} parametrosDeComentario={''} />,
+            <ComponenteElegido tipo={tipo} componentes={''} accionesVuelta={''} parametrosDeComentario={''} />,
             document.getElementById('react-page')
         );
     };

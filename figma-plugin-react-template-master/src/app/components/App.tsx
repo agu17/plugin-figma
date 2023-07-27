@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import toast, {Toaster} from 'react-hot-toast';
 import '../styles/ui.css';
-import AccionElegida from './AccionElegida';
+import ComponenteElegido from './ComponenteElegido';
 import Home from './home';
 
 declare function require(path: string): any;
@@ -45,9 +45,9 @@ const App = (props) => {
     };
 
     const irALaAccion = (componentes: string) => {
-        <AccionElegida componentes={componentes} />;
+        <ComponenteElegido componentes={componentes} />;
         ReactDOM.render(
-            <AccionElegida
+            <ComponenteElegido
                 componentes={componentes}
                 accionesVuelta={props.componentes}
                 parametrosDeComentario={props.parametrosDeComentario}

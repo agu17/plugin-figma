@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import '../styles/ui.css';
 import toast, {Toaster} from 'react-hot-toast';
-import AccionElegida from './AccionElegida';
+import ComponenteElegido from './ComponenteElegido';
 
 declare function require(path: string): any;
 export const myFirstContext = React.createContext('');
@@ -36,7 +36,8 @@ const Restriccion = (props) => {
 
     const volver = () => {
         ReactDOM.render(
-            <AccionElegida
+            <ComponenteElegido
+                tipo={props.tipo}
                 componentes={props.componentes}
                 accionesVuelta={props.accionesVuelta}
                 parametrosDeComentario={props.parametrosDeComentario}
@@ -64,7 +65,7 @@ const Restriccion = (props) => {
                 restricciones += r.descripcion + ' ';
             }
             ReactDOM.render(
-                <AccionElegida
+                <ComponenteElegido
                     tipo={props.tipo}
                     componentes={props.componentes}
                     accionesVuelta={props.accionesVuelta}

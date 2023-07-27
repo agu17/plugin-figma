@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import toast, {Toaster} from 'react-hot-toast';
 import '../styles/ui.css';
-import AccionElegida from './AccionElegida';
+import AccionElegida from './ComponenteElegido';
 
 declare function require(path: string): any;
 export const myFirstContext = React.createContext('');
