@@ -21,7 +21,7 @@ const App = (props) => {
 
     function funcionAuxiliar() {
         let vec = [];
-        vec = props.nombreBootstrap;
+        vec = props.componentes;
         var acciones = [];
         for (let component of vec) {
             acciones.push(component);
@@ -44,12 +44,12 @@ const App = (props) => {
         parent.postMessage({pluginMessage: {type: 'salirPlugin'}}, '*');
     };
 
-    const irALaAccion = (nombreBootstrap: string) => {
-        <AccionElegida nombreBootstrap={nombreBootstrap} />;
+    const irALaAccion = (componentes: string) => {
+        <AccionElegida componentes={componentes} />;
         ReactDOM.render(
             <AccionElegida
-                nombreBootstrap={nombreBootstrap}
-                accionesVuelta={props.nombreBootstrap}
+                componentes={componentes}
+                accionesVuelta={props.componentes}
                 parametrosDeComentario={props.parametrosDeComentario}
                 componenteRelacion={''}
                 restricciones={''}

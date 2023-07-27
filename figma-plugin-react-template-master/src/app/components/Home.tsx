@@ -14,7 +14,7 @@ const Home = ({}) => {
     React.useEffect(() => {
         window.onmessage = (event) => {
             const {type, message} = event.data.pluginMessage;
-            if (type === 'nombreBootstrap') {
+            if (type === 'nomenclatura') {
                 let componentes = message.pop();
                 console.log(componentes.length);
                 if (componentes.length == 0) {
@@ -23,7 +23,7 @@ const Home = ({}) => {
                     );
                 } else {
                     ReactDOM.render(
-                        <App nombreBootstrap={componentes} parametrosDeComentario={message} />,
+                        <App componentes={componentes} parametrosDeComentario={message} />,
                         document.getElementById('react-page')
                     );
                 }
@@ -36,7 +36,7 @@ const Home = ({}) => {
     };
 
     const conBootstrap = () => {
-        parent.postMessage({pluginMessage: {type: 'nombreBootstrap'}}, '*');
+        parent.postMessage({pluginMessage: {type: 'nomenclatura'}}, '*');
     };
     const sinBootstrap = () => {
         ReactDOM.render(<SinLibreria />, document.getElementById('react-page'));

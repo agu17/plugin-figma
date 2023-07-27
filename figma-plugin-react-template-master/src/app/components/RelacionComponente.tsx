@@ -47,7 +47,7 @@ const RelacionComponente = (props) => {
             componentes = componentes + final;
             ReactDOM.render(
                 <AccionElegida
-                    nombreBootstrap={props.nombreBootstrap}
+                    componentes={props.componentes}
                     accionesVuelta={props.accionesVuelta}
                     parametrosDeComentario={props.parametrosDeComentario}
                     componenteRelacion={componentes}
@@ -65,7 +65,7 @@ const RelacionComponente = (props) => {
     const volver = () => {
         ReactDOM.render(
             <AccionElegida
-                nombreBootstrap={props.nombreBootstrap}
+                componentes={props.componentes}
                 accionesVuelta={props.accionesVuelta}
                 parametrosDeComentario={props.parametrosDeComentario}
                 componenteRelacion={''}

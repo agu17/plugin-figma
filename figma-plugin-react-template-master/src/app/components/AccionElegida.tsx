@@ -23,12 +23,12 @@ const AccionElegida = (props) => {
     var comentario: string;
 
     React.useEffect(() => {
-        let nombreComponente = props.nombreBootstrap;
+        let nombreComponente = props.componentes;
         let acc = [];
-        if (props.nombreBootstrap == '') {
+        if (props.componentes == '') {
             acc = acciones.filter((accion) => accion.tipo == props.tipo);
         } else {
-            acc = acciones.filter((accion) => nombreComponente.includes(accion.nombreBootstrap));
+            acc = acciones.filter((accion) => nombreComponente.includes(accion.nombre));
         }
         setAccionesAMostrar(acc);
     }, []);
@@ -41,11 +41,11 @@ const AccionElegida = (props) => {
                 )
             );
         } else {
-            if (props.nombreBootstrap == '') {
+            if (props.componentes == '') {
                 setAccionesAMostrar(acciones.filter((accion) => accion.tipo == props.tipo));
             } else {
-                let nombreComponente = props.nombreBootstrap;
-                setAccionesAMostrar(acciones.filter((accion) => nombreComponente.includes(accion.nombreBootstrap)));
+                let nombreComponente = props.componentes;
+                setAccionesAMostrar(acciones.filter((accion) => nombreComponente.includes(accion.nombre)));
             }
         }
         [nombreAccion];
@@ -56,13 +56,13 @@ const AccionElegida = (props) => {
     };
 
     const volver = () => {
-        if (props.nombreBootstrap === '') {
+        if (props.componentes === '') {
             ReactDOM.render(<SinLibreria />, document.getElementById('react-page'));
         } else {
             ReactDOM.render(
                 <App
                     tipo={nombreAccion}
-                    nombreBootstrap={props.accionesVuelta}
+                    componentes={props.accionesVuelta}
                     parametrosDeComentario={props.parametrosDeComentario}
                 />,
                 document.getElementById('react-page')
@@ -71,17 +71,17 @@ const AccionElegida = (props) => {
     };
 
     const relacionarComponente = () => {
-        if (props.nombreBootstrap != '') {
+        if (props.componentes != '') {
             let acc = [];
             acc = props.accionesVuelta;
-            acc = acc.filter((element) => element != props.nombreBootstrap);
+            acc = acc.filter((element) => element != props.componentes);
             <RelacionComponente componenteRelacion={acc} />;
             ReactDOM.render(
                 <RelacionComponente
-                    nombreBootstrap={props.nombreBootstrap}
+                    componentes={props.componentes}
                     accionesVuelta={props.accionesVuelta}
                     parametrosDeComentario={props.parametrosDeComentario}
-                    nombreDelComponenteARelacionar={props.nombreBootstrap}
+                    nombreDelComponenteARelacionar={props.componentes}
                     componenteRelacion={acc}
                     listadoRestricciones={props.listadoRestricciones}
                 />,
@@ -131,7 +131,7 @@ const AccionElegida = (props) => {
     };
 
     const postear = async (id: string) => {
-        if (props.nombreBootstrap != '') {
+        if (props.componentes != '') {
             let tip = document.getElementById(id + 'tip').innerHTML;
             tip = sacarSaltosDeLinea(tip);
             comentario = tip;
@@ -169,30 +169,43 @@ const AccionElegida = (props) => {
     };
 
     const agregarRestricciones = () => {
-        if (props.nombreBootstrap != '') {
+        if (props.componentes != '') {
             let restricciones = [];
             restricciones = dataRestricciones;
-            console.log(props.nombreBootstrap);
             <Restriccion listadoRestricciones={restricciones} />;
             ReactDOM.render(
                 <Restriccion
-                    nombreBootstrap={props.nombreBootstrap}
+                    componentes={props.componentes}
                     accionesVuelta={props.accionesVuelta}
                     parametrosDeComentario={props.parametrosDeComentario}
-                    nombreDelComponenteARelacionar={props.nombreBootstrap}
+                    nombreDelComponenteARelacionar={props.componentes}
                     componenteRelacion={props.componenteRelacion}
                     listadoRestricciones={restricciones}
                 />,
                 document.getElementById('react-page')
             );
         } else {
-            toast.error('Esta funcionalidad no esta disponible para el modo sin nomenclatura!');
+            let restricciones = [];
+            restricciones = dataRestricciones;
+            <Restriccion listadoRestricciones={restricciones} />;
+            ReactDOM.render(
+                <Restriccion
+                    tipo={props.tipo}
+                    componentes={props.componentes}
+                    accionesVuelta={props.accionesVuelta}
+                    parametrosDeComentario={props.parametrosDeComentario}
+                    nombreDelComponenteARelacionar={props.componentes}
+                    componenteRelacion={props.componenteRelacion}
+                    listadoRestricciones={restricciones}
+                />,
+                document.getElementById('react-page')
+            );
         }
     };
 
     return (
         <div>
-            <p id="textoInicial"> Componente: {props.nombreBootstrap}</p>
+            <p id="textoInicial"> Componente: {props.componentes}</p>
 
             <div className="flexsearch">
                 <div className="flexsearch--wrapper">

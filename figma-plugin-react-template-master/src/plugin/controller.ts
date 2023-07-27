@@ -10,7 +10,7 @@ figma.ui.onmessage = async (msg) => {
             await setToken(msg.mens);
             break;
 
-        case 'nombreBootstrap':
+        case 'nomenclatura':
             if (figma.currentPage.selection.length == 0) {
                 alert('Se deberá seleccionar un componente');
                 break;
@@ -41,7 +41,7 @@ figma.ui.onmessage = async (msg) => {
             const componentesSinRepetir = [...new Set(componentes)];
             mensaje.push(componentesSinRepetir);
             figma.ui.postMessage({
-                type: 'nombreBootstrap',
+                type: 'nomenclatura',
                 message: mensaje,
             });
             break;

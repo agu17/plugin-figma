@@ -37,7 +37,7 @@ const Restriccion = (props) => {
     const volver = () => {
         ReactDOM.render(
             <AccionElegida
-                nombreBootstrap={props.nombreBootstrap}
+                componentes={props.componentes}
                 accionesVuelta={props.accionesVuelta}
                 parametrosDeComentario={props.parametrosDeComentario}
                 componenteRelacion={props.componenteRelacion}
@@ -61,11 +61,12 @@ const Restriccion = (props) => {
         } else {
             let restricciones: string = '';
             for (let r of restriccionesElegidas) {
-                restricciones += r.descripcion + ', ';
+                restricciones += r.descripcion + ' ';
             }
             ReactDOM.render(
                 <AccionElegida
-                    nombreBootstrap={props.nombreBootstrap}
+                    tipo={props.tipo}
+                    componentes={props.componentes}
                     accionesVuelta={props.accionesVuelta}
                     parametrosDeComentario={props.parametrosDeComentario}
                     componenteRelacion={props.componenteRelacion}
