@@ -8,7 +8,7 @@ import Home from './home';
 declare function require(path: string): any;
 export const myFirstContext = React.createContext('');
 
-const SinLibreria = () => {
+const SinNomenclatura = () => {
     const [acciones, setAcciones] = React.useState([]);
     const [nombreAccion, setNombreAccion] = React.useState('');
     const [accionesAMostrar, setAccionesAMostrar] = React.useState([]);
@@ -108,4 +108,4 @@ const SinLibreria = () => {
     );
 };
 
-export default SinLibreria;
+export default SinNomenclatura;

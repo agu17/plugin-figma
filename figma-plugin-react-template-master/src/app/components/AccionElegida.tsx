@@ -4,7 +4,7 @@ import '../styles/ui.css';
 import data from '../assets/accionesPrueba.json';
 import dataRestricciones from '../assets/restricciones.json';
 import App from './App';
-import SinLibreria from './SinLibreria';
+import SinNomenclatura from './SinNomenclatura';
 import RelacionComponente from './RelacionComponente';
 import toast, {Toaster} from 'react-hot-toast';
 import Restriccion from './Restriccion';
@@ -57,7 +57,7 @@ const AccionElegida = (props) => {
 
     const volver = () => {
         if (props.componentes === '') {
-            ReactDOM.render(<SinLibreria />, document.getElementById('react-page'));
+            ReactDOM.render(<SinNomenclatura />, document.getElementById('react-page'));
         } else {
             ReactDOM.render(
                 <App

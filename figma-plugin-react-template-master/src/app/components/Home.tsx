@@ -2,8 +2,8 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import '../styles/ui.css';
 import App from './App';
-import SinLibreria from './SinLibreria';
 import toast, {Toaster} from 'react-hot-toast';
+import SinNomenclatura from './SinNomenclatura';
 
 declare function require(path: string): any;
 export const myFirstContext = React.createContext('');
@@ -39,7 +39,7 @@ const Home = ({}) => {
         parent.postMessage({pluginMessage: {type: 'nomenclatura'}}, '*');
     };
     const sinBootstrap = () => {
-        ReactDOM.render(<SinLibreria />, document.getElementById('react-page'));
+        ReactDOM.render(<SinNomenclatura />, document.getElementById('react-page'));
     };
 
     const setearToken = () => {
