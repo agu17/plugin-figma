@@ -85,7 +85,20 @@ const RelacionComponente = (props) => {
 
     return (
         <div>
-            <p id="textoInicial">
+            <div>
+            <button
+                // id={element.id + 'botonDeEdicionDeTexto'}
+                title="Volver"
+                className="back-button"
+                onClick={volver}>
+                <img
+                    src={require('../assets/ruta_de_la_imagen.png').default}
+                    width="10"
+                    height="10"
+                />
+            </button>
+            </div>
+            <p id="textoInicial" className="textApp">
                 {' '}
                 Componentes que pueden establecer una relación con {props.nombreDelComponenteARelacionar}
             </p>
@@ -123,10 +136,6 @@ const RelacionComponente = (props) => {
             <button id="salirPlugin" onClick={onCancel}>
                 {' '}
                 Salir del plugin
-            </button>
-            <button id="volver" onClick={volver}>
-                {' '}
-                Volver
             </button>
         </div>
     );

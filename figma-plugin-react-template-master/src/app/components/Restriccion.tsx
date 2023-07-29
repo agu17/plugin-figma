@@ -80,7 +80,20 @@ const Restriccion = (props) => {
 
     return (
         <div>
-            <p id="textoInicial"> </p>
+            <div>
+            <button
+                // id={element.id + 'botonDeEdicionDeTexto'}
+                title="Volver"
+                className="back-button"
+                onClick={volver}>
+                <img
+                    src={require('../assets/ruta_de_la_imagen.png').default}
+                    width="10"
+                    height="10"
+                />
+            </button>
+            </div>
+            <p id="textoInicial" className="textApp">Restricciones</p>
             <hr></hr>
             <div className="Listado">
                 <div id="mapListado">
@@ -109,10 +122,6 @@ const Restriccion = (props) => {
             <button id="salirPlugin" onClick={onCancel}>
                 {' '}
                 Salir del plugin
-            </button>
-            <button id="volver" onClick={volver}>
-                {' '}
-                Volver
             </button>
         </div>
     );

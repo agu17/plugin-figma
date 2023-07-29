@@ -205,7 +205,20 @@ const ComponenteElegido = (props) => {
 
     return (
         <div>
-            <p id="textoInicial"> Componente: {props.componentes}</p>
+            <div>
+            <button
+                // id={element.id + 'botonDeEdicionDeTexto'}
+                title="Volver"
+                className="back-button"
+                onClick={volver}>
+                <img
+                    src={require('../assets/ruta_de_la_imagen.png').default}
+                    width="10"
+                    height="10"
+                />
+            </button>
+            </div>
+            <p id="textoInicial" className="textApp"> Componente: {props.componentes}</p>
 
             <div className="flexsearch">
                 <div className="flexsearch--wrapper">
@@ -328,10 +341,6 @@ const ComponenteElegido = (props) => {
             <button id="salirPlugin" onClick={onCancel}>
                 {' '}
                 Salir del plugin
-            </button>
-            <button id="volver" onClick={volver}>
-                {' '}
-                Volver
             </button>
         </div>
     );

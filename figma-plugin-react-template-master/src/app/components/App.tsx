@@ -64,6 +64,20 @@ const App = (props) => {
 
     return (
         <div>
+            <div>
+            <button
+                // id={element.id + 'botonDeEdicionDeTexto'}
+                title="Volver"
+                className="back-button"
+                onClick={volver}>
+                <img
+                    src={require('../assets/ruta_de_la_imagen.png').default}
+                    width="10"
+                    height="10"
+                />
+            </button>
+            </div>
+            <p id="textoInicial" className="textApp"> Componentes detectados del frame {props.parametrosDeComentario[5]} </p>
             <div className="flexsearch">
                 <div className="flexsearch--wrapper">
                     <form id="barraBusqueda" className="flexsearch--form">
@@ -85,7 +99,6 @@ const App = (props) => {
                 </div>
             </div>
             <hr></hr>
-            <p id="textoInicial"> Componentes detectados del frame {props.parametrosDeComentario[5]}</p>
             <div className="Listado">
                 <div id="mapListado">
                     {accionesAMostrar.map((element) => (
@@ -108,10 +121,6 @@ const App = (props) => {
             <button id="salirPlugin" onClick={onCancel}>
                 {' '}
                 Salir del plugin
-            </button>
-            <button id="volver" onClick={volver}>
-                {' '}
-                Volver
             </button>
         </div>
     );
