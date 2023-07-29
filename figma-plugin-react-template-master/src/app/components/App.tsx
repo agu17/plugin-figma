@@ -1,6 +1,5 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import toast, {Toaster} from 'react-hot-toast';
 import '../styles/ui.css';
 import ComponenteElegido from './ComponenteElegido';
 import Home from './home';
