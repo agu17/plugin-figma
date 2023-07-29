@@ -64,7 +64,7 @@ const Home = ({}) => {
             <Toaster />
             <hr></hr>
 
-            <p id="textoDelToken">Ingrese su token personal si no lo has ingresado o si lo deseas cambiar</p>
+            <p id="textoDelToken">Ingrese su token personal si no lo has ingresado o si lo deseas renovar</p>
 
             <div className="flexsearch--input-wrapper">
                 <input
