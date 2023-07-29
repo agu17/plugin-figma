@@ -74,7 +74,7 @@ const Home = ({}) => {
                     onChange={(e) => setNombreToken(e.target.value)}
                 />
                 <button id="botonDeAgregarToken" title="Guardar token" onClick={setearToken}>
-                    <img src={require('../assets/icono-copiar.png').default} width="15" height="15" />
+                    <img src={require('../assets/guardar.png').default} width="15" height="15" />
                 </button>
                 <Toaster />
             </div>
