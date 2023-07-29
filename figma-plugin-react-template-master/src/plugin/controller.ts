@@ -68,10 +68,10 @@ function esValido(componenteAComprobar) {
     if (
         componenteAComprobar.name.toLowerCase().includes('input') ||
         componenteAComprobar.name.toLowerCase().includes('button') ||
+        componenteAComprobar.name.toLowerCase().includes('boton') ||
         componenteAComprobar.name.toLowerCase().includes('checkbox') ||
         componenteAComprobar.name.toLowerCase().includes('select') ||
         componenteAComprobar.name.toLowerCase().includes('radio') ||
-        componenteAComprobar.name.toLowerCase().includes('boton') ||
         componenteAComprobar.name.toLowerCase().includes('link')
     ) {
         return true;
