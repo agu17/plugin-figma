@@ -100,13 +100,17 @@ const ComponenteElegido = (props) => {
         let colorBoton = document.getElementById(i + 'botonDeEdicionDeTexto');
         if (textoAEditar.isContentEditable) {
             textoAEditar.contentEditable = 'false';
-            textoAEditar.style.backgroundColor = '#7572E7';
-            colorBoton.style.backgroundColor = '#E4E4E4';
+            textoAEditar.style.backgroundColor = '#f1f1f1';
+            colorBoton.style.backgroundColor = '#e4e4e4';
         } else {
             textoAEditar.contentEditable = 'true';
-            textoAEditar.style.backgroundColor = '#C5C5C5';
-            colorBoton.style.backgroundColor = '#F37A7A';
+            textoAEditar.style.backgroundColor = '#E4E4E4';
+            colorBoton.style.backgroundColor = '#7572E7';
         }
+        
+        colorBoton.addEventListener("mouseenter", () => {
+            colorBoton.classList.add("hover-estilo");
+          });
     };
 
     function sacarSaltosDeLinea(tip) {
@@ -217,39 +221,34 @@ const ComponenteElegido = (props) => {
                 >
                     <img src={require('../assets/ruta_de_la_imagen.png').default} width="10" height="10" />
                 </button>
-            </div>
-            <p id="textoInicial" className="textApp">
-                {' '}
-                Componente: {props.componentes}
-            </p>
-
-            <div className="flexsearch">
-                <div className="flexsearch--wrapper">
-                    <form id="barraBusqueda" className="flexsearch--form">
-                        <div className="flexsearch--input-wrapper">
-                            <input
-                                id="barraBusqueda"
-                                onChange={(e) => setNombreAccion(e.target.value)}
-                                className="flexsearch--input"
-                                onKeyPress={(e) => {
-                                    e.key === 'Enter' && e.preventDefault();
-                                }}
-                                type="search"
-                                placeholder="Ingrese una variante..."
-                            />
-                            <img src={require('../assets/search-icon.png').default} width="20" height="20" />
-                        </div>
-                    </form>
+                <div className="flexsearchhh">
+                    <input
+                        id="barraBusqueda"
+                        onChange={(e) => setNombreAccion(e.target.value)}
+                        className="flexsearch--input"
+                        onKeyPress={(e) => {
+                            e.key === 'Enter' && e.preventDefault();
+                        }}
+                        type="text"
+                        value={nombreAccion}
+                        placeholder="Buscar"
+                    />
+                    <img src={require('../assets/search-icon.png').default} width="20" height="20" />
                 </div>
             </div>
 
-            <hr></hr>
+                {props.componentes ? (
+                    <p id="textoInicial"> Tips para: {props.componentes}</p>
+                ) : (
+                    <p id="textoInicial">TITULO DEL SIN NOMENCALTURA</p>
+                )}
+
 
             <div className="Listado">
                 <div id="mapListado">
                     {accionesAMostrar.map((element) => (
                         <>
-                            <li>
+                            <li className="listadoDeComponenteElegido">
                                 <div id={element.id} className="textoDeAccion" contentEditable="false">
                                     <p id={element.id + 'tip'}>
                                         {' '}
@@ -335,16 +334,10 @@ const ComponenteElegido = (props) => {
                                     </button>
                                 </div>
                             </li>
-                            <hr></hr>
                         </>
                     ))}
                 </div>
             </div>
-
-            <button id="salirPlugin" onClick={onCancel}>
-                {' '}
-                Salir del plugin
-            </button>
         </div>
     );
 };

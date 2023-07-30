@@ -118,11 +118,6 @@ const Restriccion = (props) => {
                 {' '}
                 Generar Restricción
             </button>
-            <hr></hr>
-            <button id="salirPlugin" onClick={onCancel}>
-                {' '}
-                Salir del plugin
-            </button>
         </div>
     );
 };

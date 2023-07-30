@@ -75,52 +75,38 @@ const App = (props) => {
                     height="10"
                 />
             </button>
-            </div>
-            <p id="textoInicial" className="textApp"> Componentes detectados del frame {props.parametrosDeComentario[5]} </p>
-            <div className="flexsearch">
-                <div className="flexsearch--wrapper">
-                    <form id="barraBusqueda" className="flexsearch--form">
-                        <div className="flexsearch--input-wrapper">
-                            <input
-                                id="barraBusqueda"
-                                onChange={(e) => setNombreAccion(e.target.value)}
-                                className="flexsearch--input"
-                                onKeyPress={(e) => {
-                                    e.key === 'Enter' && e.preventDefault();
-                                }}
-                                type="text"
-                                value={nombreAccion}
-                                placeholder="Ingrese una acción..."
-                            />
-                            <img src={require('../assets/search-icon.png').default} width="20" height="20" />
-                        </div>
-                    </form>
+            <div className="flexsearchhh">
+                    <input
+                        id="barraBusqueda"
+                        onChange={(e) => setNombreAccion(e.target.value)}
+                        className="flexsearch--input"
+                        onKeyPress={(e) => {
+                            e.key === 'Enter' && e.preventDefault();
+                        }}
+                        type="text"
+                        value={nombreAccion}
+                        placeholder="Buscar"
+                    />
+                    <img src={require('../assets/search-icon.png').default} width="20" height="20" />
                 </div>
             </div>
-            <hr></hr>
+            <p id="textoInicial" > Componentes detectados del frame {props.parametrosDeComentario[5]} </p>
             <div className="Listado">
-                <div id="mapListado">
+                <div id="mapListadoo">
                     {accionesAMostrar.map((element) => (
                         <>
-                            <li>
+                            <li onClick={() => irALaAccion(element)}>
                                 Componente: {element}
-                                <input
-                                    id="botonIrAAccion"
-                                    onClick={() => irALaAccion(element)}
-                                    className="flexsearch--submit"
-                                    type="submit"
-                                    value="&#10140;"
+                                <img
+                                    src={require('../assets/flecha-correcta.png').default}
+                                    width="15"
+                                    height="15"
                                 />
                             </li>
                         </>
                     ))}
                 </div>
             </div>
-            <hr></hr>
-            <button id="salirPlugin" onClick={onCancel}>
-                {' '}
-                Salir del plugin
-            </button>
         </div>
     );
 };

@@ -51,68 +51,62 @@ const SinNomenclatura = () => {
     return (
         <div>
             <div>
-            <button
-                // id={element.id + 'botonDeEdicionDeTexto'}
-                title="Volver"
-                className="back-button"
-                onClick={volver}>
-                <img
-                    src={require('../assets/ruta_de_la_imagen.png').default}
-                    width="10"
-                    height="10"
-                />
-            </button>
-            </div>
-            <p id="textoInicial" className="textApp">
-                {' '}
-                Selecciona una acción, le recomendamos copiar dicha accion en un comentario sobre el componente
-                seleccionado
-            </p>
-
-            <div className="flexsearch">
-                <div className="flexsearch--wrapper">
-                    <form id="barraBusqueda" className="flexsearch--form">
-                        <div className="flexsearch--input-wrapper">
-                            <input
-                                id="barraBusqueda"
-                                onChange={(e) => setNombreAccion(e.target.value)}
-                                className="flexsearch--input"
-                                onKeyPress={(e) => {
-                                    e.key === 'Enter' && e.preventDefault();
-                                }}
-                                type="text"
-                                value={nombreAccion}
-                                placeholder="Ingrese una acción..."
-                            />
-                            <img src={require('../assets/search-icon.png').default} width="20" height="20" />
-                        </div>
-                    </form>
+                <button
+                    // id={element.id + 'botonDeEdicionDeTexto'}
+                    title="Volver"
+                    className="back-button"
+                    onClick={volver}>
+                    <img
+                        src={require('../assets/ruta_de_la_imagen.png').default}
+                        width="10"
+                        height="10"
+                    />
+                </button>
+            
+                <div className="flexsearchhh">
+                    <input
+                        id="barraBusqueda"
+                        onChange={(e) => setNombreAccion(e.target.value)}
+                        className="flexsearch--input"
+                        onKeyPress={(e) => {
+                            e.key === 'Enter' && e.preventDefault();
+                        }}
+                        type="text"
+                        value={nombreAccion}
+                        placeholder="Buscar"
+                    />
+                    <img src={require('../assets/search-icon.png').default} width="18" height="18" />
                 </div>
             </div>
-            <hr></hr>
+            <p id="textoInicial" >
+                {' '}
+                Seleccione una acción <br/>
+                Le recomendamos copiar dicha accion en un comentario sobre el componente
+                seleccionado
+            </p>
             <div className="Listado">
-                <div id="mapListado">
+                <div id="mapListadoo">
                     {accionesAMostrar.map((element) => (
                         <>
-                            <li>
+                            <li onClick={() => irALaAccion(element.tipo)}>
                                 Acción: {element.tipo}
-                                <input
+                                <img
+                                    src={require('../assets/flecha-correcta.png').default}
+                                    width="15"
+                                    height="15"
+                                />
+                                {/* <input
                                     id="botonIrAAccion"
                                     onClick={() => irALaAccion(element.tipo)}
                                     className="flexsearch--submit"
                                     type="submit"
                                     value="&#10140;"
-                                />
+                                /> */}
                             </li>
                         </>
                     ))}
                 </div>
             </div>
-            <hr></hr>
-            <button id="salirPlugin" onClick={onCancel}>
-                {' '}
-                Salir del plugin
-            </button>
         </div>
     );
 };

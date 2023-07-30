@@ -49,40 +49,34 @@ const Home = ({}) => {
 
     return (
         <div>
-            <p id="textoInicial">Seleccione el método de utilización del plugin</p>
+            <p id="textoHome">Seleccione el método de utilización del plugin</p>
             <div>
-                <button id="botonHome" onClick={conNomenclatura}>
+                <button id="botonHome" className="botonHome" onClick={conNomenclatura}>
                     {' '}
                     Nomenclatura
                 </button>
-                <button id="botonHome" onClick={sinNomenclatura}>
+                <button id="botonHome" className="botonHome" onClick={sinNomenclatura}>
                     {' '}
                     Sin nomenclatura
                 </button>
             </div>
 
             <Toaster />
+
+            <div className="divInpToken">
             <hr></hr>
-
-            <p id="textoDelToken">Ingrese su token personal si no lo has ingresado o si lo deseas renovar</p>
-
-            <div className="flexsearch--input-wrapper">
+                <p id="textoDelToken" className="textoDelToken">Ingrese su token personal si no lo has ingresado o si lo deseas renovar</p>
                 <input
                     id="inputDelToken"
-                    placeholder="Ingrese su token"
+                    placeholder="Token"
                     className="inputDelToken"
                     onChange={(e) => setNombreToken(e.target.value)}
                 />
-                <button id="botonDeAgregarToken" title="Guardar token" onClick={setearToken}>
+                <button id="botonDeAgregarToken" title="Guardar token" onClick={setearToken} className="botonDeAgregarToken">
                     <img src={require('../assets/guardar.png').default} width="15" height="15" />
                 </button>
                 <Toaster />
             </div>
-
-            <button id="salirPluginHome" className="salirPluginHome" onClick={onCancel}>
-                {' '}
-                Salir del plugin
-            </button>
         </div>
     );
 };

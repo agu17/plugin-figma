@@ -132,11 +132,6 @@ const RelacionComponente = (props) => {
                 {' '}
                 Relacionar
             </button>
-            <hr></hr>
-            <button id="salirPlugin" onClick={onCancel}>
-                {' '}
-                Salir del plugin
-            </button>
         </div>
     );
 };
