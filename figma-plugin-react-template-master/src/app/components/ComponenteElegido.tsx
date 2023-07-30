@@ -114,12 +114,14 @@ const ComponenteElegido = (props) => {
     };
 
     function sacarSaltosDeLinea(tip) {
-        tip = tip.replace('<br><br>', '\n');
-        tip = tip.replace('<br><br>', '\n');
-        tip = tip.replace('<br>', '\n');
-        tip = tip.replace('<br>', '\n');
-        tip = tip.replace('<br>', '\n');
-        tip = tip.replace('<br>', '\n');
+        // tip = tip.replace('<br><br>', '\n');
+        // tip = tip.replace('<br><br>', '\n');
+        tip = tip.replaceAll('<br>', '\n');
+        // tip = tip.replace('<br>', '\n');
+        // tip = tip.replace('<br>', '\n');
+        // tip = tip.replace('<br>', '\n');
+        tip = tip.replaceAll('<p>', '\n');
+        tip = tip.replaceAll('</p>', '\n');
         return tip;
     }
 
