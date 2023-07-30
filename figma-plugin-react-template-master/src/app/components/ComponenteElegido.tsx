@@ -237,13 +237,8 @@ const ComponenteElegido = (props) => {
                 </div>
             </div>
 
-                {props.componentes ? (
-                    <p id="textoInicial"> Tips para: {props.componentes}</p>
-                ) : (
-                    <p id="textoInicial">TITULO DEL SIN NOMENCALTURA</p>
-                )}
-
-
+                {props.componentes ? (<p id="textoInicial"> Tips para: {props.componentes}</p>) : 
+                                    ( <p id="textoInicial">Tips:</p> )}
             <div className="Listado">
                 <div id="mapListado">
                     {accionesAMostrar.map((element) => (
@@ -252,12 +247,11 @@ const ComponenteElegido = (props) => {
                                 <div id={element.id} className="textoDeAccion" contentEditable="false">
                                     <p id={element.id + 'tip'}>
                                         {' '}
-                                        <br />
                                         {element.descripcion} <br />
-                                        <br /> {element.preCondicion} <br /> <br />
-                                        <br /> {element.postCondicion} <br /> <br />
-                                        RELACIÓN: {props.componenteRelacion} <br /> <br />
-                                        RESTRICCIÓN: {props.listadoRestricciones} <br />
+                                        {element.preCondicion != "" ? (<p>PRE: {element.preCondicion} <br /> </p> ):('')}
+                                        {element.postCondicion != "" ? (<p>POST: {element.postCondicion} <br /> </p>):('')}
+                                        {props.componenteRelacion ? (<p>RELACIÓN: {props.componenteRelacion} <br /></p>):('')}  
+                                        {props.listadoRestricciones  ? (<p>RESTRICCIÓN: {props.listadoRestricciones} <br /> </p>):('')}
                                     </p>
                                 </div>
                                 <Toaster />
