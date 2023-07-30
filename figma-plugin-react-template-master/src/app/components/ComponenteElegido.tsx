@@ -54,10 +54,6 @@ const ComponenteElegido = (props) => {
         [nombreAccion];
     });
 
-    const onCancel = () => {
-        parent.postMessage({pluginMessage: {type: 'salirPlugin'}}, '*');
-    };
-
     const volver = () => {
         if (props.componentes === '') {
             ReactDOM.render(<SinNomenclatura />, document.getElementById('react-page'));
@@ -114,14 +110,9 @@ const ComponenteElegido = (props) => {
     };
 
     function sacarSaltosDeLinea(tip) {
-        // tip = tip.replace('<br><br>', '\n');
-        // tip = tip.replace('<br><br>', '\n');
         tip = tip.replaceAll('<br>', '\n');
-        // tip = tip.replace('<br>', '\n');
-        // tip = tip.replace('<br>', '\n');
-        // tip = tip.replace('<br>', '\n');
-        tip = tip.replaceAll('<p>', '\n');
-        tip = tip.replaceAll('</p>', '\n');
+        tip = tip.replaceAll('<p>', '');
+        tip = tip.replaceAll('</p>', '');
         return tip;
     }
 
