@@ -27,7 +27,6 @@ const Restriccion = (props) => {
         for (let restriccion of vec) {
             restriccioness.push(restriccion);
         }
-        console.log(restriccioness);
         return restriccioness;
     }
 

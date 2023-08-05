@@ -13,7 +13,6 @@ declare function require(path: string): any;
 
 const ComponenteElegido = (props) => {
     const acciones = data;
-    //const [tip, setTip] = React.useState([]);
     const [nombreTip, setNombreTip] = React.useState(''); //Lo unico que cambie fueron los nombres, "accion setAcciones accionesAMostrar setAccionesAMostrar"
     const [tipsAMostrar, setTipsAMostrar] = React.useState([]);
     const fileKey = props.parametrosDeComentario[0];
@@ -52,6 +51,15 @@ const ComponenteElegido = (props) => {
         }
         [nombreTip];
     });
+
+    React.useEffect(
+        //barra de busqueda NO FUNCIONA (CAPAZ LA SACAMO)
+        () =>
+            setTipsAMostrar(
+                acciones.filter((accion) => accion.descripcion.toLowerCase().includes(nombreTip.toLowerCase()))
+            ),
+        [nombreTip]
+    );
 
     const volver = () => {
         if (props.componentes === '') {
@@ -223,7 +231,7 @@ const ComponenteElegido = (props) => {
                         }}
                         type="text"
                         value={nombreTip}
-                        placeholder="Buscar"
+                        placeholder="Buscar tip"
                     />
                     <img src={require('../assets/search-icon.png').default} width="20" height="20" />
                 </div>

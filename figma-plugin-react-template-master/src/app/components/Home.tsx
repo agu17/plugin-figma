@@ -16,7 +16,6 @@ const Home = ({}) => {
             const {type, message} = event.data.pluginMessage;
             if (type === 'nomenclatura') {
                 let componentes = message.pop();
-                console.log(componentes.length);
                 if (componentes.length == 0) {
                     toast.error(
                         'No se encontraron tips que tengan relacion con los nombres de los componentes seleccionados.'
@@ -30,10 +29,6 @@ const Home = ({}) => {
             }
         };
     }, []);
-
-    const onCancel = () => {
-        parent.postMessage({pluginMessage: {type: 'salirPlugin'}}, '*');
-    };
 
     const conNomenclatura = () => {
         parent.postMessage({pluginMessage: {type: 'nomenclatura'}}, '*');
@@ -64,15 +59,22 @@ const Home = ({}) => {
             <Toaster />
 
             <div className="divInpToken">
-            <hr></hr>
-                <p id="textoDelToken" className="textoDelToken">Ingrese su token personal si no lo has ingresado o si lo deseas renovar</p>
+                <hr></hr>
+                <p id="textoDelToken" className="textoDelToken">
+                    Ingrese su token personal si no lo has ingresado o si lo deseas renovar
+                </p>
                 <input
                     id="inputDelToken"
                     placeholder="Token"
                     className="inputDelToken"
                     onChange={(e) => setNombreToken(e.target.value)}
                 />
-                <button id="botonDeAgregarToken" title="Guardar token" onClick={setearToken} className="botonDeAgregarToken">
+                <button
+                    id="botonDeAgregarToken"
+                    title="Guardar token"
+                    onClick={setearToken}
+                    className="botonDeAgregarToken"
+                >
                     <img src={require('../assets/guardar.png').default} width="15" height="15" />
                 </button>
                 <Toaster />
