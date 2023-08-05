@@ -231,7 +231,7 @@ const ComponenteElegido = (props) => {
             </div>
 
                 {props.componentes ? (<p id="textoInicial"> Tips para: {props.componentes}</p>) : 
-                                    ( <p id="textoInicial">Tips:</p> )}
+                                    ( <p id="textoInicial">Todos los tips:</p> )}
             <div className="Listado">
                 <div id="mapListado">
                     {accionesAMostrar.map((element) => (

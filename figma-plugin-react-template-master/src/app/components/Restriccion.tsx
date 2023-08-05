@@ -30,9 +30,12 @@ const Restriccion = (props) => {
 
     React.useEffect(() => setRestriccionesAMostrar(restricciones), [restricciones]);
 
-    const onCancel = () => {
-        parent.postMessage({pluginMessage: {type: 'salirPlugin'}}, '*');
-    };
+    React.useEffect(
+        //barra de busqueda
+        () =>
+        setRestricciones(restriccionesAMostrar.filter((restricc) => restricc.toLowerCase().includes(restriccionesAMostrar[0].toLowerCase()))),
+        [restricciones]
+    ); 
 
     const volver = () => {
         ReactDOM.render(
@@ -81,26 +84,39 @@ const Restriccion = (props) => {
     return (
         <div>
             <div>
-            <button
-                // id={element.id + 'botonDeEdicionDeTexto'}
-                title="Volver"
-                className="back-button"
-                onClick={volver}>
-                <img
-                    src={require('../assets/ruta_de_la_imagen.png').default}
-                    width="10"
-                    height="10"
-                />
-            </button>
+                <button
+                    // id={element.id + 'botonDeEdicionDeTexto'}
+                    title="Volver"
+                    className="back-button"
+                    onClick={volver}>
+                    <img
+                        src={require('../assets/ruta_de_la_imagen.png').default}
+                        width="10"
+                        height="10"
+                    />
+                </button>
+                <div className="flexsearchhh">
+                    <input
+                        id="barraBusqueda"
+                        onChange={(e) => setRestricciones[0](e.target.value)}
+                        className="flexsearch--input"
+                        onKeyPress={(e) => {
+                            e.key === 'Enter' && e.preventDefault();
+                        }}
+                        type="text"
+                        value={restricciones}
+                        placeholder="Buscar"
+                    />
+                    <img src={require('../assets/search-icon.png').default} width="20" height="20" />
+                </div>
             </div>
             <p id="textoInicial" className="textApp">Restricciones</p>
-            <hr></hr>
             <div className="Listado">
                 <div id="mapListado">
                     {restriccionesAMostrar.map((element) => (
                         <>
-                            <li>
-                                Restricción: {element.tipo}
+                            <li id='liResticcion'>
+                                {element.tipo}
                                 <br />
                                 {element.descripcion}
                                 <input
@@ -114,7 +130,7 @@ const Restriccion = (props) => {
             </div>
             <Toaster />
 
-            <button id="relacionar" onClick={generarRestriccion}>
+            <button id="relacionar" className='btnGenerarResticcion' onClick={generarRestriccion}>
                 {' '}
                 Generar Restricción
             </button>
