@@ -9,7 +9,9 @@ export const myFirstContext = React.createContext('');
 
 const Restriccion = (props) => {
     const [restricciones, setRestricciones] = React.useState([]);
+    const [nombreRestriccion, setNombreRestriccion] = React.useState('');
     const [restriccionesAMostrar, setRestriccionesAMostrar] = React.useState([]);
+
     var restriccionesElegidas = [];
 
     React.useEffect(() => {
@@ -21,11 +23,12 @@ const Restriccion = (props) => {
     function funcionAuxiliar() {
         let vec = [];
         vec = props.listadoRestricciones;
-        var restricciones = [];
+        var restriccioness = [];
         for (let restriccion of vec) {
-            restricciones.push(restriccion);
+            restriccioness.push(restriccion);
         }
-        return restricciones;
+        console.log(restriccioness);
+        return restriccioness;
     }
 
     React.useEffect(() => setRestriccionesAMostrar(restricciones), [restricciones]);
@@ -33,9 +36,13 @@ const Restriccion = (props) => {
     React.useEffect(
         //barra de busqueda
         () =>
-        setRestricciones(restriccionesAMostrar.filter((restricc) => restricc.toLowerCase().includes(restriccionesAMostrar[0].toLowerCase()))),
-        [restricciones]
-    ); 
+            setRestriccionesAMostrar(
+                restricciones.filter((restriccion) =>
+                    restriccion.tipo.toLowerCase().includes(nombreRestriccion.toLowerCase())
+                )
+            ),
+        [nombreRestriccion]
+    );
 
     const volver = () => {
         ReactDOM.render(
@@ -88,34 +95,33 @@ const Restriccion = (props) => {
                     // id={element.id + 'botonDeEdicionDeTexto'}
                     title="Volver"
                     className="back-button"
-                    onClick={volver}>
-                    <img
-                        src={require('../assets/ruta_de_la_imagen.png').default}
-                        width="10"
-                        height="10"
-                    />
+                    onClick={volver}
+                >
+                    <img src={require('../assets/ruta_de_la_imagen.png').default} width="10" height="10" />
                 </button>
                 <div className="flexsearchhh">
                     <input
                         id="barraBusqueda"
-                        onChange={(e) => setRestricciones[0](e.target.value)}
+                        onChange={(e) => setNombreRestriccion(e.target.value)}
                         className="flexsearch--input"
                         onKeyPress={(e) => {
                             e.key === 'Enter' && e.preventDefault();
                         }}
                         type="text"
-                        value={restricciones}
-                        placeholder="Buscar"
+                        value={nombreRestriccion}
+                        placeholder="Buscar restricción"
                     />
                     <img src={require('../assets/search-icon.png').default} width="20" height="20" />
                 </div>
             </div>
-            <p id="textoInicial" className="textApp">Restricciones</p>
+            <p id="textoInicial" className="textApp">
+                Restricciones
+            </p>
             <div className="Listado">
                 <div id="mapListado">
                     {restriccionesAMostrar.map((element) => (
                         <>
-                            <li id='liResticcion'>
+                            <li id="liResticcion">
                                 {element.tipo}
                                 <br />
                                 {element.descripcion}
@@ -130,7 +136,7 @@ const Restriccion = (props) => {
             </div>
             <Toaster />
 
-            <button id="relacionar" className='btnGenerarResticcion' onClick={generarRestriccion}>
+            <button id="relacionar" className="btnGenerarRestriccion" onClick={generarRestriccion}>
                 {' '}
                 Generar Restricción
             </button>

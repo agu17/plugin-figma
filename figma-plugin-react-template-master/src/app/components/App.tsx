@@ -39,10 +39,6 @@ const App = (props) => {
         [nombreAccion]
     );
 
-    const onCancel = () => {
-        parent.postMessage({pluginMessage: {type: 'salirPlugin'}}, '*');
-    };
-
     const irALaAccion = (componentes: string) => {
         <ComponenteElegido componentes={componentes} />;
         ReactDOM.render(
@@ -64,18 +60,15 @@ const App = (props) => {
     return (
         <div>
             <div>
-            <button
-                // id={element.id + 'botonDeEdicionDeTexto'}
-                title="Volver"
-                className="back-button"
-                onClick={volver}>
-                <img
-                    src={require('../assets/ruta_de_la_imagen.png').default}
-                    width="10"
-                    height="10"
-                />
-            </button>
-            <div className="flexsearchhh">
+                <button
+                    // id={element.id + 'botonDeEdicionDeTexto'}
+                    title="Volver"
+                    className="back-button"
+                    onClick={volver}
+                >
+                    <img src={require('../assets/ruta_de_la_imagen.png').default} width="10" height="10" />
+                </button>
+                <div className="flexsearchhh">
                     <input
                         id="barraBusqueda"
                         onChange={(e) => setNombreAccion(e.target.value)}
@@ -90,18 +83,14 @@ const App = (props) => {
                     <img src={require('../assets/search-icon.png').default} width="20" height="20" />
                 </div>
             </div>
-            <p id="textoInicial" > Componentes detectados del frame {props.parametrosDeComentario[5]} </p>
+            <p id="textoInicial"> Componentes detectados del frame {props.parametrosDeComentario[5]} </p>
             <div className="Listado">
                 <div id="mapListadoo">
                     {accionesAMostrar.map((element) => (
                         <>
                             <li onClick={() => irALaAccion(element)}>
                                 Componente: {element}
-                                <img
-                                    src={require('../assets/flecha-correcta.png').default}
-                                    width="15"
-                                    height="15"
-                                />
+                                <img src={require('../assets/flecha-correcta.png').default} width="15" height="15" />
                             </li>
                         </>
                     ))}

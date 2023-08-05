@@ -13,8 +13,9 @@ declare function require(path: string): any;
 
 const ComponenteElegido = (props) => {
     const acciones = data;
-    const [nombreAccion, setNombreAccion] = React.useState('');
-    const [accionesAMostrar, setAccionesAMostrar] = React.useState([]);
+    //const [tip, setTip] = React.useState([]);
+    const [nombreTip, setNombreTip] = React.useState(''); //Lo unico que cambie fueron los nombres, "accion setAcciones accionesAMostrar setAccionesAMostrar"
+    const [tipsAMostrar, setTipsAMostrar] = React.useState([]);
     const fileKey = props.parametrosDeComentario[0];
     const idNodo = props.parametrosDeComentario[1];
     const posX = props.parametrosDeComentario[2];
@@ -30,28 +31,26 @@ const ComponenteElegido = (props) => {
         } else {
             acc = acciones.filter((accion) => nombreComponente.includes(accion.nombre));
         }
-        setAccionesAMostrar(acc);
+        setTipsAMostrar(acc);
     }, []);
 
     React.useEffect(() => {
-        if (nombreAccion != '') {
-            setAccionesAMostrar(
-                accionesAMostrar.filter((accion) =>
-                    accion.descripcion.toLowerCase().includes(nombreAccion.toLowerCase())
-                )
+        if (nombreTip != '') {
+            setTipsAMostrar(
+                tipsAMostrar.filter((accion) => accion.descripcion.toLowerCase().includes(nombreTip.toLowerCase()))
             );
         } else {
             if (props.componentes == '') {
-                setAccionesAMostrar(acciones.filter((accion) => accion.tipo == props.tipo));
+                setTipsAMostrar(acciones.filter((accion) => accion.tipo == props.tipo));
             } else {
                 let nombreComponente = props.componentes;
                 if (nombreComponente === 'boton') {
                     nombreComponente = 'button';
                 }
-                setAccionesAMostrar(acciones.filter((accion) => nombreComponente.includes(accion.nombre)));
+                setTipsAMostrar(acciones.filter((accion) => nombreComponente.includes(accion.nombre)));
             }
         }
-        [nombreAccion];
+        [nombreTip];
     });
 
     const volver = () => {
@@ -60,7 +59,7 @@ const ComponenteElegido = (props) => {
         } else {
             ReactDOM.render(
                 <App
-                    tipo={nombreAccion}
+                    tipo={nombreTip}
                     componentes={props.accionesVuelta}
                     parametrosDeComentario={props.parametrosDeComentario}
                 />,
@@ -103,10 +102,10 @@ const ComponenteElegido = (props) => {
             textoAEditar.style.backgroundColor = '#E4E4E4';
             colorBoton.style.backgroundColor = '#7572E7';
         }
-        
-        colorBoton.addEventListener("mouseenter", () => {
-            colorBoton.classList.add("hover-estilo");
-          });
+
+        colorBoton.addEventListener('mouseenter', () => {
+            colorBoton.classList.add('hover-estilo');
+        });
     };
 
     function sacarSaltosDeLinea(tip) {
@@ -217,34 +216,61 @@ const ComponenteElegido = (props) => {
                 <div className="flexsearchhh">
                     <input
                         id="barraBusqueda"
-                        onChange={(e) => setNombreAccion(e.target.value)}
+                        onChange={(e) => setNombreTip(e.target.value)}
                         className="flexsearch--input"
                         onKeyPress={(e) => {
                             e.key === 'Enter' && e.preventDefault();
                         }}
                         type="text"
-                        value={nombreAccion}
+                        value={nombreTip}
                         placeholder="Buscar"
                     />
                     <img src={require('../assets/search-icon.png').default} width="20" height="20" />
                 </div>
             </div>
 
-                {props.componentes ? (<p id="textoInicial"> Tips para: {props.componentes}</p>) : 
-                                    ( <p id="textoInicial">Todos los tips:</p> )}
+            {props.componentes ? (
+                <p id="textoInicial"> Tips para: {props.componentes}</p>
+            ) : (
+                <p id="textoInicial">Todos los tips:</p>
+            )}
             <div className="Listado">
                 <div id="mapListado">
-                    {accionesAMostrar.map((element) => (
+                    {tipsAMostrar.map((element) => (
                         <>
                             <li className="listadoDeComponenteElegido">
                                 <div id={element.id} className="textoDeAccion" contentEditable="false">
                                     <p id={element.id + 'tip'}>
                                         {' '}
                                         {element.descripcion} <br />
-                                        {element.preCondicion != "" ? (<p>PRE: {element.preCondicion} <br /> </p> ):('')}
-                                        {element.postCondicion != "" ? (<p>POST: {element.postCondicion} <br /> </p>):('')}
-                                        {props.componenteRelacion ? (<p>RELACIÓN: {props.componenteRelacion} <br /></p>):('')}  
-                                        {props.listadoRestricciones  ? (<p>RESTRICCIÓN: {props.listadoRestricciones} <br /> </p>):('')}
+                                        {element.preCondicion != '' ? (
+                                            <p>
+                                                PRE: {element.preCondicion} <br />{' '}
+                                            </p>
+                                        ) : (
+                                            ''
+                                        )}
+                                        {element.postCondicion != '' ? (
+                                            <p>
+                                                POST: {element.postCondicion} <br />{' '}
+                                            </p>
+                                        ) : (
+                                            ''
+                                        )}
+                                        {props.componenteRelacion ? (
+                                            <p>
+                                                RELACIÓN: {props.componenteRelacion} <br />
+                                            </p>
+                                        ) : (
+                                            ''
+                                        )}
+                                        {props.listadoRestricciones ? (
+                                            <p>
+                                                RESTRICCIÓN: {props.listadoRestricciones} <br />{' '}
+                                            </p>
+                                        ) : (
+                                            ''
+                                        )}
                                     </p>
                                 </div>
                                 <Toaster />
