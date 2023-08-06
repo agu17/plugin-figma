@@ -31,10 +31,6 @@ const RelacionComponente = (props) => {
 
     React.useEffect(() => setAccionesAMostrar(acciones), [acciones]);
 
-    const onCancel = () => {
-        parent.postMessage({pluginMessage: {type: 'salirPlugin'}}, '*');
-    };
-
     const relacionar = () => {
         if (componentesRelacionados.length < 1) {
             toast.error('No se ha seleccionado ningun componente');
