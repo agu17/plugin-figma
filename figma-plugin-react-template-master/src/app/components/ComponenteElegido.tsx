@@ -32,12 +32,14 @@ const ComponenteElegido = (props) => {
         }
         setTipsAMostrar(acc);
     }, []);
-
+//////////////////////////////ACA ESTA EL ERROR//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////ACA ESTA EL ERROR//////////////////////////////////////////////////////////////////
+///////////////////////////////////////////ACA ESTA EL ERROR///////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////ACA ESTA EL ERROR///////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////ACA ESTA EL ERROR//////////////////////////////////////////////////////////////////////////////////
     React.useEffect(() => {
         if (nombreTip != '') {
-            setTipsAMostrar(
-                tipsAMostrar.filter((accion) => accion.descripcion.toLowerCase().includes(nombreTip.toLowerCase()))
-            );
+            setTipsAMostrar(tipsAMostrar.filter((accion) => accion.descripcion.toLowerCase().includes(nombreTip.toLowerCase())));
         } else {
             if (props.componentes == '') {
                 setTipsAMostrar(acciones.filter((accion) => accion.tipo == props.tipo));
@@ -60,6 +62,11 @@ const ComponenteElegido = (props) => {
             ),
         [nombreTip]
     );
+    //////////////////////////////////////ACA ESTA EL ERROR//////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////ACA ESTA EL ERROR////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////ACA ESTA EL ERROR////////////////////////////////////////////////////////////////////
+    //////////////////////////////////ACA ESTA EL ERROR///////////////////////////////////////////////////////////////////////////////////
 
     const volver = () => {
         if (props.componentes === '') {
@@ -214,7 +221,6 @@ const ComponenteElegido = (props) => {
         <div>
             <div>
                 <button
-                    // id={element.id + 'botonDeEdicionDeTexto'}
                     title="Volver"
                     className="back-button"
                     onClick={volver}
@@ -236,12 +242,13 @@ const ComponenteElegido = (props) => {
                     <img src={require('../assets/search-icon.png').default} width="20" height="20" />
                 </div>
             </div>
-
-            {props.componentes ? (
-                <p id="textoInicial"> Tips para: {props.componentes}</p>
-            ) : (
-                <p id="textoInicial">Todos los tips:</p>
-            )}
+            <div>          
+                {props.componentes ? (
+                    <p id="textoInicial"> Tips para: {props.componentes}</p>
+                ) : (
+                    <p id="textoInicial">Todos los tips:</p>
+                )}
+            </div>
             <div className="Listado">
                 <div id="mapListado">
                     {tipsAMostrar.map((element) => (

@@ -61,7 +61,6 @@ const App = (props) => {
         <div>
             <div>
                 <button
-                    // id={element.id + 'botonDeEdicionDeTexto'}
                     title="Volver"
                     className="back-button"
                     onClick={volver}
