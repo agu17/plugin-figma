@@ -113,7 +113,7 @@ const Restriccion = (props) => {
                     <img src={require('../assets/search-icon.png').default} width="20" height="20" />
                 </div>
             </div>
-            <p id="textoInicial" className="textApp">
+            <p id="textoCondicion" >
                 Restricciones
             </p>
             <div className="Listado">

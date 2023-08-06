@@ -100,14 +100,13 @@ const RelacionComponente = (props) => {
             </div>
             <p id="textoInicial" className="textApp">
                 {' '}
-                Componentes que pueden establecer una relación con {props.nombreDelComponenteARelacionar}
+                Selecciona los componentes que quieras relacionar con {props.nombreDelComponenteARelacionar}
             </p>
-            <hr></hr>
             <div className="Listado">
                 <div id="mapListado">
                     {accionesAMostrar.map((element) => (
                         <>
-                            <li>
+                            <li id="liResticcion">
                                 Componente: {element}
                                 <input
                                     type="checkbox"
@@ -119,16 +118,18 @@ const RelacionComponente = (props) => {
                 </div>
             </div>
             <Toaster />
-            <div onChange={setEstado.bind(this)}>
-                <p id="textoInicial"> Condicion de la relacion:</p>
-                <select id="selectorDeCondicion">
-                    <option value="lleno">Lleno</option>
-                    <option value="vacio">Vacío</option>
-                    <option value="habilitado">Habilitado</option>
-                    <option value="deshabilitado">Deshabilitado</option>
-                </select>
+            <div className='container' onChange={setEstado.bind(this)}>
+                <p id="textoCondicion">Condicion</p>
+                <div className='centerSelect'>
+                    <select id="selectorDeCondicion" className='selectorCondicion'>
+                        <option value="lleno">Lleno</option>
+                        <option value="vacio">Vacío</option>
+                        <option value="habilitado">Habilitado</option>
+                        <option value="deshabilitado">Deshabilitado</option>
+                    </select>
+                </div>
             </div>
-            <button id="relacionar" onClick={relacionar}>
+            <button id="relacionar" className='btnGenerarRestriccion' onClick={relacionar}>
                 {' '}
                 Relacionar
             </button>

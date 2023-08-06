@@ -43,6 +43,7 @@ li#liResticcion {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border: 2px solid #f1f1f1;
 }
 li#liResticcion:hover {
     background-color: #f1f1f1;
@@ -232,13 +233,13 @@ li:hover {
 
 #selectorDeCondicion {
     border-radius: 20px;
-    background: #7572e7;
+    background: #f1f1f1;
     color: black;
     border: none;
-    padding: 3px;
-    margin: 0 5px;
+     padding: 6px;
+    /*margin: 0 5px;
     box-shadow: inset 0 0 0 1px black;
-    outline: none;
+    outline: none; */
 }
 .BotonesDeAccion {
     background: #e4e4e4;
@@ -307,18 +308,32 @@ button.hover-estilo {
     background-color: #7572e7;
 }
 
-/* label {
+.container {
     display: flex;
-    align-items: right;
-  } */
+    align-items: center; /* Para alinear verticalmente si el contenido es de diferente altura */
+    justify-content: space-between; /* Para separar los elementos a los extremos del contenedor */
+    width: 100%; /* O el ancho deseado */
+  }
+  
+  .centerSelect {
+    flex: 1; /* Para que el div con el select ocupe todo el espacio disponible */
+    display: flex;
+    justify-content: center; /* Para centrar horizontalmente el contenido */
+  }
 
-/* input[type="checkbox"] { 
-    display: inline-block;
-    width: 15px;
-    height: 15px;
-    border: 2px solid #7572e7;
-    border-radius: 4px;
-    outline: none;
-    cursor: pointer;
-    order: 1;
-  } */
+  .container p {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  #textoCondicion{
+    /* text-align: start; */
+    position: relative;
+    color: #000000;
+    font-family: Arial, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15;
+    left: 15px;
+  }
+
