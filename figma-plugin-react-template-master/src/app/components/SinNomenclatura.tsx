@@ -33,10 +33,6 @@ const SinNomenclatura = () => {
         [nombreAccion]
     );
 
-    const onCancel = () => {
-        parent.postMessage({pluginMessage: {type: 'salirPlugin'}}, '*');
-    };
-
     const irALaAccion = (tipo: string) => {
         <ComponenteElegido tipo={tipo} componentes={''} accionesVuelta={''} parametrosDeComentario={''} />;
         ReactDOM.render(
