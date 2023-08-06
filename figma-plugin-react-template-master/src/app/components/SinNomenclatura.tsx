@@ -80,9 +80,22 @@ const SinNomenclatura = () => {
             </div>
             <p id="textoInicial" >
                 {' '}
+
+                {    /* 
+                QUE CARAJO
+                ESTA DESCRIPCION
+                HAY QUE CAMBIARLA
+
+                 */}
                 Seleccione una acción <br/>
                 Le recomendamos copiar dicha accion en un comentario sobre el componente
                 seleccionado
+                {    /* 
+                QUE CARAJO
+                ESTA DESCRIPCION
+                HAY QUE CAMBIARLA
+
+                 */}
             </p>
             <div className="Listado">
                 <div id="mapListadoo">
