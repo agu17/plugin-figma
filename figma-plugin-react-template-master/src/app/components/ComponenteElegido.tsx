@@ -13,7 +13,8 @@ declare function require(path: string): any;
 
 const ComponenteElegido = (props) => {
     const acciones = data;
-    const [nombreTip, setNombreTip] = React.useState(''); //Lo unico que cambie fueron los nombres, "accion setAcciones accionesAMostrar setAccionesAMostrar"
+    const [tips, setTips] = React.useState([]);
+    const [nombreTip, setNombreTip] = React.useState('');
     const [tipsAMostrar, setTipsAMostrar] = React.useState([]);
     const fileKey = props.parametrosDeComentario[0];
     const idNodo = props.parametrosDeComentario[1];
@@ -23,21 +24,39 @@ const ComponenteElegido = (props) => {
     var comentario: string;
 
     React.useEffect(() => {
-        let nombreComponente = props.componentes;
-        let acc = [];
-        if (props.componentes == '') {
-            acc = acciones.filter((accion) => accion.tipo == props.tipo);
-        } else {
-            acc = acciones.filter((accion) => nombreComponente.includes(accion.nombre));
-        }
-        setTipsAMostrar(acc);
+        let tipsDeEstaVista = [];
+        tipsDeEstaVista = funcionAuxiliar();
+        setTips(tipsDeEstaVista);
     }, []);
-//////////////////////////////ACA ESTA EL ERROR//////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////ACA ESTA EL ERROR//////////////////////////////////////////////////////////////////
-///////////////////////////////////////////ACA ESTA EL ERROR///////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////ACA ESTA EL ERROR///////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////ACA ESTA EL ERROR//////////////////////////////////////////////////////////////////////////////////
-    React.useEffect(() => {
+
+    function funcionAuxiliar() {
+        let nombreComponente = props.componentes;
+        if (nombreComponente == '') {
+            return acciones.filter((accion) => accion.tipo == props.tipo);
+        }
+        if (nombreComponente === 'boton') {
+            nombreComponente = 'button';
+        }
+        return acciones.filter((accion) => nombreComponente.includes(accion.nombre));
+    }
+
+    React.useEffect(() => setTipsAMostrar(tips), [tips]);
+
+    /*React.useEffect(() => {
+        if (props.componentes == '') {
+            setTipsAMostrar(acciones.filter((accion) => accion.tipo == props.tipo));
+        } else {
+            let nombreComponente = props.componentes;
+            if (nombreComponente === 'boton') {
+                nombreComponente = 'button';
+            }
+            setTipsAMostrar(acciones.filter((accion) => nombreComponente.includes(accion.nombre)));
+        }
+        
+        [];
+    });*/
+
+    /*React.useEffect(() => {
         if (nombreTip != '') {
             setTipsAMostrar(tipsAMostrar.filter((accion) => accion.descripcion.toLowerCase().includes(nombreTip.toLowerCase())));
         } else {
@@ -51,22 +70,17 @@ const ComponenteElegido = (props) => {
                 setTipsAMostrar(acciones.filter((accion) => nombreComponente.includes(accion.nombre)));
             }
         }
-        [nombreTip];
-    });
+        [];
+    });*/
 
     React.useEffect(
-        //barra de busqueda NO FUNCIONA (CAPAZ LA SACAMO)
+        //barra de busqueda
         () =>
             setTipsAMostrar(
-                acciones.filter((accion) => accion.descripcion.toLowerCase().includes(nombreTip.toLowerCase()))
+                tips.filter((accion) => accion.descripcion.toLowerCase().includes(nombreTip.toLowerCase()))
             ),
         [nombreTip]
     );
-    //////////////////////////////////////ACA ESTA EL ERROR//////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ///////////////////////////ACA ESTA EL ERROR////////////////////////////////////////////////////////////////////////////////////////
-    //////////////////////////////////////ACA ESTA EL ERROR////////////////////////////////////////////////////////////////////
-    //////////////////////////////////ACA ESTA EL ERROR///////////////////////////////////////////////////////////////////////////////////
 
     const volver = () => {
         if (props.componentes === '') {
@@ -220,11 +234,7 @@ const ComponenteElegido = (props) => {
     return (
         <div>
             <div>
-                <button
-                    title="Volver"
-                    className="back-button"
-                    onClick={volver}
-                >
+                <button title="Volver" className="back-button" onClick={volver}>
                     <img src={require('../assets/ruta_de_la_imagen.png').default} width="10" height="10" />
                 </button>
                 <div className="flexsearchhh">
@@ -242,7 +252,7 @@ const ComponenteElegido = (props) => {
                     <img src={require('../assets/search-icon.png').default} width="20" height="20" />
                 </div>
             </div>
-            <div>          
+            <div>
                 {props.componentes ? (
                     <p id="textoInicial"> Tips para: {props.componentes}</p>
                 ) : (

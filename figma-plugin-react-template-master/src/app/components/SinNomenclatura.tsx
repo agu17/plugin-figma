@@ -47,18 +47,10 @@ const SinNomenclatura = () => {
     return (
         <div>
             <div>
-                <button
-                    // id={element.id + 'botonDeEdicionDeTexto'}
-                    title="Volver"
-                    className="back-button"
-                    onClick={volver}>
-                    <img
-                        src={require('../assets/ruta_de_la_imagen.png').default}
-                        width="10"
-                        height="10"
-                    />
+                <button title="Volver" className="back-button" onClick={volver}>
+                    <img src={require('../assets/ruta_de_la_imagen.png').default} width="10" height="10" />
                 </button>
-            
+
                 <div className="flexsearchhh">
                     <input
                         id="barraBusqueda"
@@ -74,24 +66,9 @@ const SinNomenclatura = () => {
                     <img src={require('../assets/search-icon.png').default} width="18" height="18" />
                 </div>
             </div>
-            <p id="textoInicial" >
+            <p id="textoInicial">
                 {' '}
-
-                {    /* 
-                QUE CARAJO
-                ESTA DESCRIPCION
-                HAY QUE CAMBIARLA
-
-                 */}
-                Seleccione una acción <br/>
-                Le recomendamos copiar dicha accion en un comentario sobre el componente
-                seleccionado
-                {    /* 
-                QUE CARAJO
-                ESTA DESCRIPCION
-                HAY QUE CAMBIARLA
-
-                 */}
+                Seleccione una acción <br />
             </p>
             <div className="Listado">
                 <div id="mapListadoo">
@@ -99,18 +76,7 @@ const SinNomenclatura = () => {
                         <>
                             <li onClick={() => irALaAccion(element.tipo)}>
                                 Acción: {element.tipo}
-                                <img
-                                    src={require('../assets/flecha-correcta.png').default}
-                                    width="15"
-                                    height="15"
-                                />
-                                {/* <input
-                                    id="botonIrAAccion"
-                                    onClick={() => irALaAccion(element.tipo)}
-                                    className="flexsearch--submit"
-                                    type="submit"
-                                    value="&#10140;"
-                                /> */}
+                                <img src={require('../assets/flecha-correcta.png').default} width="15" height="15" />
                             </li>
                         </>
                     ))}
