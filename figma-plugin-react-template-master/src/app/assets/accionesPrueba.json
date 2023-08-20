@@ -1,7 +1,7 @@
 [
     {
         "tipo": "ingresarContenido",
-        "descripcion": "Inicio de sesión",
+        "descripcion": "Habilitación del siguiente campo en inicio de sesión",
         "preCondicion": "",
         "postCondicion": " Se habilitará el botón contraseña.",
         "nombre": "input",
@@ -9,7 +9,7 @@
     },
     {
         "tipo": "ingresarContenido",
-        "descripcion": "Inicio de sesión",
+        "descripcion": "Habilitación del botón en inicio de sesión",
         "preCondicion": "Se habilitará el campo contraseña cuando se ingrese el mail/usuario.",
         "postCondicion": " Se habilitará el botón de iniciar sesión",
         "nombre": "input",
@@ -33,7 +33,7 @@
     },
     {
         "tipo": "ingresarContenido",
-        "descripcion": "Fecha.",
+        "descripcion": "Fecha genérica",
         "preCondicion": "",
         "postCondicion": " Se habilitará el siguiente campo.",
         "nombre": "input",
@@ -41,7 +41,7 @@
     },
     {
         "tipo": "ingresarContenido",
-        "descripcion": "Archivo.",
+        "descripcion": "Carga de archivo.",
         "preCondicion": "",
         "postCondicion": " Se habilitará la carga del archivo, limitada a un tamaño de 50 mb.",
         "nombre": "input",
@@ -49,7 +49,7 @@
     },
     {
         "tipo": "ingresarContenido",
-        "descripcion": "Mail.",
+        "descripcion": "Mail genérico.",
         "preCondicion": "",
         "postCondicion": " Se habilitará el siguiente campo.",
         "nombre": "input",
@@ -57,7 +57,7 @@
     },
     {
         "tipo": "click",
-        "descripcion": "Registrarse.",
+        "descripcion": "Form registro genérico",
         "preCondicion": " Se deberá haber llenado los campos anteriores, se habilita el botón registrarse",
         "postCondicion": " Se registra al usuario, si la carga es lenta, se deberá agregar una barra de progreso.",
         "nombre": "button",
@@ -81,7 +81,7 @@
     },
     {
         "tipo": "click",
-        "descripcion": "Iniciar Sesión. ",
+        "descripcion": "Boton iniciar sesión genérico. ",
         "preCondicion": "Se deberá haber llenado los campos requeridos para la autenticación. Se habilita el botón iniciar sesión.",
         "postCondicion": "Se mostrará una barra de progreso, de acorde al tiempo de carga de la validación. -Luego se mostrará una alerta donde se inició sesión correctamente o las credenciales son incorrectas.",
         "nombre": "button",
@@ -89,7 +89,7 @@
     },
     {
         "tipo": "click",
-        "descripcion": "Clicks general. ",
+        "descripcion": "Click con barra de progreso genérica",
         "preCondicion": "",
         "postCondicion": "Por cada vez que se cambia de página o sección, deberá haber una barra de progreso.",
         "nombre": "button",
@@ -97,7 +97,7 @@
     },
     {
         "tipo": "click",
-        "descripcion": "Finalizar proceso.",
+        "descripcion": "Feedback en la culminación de un evento",
         "preCondicion": "",
         "postCondicion": "Se mostrará una barra de progreso hasta finalizar la acción, seguido de una alerta especificando la culminación del evento.",
         "nombre": "button",
@@ -113,7 +113,7 @@
     },
     {
         "tipo": "seleccionarElemento",
-        "descripcion": "Pago",
+        "descripcion": "Opción de pago genérico ",
         "preCondicion": "",
         "postCondicion": "Si esta marcado tarjeta, desplegará los campos a llenar para finalizar la compra, una vez completados, se habilitará el botón comprar. Si se selecciona efectivo simplemente se habilitará el botón comprar.",
         "nombre": "checkbox",
@@ -121,7 +121,7 @@
     },
     {
         "tipo": "seleccionarElemento",
-        "descripcion": "Radio button",
+        "descripcion": "Uso genérico radio button",
         "preCondicion": "Seleccionar la opción que necesita del radio.",
         "postCondicion": "Se cambiará a un color determinado el fondo de la opción elegida.",
         "nombre": "radio",
@@ -129,7 +129,7 @@
     },
     {
         "tipo": "seleccionarElemento",
-        "descripcion": "Checkbox",
+        "descripcion": "Uso genérico checkbox",
         "preCondicion": "Se mostrará múltiples opciones, donde se podrá elegir una o más. ",
         "postCondicion": "Se deberá haber seleccionado al menos un elemento de esas opciones.",
         "nombre": "checkbox",
@@ -137,7 +137,7 @@
     },
     {
         "tipo": "seleccionarElemento",
-        "descripcion": "Select",
+        "descripcion": "Uso genérico select",
         "preCondicion": "Desplegar las opciones del select ",
         "postCondicion": " Al posar el cursor sobre las opciones del select se irá cambiando al color: .",
         "nombre": "select",
@@ -145,7 +145,7 @@
     },
     {
         "tipo": "seleccionarElemento",
-        "descripcion": "Checkbox",
+        "descripcion": "Uso genérico checkbox",
         "preCondicion": "Seleccionar al menos una opción del checkbox.",
         "postCondicion": " Se cambiará a un color determinado el fondo de la opción elegida.",
         "nombre": "checkbox",
@@ -153,7 +153,7 @@
     },
     {
         "tipo": "Pre-Post Click",
-        "descripcion": "Estado COLOR",
+        "descripcion": "Cambio de Estado/color",
         "preCondicion": "",
         "postCondicion": "Cuando clickeamos ese botón, el estado/color cambia.",
         "nombre": "button",
