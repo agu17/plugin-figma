@@ -270,28 +270,28 @@ const ComponenteElegido = (props) => {
                                         {element.descripcion} <br />
                                         {element.preCondicion != '' ? (
                                             <p>
-                                                PRE: {element.preCondicion} <br />{' '}
+                                                Precondición: {element.preCondicion} <br />{' '}
                                             </p>
                                         ) : (
                                             ''
                                         )}
                                         {element.postCondicion != '' ? (
                                             <p>
-                                                POST: {element.postCondicion} <br />{' '}
+                                                Postcondición: {element.postCondicion} <br />{' '}
                                             </p>
                                         ) : (
                                             ''
                                         )}
                                         {props.componenteRelacion ? (
                                             <p>
-                                                RELACIÓN: {props.componenteRelacion} <br />
+                                                Relación: {props.componenteRelacion} <br />
                                             </p>
                                         ) : (
                                             ''
                                         )}
                                         {props.listadoRestricciones ? (
                                             <p>
-                                                RESTRICCIÓN: {props.listadoRestricciones} <br />{' '}
+                                                Restricción: {props.listadoRestricciones} <br />{' '}
                                             </p>
                                         ) : (
                                             ''
