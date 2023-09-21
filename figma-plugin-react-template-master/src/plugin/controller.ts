@@ -28,7 +28,7 @@ figma.ui.onmessage = async (msg) => {
             mensaje.push(seleccion[0].name);
             for (let componente of seleccion) {
                 if (esValido(componente)) {
-                    componentes.push(componente.name);
+                    componentes.push(componente.name.toLowerCase());
                 } else {
                     if (componente.type == 'INSTANCE' || componente.type == 'FRAME' || componente.type == 'GROUP') {
                         for (let componenteHijo of componente.children) {
